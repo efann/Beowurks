@@ -1,0 +1,9 @@
+name: Custom Module
+description: Creates a pages, blocks and content for AJAX.
+package: Custom
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+- node
+- block
