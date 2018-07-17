@@ -206,7 +206,30 @@ var Routines =
         }
       });
 
+
+      Beo.adjustTabsAlignment(loTabs);
+      jQuery(window).resize(function ()
+      {
+        Beo.adjustTabsAlignment(loTabs);
+      });
+
       loTabs.fadeIn('slow');
+    },
+
+    //----------------------------------------------------------------------------------------------------
+    getJEquityVersionInfo: function ()
+    {
+      jQuery("#version-info").load("/ajax/version/2 #jequity-version", function ()
+      {
+        var lcVersion = jQuery('#app_version').html();
+        jQuery('#installation span.version').html(lcVersion);
+
+        var lcFolder = jQuery('#app_folder').html();
+
+        var loLink = jQuery('#installation a.folder');
+        loLink.attr('href', lcFolder);
+        loLink.html(lcFolder);
+      });
     },
 
     //----------------------------------------------------------------------------------------------------
@@ -230,7 +253,6 @@ var Routines =
       }
 
     }
-
     //----------------------------------------------------------------------------------------------------
   };
 

@@ -10,6 +10,9 @@ use Drupal\taxonomy\Entity\Term;
 //-------------------------------------------------------------------------------------------------
 class AjaxController
 {
+  const TRASH_WIZARD = 1;
+  const JEQUITY = 2;
+
   private $fcCategory = '';
   // The controller method receives these parameters as arguments.
   // The parameters are mapped to the arguments with the same name.
@@ -37,6 +40,31 @@ class AjaxController
         {
           $lcContentType = 'text/html; utf-8';
           $lcGeneratedContent = $this->generateNodeApplicationPartsText($loNode);
+        }
+      }
+      else if ($tcType === 'version')
+      {
+        switch ($tnNodeID)
+        {
+          case self::TRASH_WIZARD:
+            $lcVersion = $this->getTrashWizardVersion();
+
+            if (isset($_GET['skipjavascript']))
+            {
+              $lcContentType = 'text/html; utf-8';
+              $lcGeneratedContent = $lcVersion;
+            }
+            else
+            {
+              $lcContentType = 'application/x-javascript';
+              $lcGeneratedContent = "document.write(\"" . $lcVersion . "\")";
+            }
+            break;
+
+          case self::JEQUITY:
+            $lcContentType = 'text/html; utf-8';
+            $lcGeneratedContent = $this->getJEquityVersion();
+            break;
         }
       }
     }
@@ -191,7 +219,8 @@ class AjaxController
     $lcContent .= "<p>From the Apache Subversion log files. . . .</p>";
 
     $lcContent .= '<div><ul>';
-    $loXML = simplexml_load_file($lcXMLFile);
+    // Geesh, don't forget the \.
+    $loXML = \simplexml_load_file($lcXMLFile);
 
     $lcVersionTag1 = 'Created tag';
     $lcVersionTag2 = 'Create tag';
@@ -226,7 +255,7 @@ class AjaxController
           $lcSubStr = substr($lcSubStr, 0, strlen($lcSubStr) - 1);
         }
 
-        $lcMessage = ' < b>Version ' . $lcSubStr . ' released .</b > ';
+        $lcMessage = ' <b>Version ' . $lcSubStr . ' released.</b> ';
       }
 
       $lcMessage = str_replace("\n", "<br />", $lcMessage);
@@ -293,6 +322,187 @@ class AjaxController
     return ($lcContent);
   }
 
+  //-------------------------------------------------------------------------------------------------
+  private function getTextStrippedOfTags($tcFileName)
+  {
+    /* Read an HTML file */
+    $lcRawText = file_get_contents($tcFileName);
+
+    /* Get the file's character encoding from a <meta> tag */
+    preg_match('@<meta\s+http-equiv="Content-Type"\s+content="([\w/]+)(;\s+charset=([^\s"]+))?@i',
+        $lcRawText, $laMatches);
+    $lcEncoding = $laMatches[3];
+
+    /* Convert to UTF-8 before doing anything else */
+    $lcUTF8Text = iconv($lcEncoding, "utf-8", $lcRawText);
+
+    /* Strip HTML tags and invisible text */
+    $lcUTF8Text = $this->strip_html_tags($lcUTF8Text);
+
+    /* Decode HTML entities */
+    $lcUTF8Text = html_entity_decode($lcUTF8Text, ENT_QUOTES, "UTF-8");
+
+    return ($lcUTF8Text);
+  }
+
+  //-------------------------------------------------------------------------------------------------
+
+  /** From http://nadeausoftware.com/articles/2007/09/php_tip_how_strip_html_tags_web_page
+   * Remove HTML tags, including invisible text such as style and
+   * script code, and embedded objects.  Add line breaks around
+   * block-level tags to prevent word joining after tag removal.
+   */
+  private function strip_html_tags($tcText)
+  {
+    $tcText = preg_replace(
+        array(
+          // Remove invisible content
+            '@<head[^>]*?>.*?</head>@siu',
+            '@<style[^>]*?>.*?</style>@siu',
+            '@<script[^>]*?.*?</script>@siu',
+            '@<object[^>]*?.*?</object>@siu',
+            '@<embed[^>]*?.*?</embed>@siu',
+            '@<applet[^>]*?.*?</applet>@siu',
+            '@<noframes[^>]*?.*?</noframes>@siu',
+            '@<noscript[^>]*?.*?</noscript>@siu',
+            '@<noembed[^>]*?.*?</noembed>@siu',
+          // Add line breaks before and after blocks
+            '@</?((address)|(blockquote)|(center)|(del))@iu',
+            '@</?((div)|(h[1-9])|(ins)|(isindex)|(p)|(pre))@iu',
+            '@</?((dir)|(dl)|(dt)|(dd)|(li)|(menu)|(ol)|(ul))@iu',
+            '@</?((table)|(th)|(td)|(caption))@iu',
+            '@</?((form)|(button)|(fieldset)|(legend)|(input))@iu',
+            '@</?((label)|(select)|(optgroup)|(option)|(textarea))@iu',
+            '@</?((frameset)|(frame)|(iframe))@iu',
+        ),
+        array(
+            ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
+            "\n\$0", "\n\$0", "\n\$0", "\n\$0", "\n\$0", "\n\$0",
+            "\n\$0", "\n\$0",
+        ),
+        $tcText);
+
+    return (strip_tags($tcText));
+  }
+
+
+//-------------------------------------------------------------------------------------------------
+  private function getTrashWizardVersion()
+  {
+    $lcText = $this->getTextStrippedOfTags($_SERVER["DOCUMENT_ROOT"] . "/Software/NET/TrashWizard/publish.htm");
+    $laWords = explode("\n", $lcText);
+
+    $lcVersion = "";
+    $llMarkerFound = false;
+    foreach ($laWords as &$lcWord)
+    {
+      $lcWord = trim($lcWord);
+      if (($llMarkerFound) && (strlen($lcWord) > 0))
+      {
+        $lcVersion = $lcWord;
+        break;
+      }
+
+      if ($lcWord == "Version:")
+      {
+        $llMarkerFound = true;
+      }
+    }
+
+    return ($lcVersion);
+  }
+
+  //-------------------------------------------------------------------------------------------------
+  private function getJEquityVersion()
+  {
+    $lcMainURL = "https://sourceforge.net";
+    $lcURL = $lcMainURL . "/projects/jequity/files/JEquity/";
+    $lcMarker = 'jequity-';
+    $lnIncrement = 1000;
+
+    // Use the Curl extension to query.
+    $loCurl = curl_init();
+    $lnTimeout = 10;
+    curl_setopt($loCurl, CURLOPT_URL, $lcURL);
+    curl_setopt($loCurl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($loCurl, CURLOPT_CONNECTTIMEOUT, $lnTimeout);
+
+    $loHTML = curl_exec($loCurl);
+    curl_close($loCurl);
+
+    // Create a DOM parser object
+    $loDOM = new \DOMDocument();
+
+    // The @ before the method call suppresses any warnings that
+    // loadHTML might throw because of invalid HTML in the page.
+    @$loDOM->loadHTML($loHTML);
+
+    $lcContent = '';
+
+    $lcContent .= "<html lang='en'>\n";
+    $lcContent .= "<head></head>\n";
+    $lcContent .= "<body>\n";
+    $lcContent .= "<div id='jequity-version'>\n";
+
+    // Iterate over all the table <a> tags
+    $loXPath = new \DOMXPath($loDOM);
+    $loNodes = $loXPath->query('//table//a/@href');
+    $lnMax = 0;
+    $lcAppFolder = '';
+    $lcVersion = '';
+    foreach ($loNodes as $loHref)
+    {
+      $lcPath = $loHref->nodeValue;
+      $lnPathLen = strlen($lcPath);
+      // Contains the marker and the end of the path has a number for the last or second to last character.
+      if ((stripos($lcPath, $lcMarker)) && (ctype_digit(substr($lcPath, $lnPathLen - 1, 1)) || (ctype_digit(substr($lcPath, $lnPathLen - 2, 1)))))
+      {
+        $lcContent .= $lcPath;
+        $lcContent .= "<br />\n";
+        $lcPartial = substr($lcPath, strlen($lcMarker));
+        $lcNumber = preg_replace("/[^0-9.]/", "", $lcPartial);
+        $lcContent .= $lcNumber;
+        $lcContent .= "<br />\n";
+
+        $laLines = explode('.', $lcNumber);
+        $lnLines = count($laLines);
+        $lnStart = 1;
+        $lnNumber = 0;
+        // Skip the last element: it will be the fraction.
+        for ($i = $lnLines - 2; $i >= 0; $i--)
+        {
+          $lcFragment = $laLines[$i];
+          $lnNumber += doubleval($lcFragment) * $lnStart;
+          $lnStart *= $lnIncrement;
+        }
+
+        $lnNumber += doubleval('0.' . $laLines[$lnLines - 1]);
+
+        $lcContent .= sprintf('%.8f', $lnNumber);
+        $lcContent .= "<br />\n";
+
+        if ($lnMax < $lnNumber)
+        {
+          $lnMax = $lnNumber;
+          $lcVersion = $lcNumber;
+          $lcAppFolder = $lcPath;
+        }
+      }
+    }
+
+    $lcContent .= "<br />\n";
+    $lcContent .= "=================================\n";
+    $lcContent .= "<br />\n";
+    $lcContent .= '<div id="app_folder">' . $lcMainURL . $lcAppFolder . "</div>\n";
+    $lcContent .= '<div id="app_version">' . $lcVersion . "</div>\n";
+    $lcContent .= "=================================\n";
+
+    $lcContent .= "</div>\n";
+    $lcContent .= "</body>\n";
+    $lcContent .= "</html>\n";
+
+    return ($lcContent);
+  }
   //-------------------------------------------------------------------------------------------------
 
 }

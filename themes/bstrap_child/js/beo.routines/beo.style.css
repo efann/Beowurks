@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------------------*/
 /*
-  Updated on September 26, 2017
+  Updated on July 17, 2018
 */
 
 /*----------------------------------------------------------------------------------------*/
@@ -163,6 +163,32 @@ input.watermark
   }
 }
 
+.expanded.dropdown .caret
+{
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.expanded.dropdown.open .caret
+{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
 /*----------------------------------------------------------------------------------------*/
 /*
   From https://stackoverflow.com/questions/20751316/how-to-make-div-to-match-image-height-with-css
@@ -181,6 +207,7 @@ a.dialogbox-image img
   opacity: 1.0;
   -moz-transition: opacity 0.25s ease;
   -webkit-transition: opacity 0.25s ease;
+
   transition: opacity 0.25s ease;
 }
 
@@ -269,6 +296,61 @@ a.dialogbox-image img:hover
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.ui-tabs-vertical
+{
+  width: 55em;
+}
+
+.ui-tabs-vertical .ui-tabs-nav .ui-tabs-anchor
+{
+  width: 100%;
+}
+
+.ui-tabs-vertical .ui-tabs-nav
+{
+  padding: .2em .1em .2em .2em;
+  float: left;
+  width: 12em;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li
+{
+  clear: left;
+  width: 100%;
+  border-bottom-width: 1px !important;
+  border-right-width: 0 !important;
+  margin: 0 -1px .2em 0;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li a
+{
+  display: block;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active
+{
+  padding-bottom: 0;
+  padding-right: 0.1em;
+  border-right-width: 1px;
+}
+
+.ui-tabs-vertical .ui-tabs-panel
+{
+  padding: 1.0em;
+  float: left;
+  width: 100%;
+
+  /*
+    From https://stackoverflow.com/questions/36418352/css-word-wrap-break-word-wont-work
+    Now, all the text wraps, even the long URLs, and the text no longer overflows the sides.
+  */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 /*----------------------------------------------------------------------------------------*/

@@ -1,4 +1,4 @@
-// Updated on October 17, 2017
+// Updated on July 17, 2018
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -374,6 +374,29 @@ var Beo =
     isWindowInIFrame: function ()
     {
       return (window.location != window.parent.location);
+    },
+    //----------------------------------------------------------------------------------------------------
+    adjustTabsAlignment: function (toTabs)
+    {
+      var lnWidth = jQuery(window).width();
+
+      if (lnWidth >= 768)
+      {
+        if (toTabs.tabs().hasClass("ui-tabs-vertical ui-helper-clearfix"))
+        {
+          toTabs.tabs().removeClass("ui-tabs-vertical ui-helper-clearfix");
+          toTabs.find("li").addClass("ui-corner-top").removeClass("ui-corner-left");
+        }
+      }
+      else
+      {
+        if (!toTabs.tabs().hasClass("ui-tabs-vertical ui-helper-clearfix"))
+        {
+          toTabs.tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+          toTabs.find("li").removeClass("ui-corner-top").addClass("ui-corner-left");
+        }
+      }
+
     }
     //----------------------------------------------------------------------------------------------------
   };

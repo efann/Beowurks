@@ -174,6 +174,15 @@ h1.page-header
 
 }
 
+/*
+  Weird, but otherwise you get scroll bars when expanding sub-menu.
+*/
+#navbar-collapse.in
+{
+  overflow: hidden;
+  display: table;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 /*
   Contact Form
@@ -205,7 +214,7 @@ h1.page-header
   font-weight: bold;
 }
 
-.applicationparts
+.application_description
 {
   text-align: center;
 }
@@ -213,6 +222,12 @@ h1.page-header
 #TaxonomyContentAndListforTabs
 {
   padding-top: 20px;
+  /*
+     Important: otherwise, on small screens, the tab content will stretch past
+     the right side
+  */
+  width: 100%;
+
   display: none;
 }
 
@@ -248,7 +263,7 @@ h1.page-header
   z-index: 1100;
   width: 42px;
   height: 42px;
-  top: 45px;
+  top: 15px;
   border-radius: 15px;
   margin: 0 auto;
   display: none;

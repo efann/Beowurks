@@ -44,16 +44,16 @@ class ApplicationPartsController
 
     $lcContent = '';
 
-    $lcContent .= "<h4 class='applicationparts'>" . $lcPageTitle . "&copy;" . "</h4>\n";
+    $lcContent .= "<h4 class='application_description'>" . $lcPageTitle . "&copy;" . "</h4>\n";
 
     try
     {
       $loTerm = Term::load($lnProjectID);
-      $lcContent .= "<div  class='applicationparts'>" . $loTerm->get('description')->value . "</div>\n";
+      $lcContent .= "<div  class='application_description'>" . $loTerm->get('description')->value . "</div>\n";
     }
     catch (\Exception $loErr)
     {
-      $lcContent .= "<p class='applicationparts'>Unknown description. . . .</p>\n";
+      $lcContent .= "<p class='application_description'>Unknown description. . . .</p>\n";
     }
 
     $lcContent .= "<div id='TaxonomyContentAndListforTabs'>\n";

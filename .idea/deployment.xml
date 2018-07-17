@@ -48,6 +48,10 @@
             <excludedPath path="/var/www/beowurks.com/public_html/modules/weight" />
             <excludedPath path="/var/www/beowurks.com/public_html/modules/README.txt" />
             <excludedPath path="/var/www/beowurks.com/public_html/themes/bstrap_child/js/flexslider" />
+            <excludedPath path="/var/www/beowurks.com/public_html/modules/simple_sitemap" />
+            <excludedPath path="/var/www/beowurks.com/public_html/google45ba2ba32ed1905e.html" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.gitignore" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.gitattributes" />
           </excludedPaths>
         </serverdata>
       </paths>
