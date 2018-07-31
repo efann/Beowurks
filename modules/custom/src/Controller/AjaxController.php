@@ -19,16 +19,16 @@ class AjaxController
   // So in this case, the page method of the NodeController has one argument: $tcCustomCategory. There may be multiple parameters in a
   // route, but their names should be unique.
   //-------------------------------------------------------------------------------------------------
-  public function getContent($tcType, $tnNodeID)
+  public function getContent($tcType, $tnID)
   {
     $lcGeneratedContent = '';
     $lcContentType = '';
 
     try
     {
-      if (($tcType === 'node') && (isset($tnNodeID)))
+      if (($tcType === 'node') && (isset($tnID)))
       {
-        $loNode = $this->getNode($tnNodeID);
+        $loNode = $this->getNode($tnID);
         $lcNodeType = $loNode->getType();
 
         if ($lcNodeType === 'project')
@@ -42,9 +42,9 @@ class AjaxController
           $lcGeneratedContent = $this->generateNodeApplicationPartsText($loNode);
         }
       }
-      else if ($tcType === 'version')
+      else if (($tcType === 'version') && (isset($tnID)))
       {
-        switch ($tnNodeID)
+        switch ($tnID)
         {
           case self::TRASH_WIZARD:
             $lcVersion = $this->getTrashWizardVersion();
