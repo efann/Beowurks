@@ -17,7 +17,6 @@ var Routines =
 
     },
 
-
     //----------------------------------------------------------------------------------------------------
     setupProjectsFlexSlider: function ()
     {
@@ -37,13 +36,16 @@ var Routines =
         return;
       }
 
+      // From https://github.com/woocommerce/FlexSlider/issues/292
+      // If you use animation: slide, the first image shown will be the last in
+      // the queue. animation: fade fixes this issue, and it looks better anyway.
       loSliderImages.find('.flexslider').flexslider(
         {
           directionNav: (jQuery(window).width() >= 768),
           controlNav: (jQuery(window).width() >= 768),
           prevText: "",
           nextText: "",
-          animation: "slide",
+          animation: "fade",
           slideshow: false
         });
 

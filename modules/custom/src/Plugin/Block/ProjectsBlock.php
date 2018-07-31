@@ -51,7 +51,6 @@ class ProjectsBlock extends BlockBase
     $lcContent .= "<div id='projects_block' style='overflow: hidden; clear: both;'>\n";
     $lcContent .= "<h4>Projects</h4>\n";
 
-
     $lcContent .= "<div class='flexslider'>\n";
     $lcContent .= "<ul class='slides'>\n";
 
@@ -64,9 +63,11 @@ class ProjectsBlock extends BlockBase
       $lnID = $loNode->id();
       $lcID = $lnID . '_project';
       $lcTitle = $loNode->get('title')->value;
+      $lcURL = $this->getNodeField($loNode, 'field_project_url');
       $lcImage = $this->getNodeField($loNode, 'field_screen_shot');
+      $lcAlt = "$lcTitle ($lcURL)";
 
-      $lcContent .= "<img class='responsive-image-large' id='$lcID' src='$lcImage' alt='$lcTitle' title='$lcTitle' />" . "\n";
+      $lcContent .= "<img class='responsive-image-large' id='$lcID' src='$lcImage' alt='$lcAlt' title='$lcAlt' />" . "\n";
 
       $lcContent .= "</li>\n";
     }
