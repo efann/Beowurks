@@ -183,7 +183,7 @@ class AjaxController
       return ($loErr->getMessage());
     }
 
-    if ($lcTermName === 'JEquity')
+    if (($lcTermName === 'JEquity') || ($lcTermName === 'Trash Wizard'))
     {
       return ($this->getJSONChangeLog($lcTermName));
     }
@@ -204,10 +204,6 @@ class AjaxController
 
       case 'PolyJen':
         $lcXMLFile = "http://efann.users.sourceforge.net/svn/xml/polyjen.xml";
-        break;
-
-      case 'Trash Wizard':
-        $lcXMLFile = "http://efann.users.sourceforge.net/svn/xml/trashwizard.xml";
         break;
     }
 
@@ -280,6 +276,10 @@ class AjaxController
     {
       case 'JEquity':
         $lcURL = "https://api.github.com/repos/efann/JEquity/commits";
+        break;
+
+      case 'Trash Wizard':
+        $lcURL = "https://api.github.com/repos/efann/TrashWizard/commits";
         break;
     }
 

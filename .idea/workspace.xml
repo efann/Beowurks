@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="" />
+    <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +17,10 @@
     <session id="1448055383">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -38,14 +40,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="191" />
-          <entry key="php" value="98" />
+          <entry key="php" value="114" />
           <entry key="yml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="191" />
-          <entry key="PHP" value="98" />
+          <entry key="PHP" value="114" />
           <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
@@ -55,15 +57,16 @@
       <usages-collector id="statistics.php.rename.constructor" />
       <usages-collector id="statistics.php.new.test" />
       <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2567">
-              <caret line="152" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="377">
+              <caret line="280" column="24" selection-start-line="280" selection-start-column="24" selection-end-line="280" selection-end-column="24" />
               <folding>
                 <element signature="e#44#90#0#PHP" expanded="true" />
               </folding>
@@ -71,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/routines.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="461">
@@ -109,7 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$faTrimTextOptions</find>
       <find>getTitle</find>
       <find>mainmenu</find>
       <find>getTermField</find>
@@ -139,6 +141,7 @@
       <find>tnNodeID</find>
       <find>tnID</find>
       <find>flex</find>
+      <find>getJSONChangeLog</find>
     </findStrings>
     <replaceStrings>
       <replace>#002C54</replace>
@@ -166,9 +169,9 @@
         <option value="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.style.css" />
         <option value="$PROJECT_DIR$/themes/bstrap_child/css/style.css" />
         <option value="$PROJECT_DIR$/modules/custom/custom.routing.yml" />
-        <option value="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" />
         <option value="$PROJECT_DIR$/modules/custom/src/Plugin/Block/ProjectsBlock.php" />
         <option value="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" />
+        <option value="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" />
       </list>
     </option>
   </component>
@@ -197,11 +200,10 @@
       <path value="D:/PHP/drupal-8.5.5/vendor" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="37" />
-    <option name="y" value="2" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-104" />
     <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -209,7 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -324,6 +325,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,17 +390,18 @@
       <workItem from="1531938736533" duration="3058000" />
       <workItem from="1533045402242" duration="5507000" />
       <workItem from="1533061196319" duration="166000" />
+      <workItem from="1539196194440" duration="1448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88383000" />
+    <option name="totallyTimeSpent" value="89831000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="37" y="2" width="1936" height="1096" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -410,10 +413,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3322949" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3322949" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.32917964" />
+      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.32917964" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -512,16 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
-          <folding>
-            <element signature="e#44#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/custom/src/Plugin/Block/ProjectsBlock.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
@@ -540,6 +533,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="48" selection-start-line="47" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="280" column="24" selection-start-line="280" selection-start-column="24" selection-end-line="280" selection-end-column="24" />
+          <folding>
+            <element signature="e#44#90#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
