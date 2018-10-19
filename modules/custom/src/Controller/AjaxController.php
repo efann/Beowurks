@@ -389,7 +389,7 @@ class AjaxController
 //-------------------------------------------------------------------------------------------------
   private function getTrashWizardVersion()
   {
-    $lcText = $this->getTextStrippedOfTags($_SERVER["DOCUMENT_ROOT"] . "/Software/NET/TrashWizard/publish.htm");
+    $lcText = $this->getTextStrippedOfTags($_SERVER["DOCUMENT_ROOT"] . "/Software/NET/TrashWizard.WPF/publish.htm");
     $laWords = explode("\n", $lcText);
 
     $lcVersion = "";
