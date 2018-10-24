@@ -118,6 +118,16 @@ h1.page-header
   display: none;
 }
 
+.book nav
+{
+  padding-top: 20px;
+}
+
+.book nav h2
+{
+  display: none;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 /*
   Slogan Credits
