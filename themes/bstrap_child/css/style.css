@@ -118,6 +118,13 @@ h1.page-header
   display: none;
 }
 
+.page-node-type-book h1.page-header
+{
+  display: block;
+  font-size: 24px;
+  text-align: center;
+}
+
 .book nav
 {
   padding-top: 20px;
