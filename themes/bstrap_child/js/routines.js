@@ -6,9 +6,6 @@
 var Routines =
   {
     CONTACT_BLOCK: "#contact-message-feedback-form",
-    SLOGAN_CREDITS_BLOCK: "#block-slogancredits",
-    TITLE_LINK: "#block-header .title a",
-    SLOGAN_CREDITS_DIALOG: "#SloganCredits",
 
     //----------------------------------------------------------------------------------------------------
     initializeRoutines: function ()
@@ -134,55 +131,6 @@ var Routines =
       Beo.setupWatermark(lcForm + " #edit-subject-0-value", "Subject");
       Beo.setupWatermark(lcForm + " #edit-message-0-value", "Message");
 
-    },
-
-    //----------------------------------------------------------------------------------------------------
-    // Only change the default behaviour of the logo if on the front page where you
-    // should find the slogan.
-    // And the slogan is in a block: #block-block-3
-    setupLogo: function ()
-    {
-      // Should only exist on the front page.
-      var loText = jQuery(Routines.SLOGAN_CREDITS_BLOCK);
-      if (loText.length == 0)
-      {
-        return;
-      }
-
-      jQuery(Routines.TITLE_LINK).click(function (toEvent)
-      {
-        toEvent.preventDefault();
-
-        var lcDialog = Routines.SLOGAN_CREDITS_DIALOG;
-        if (jQuery(lcDialog).length == 0)
-        {
-          jQuery('body').append('<div id="' + lcDialog.substring(1) + '">' + loText.html() + '</div>');
-        }
-
-        jQuery(lcDialog).dialog(
-          {
-            title: 'Slogan',
-            width: '90%',
-            height: 'auto',
-            modal: true,
-            autoOpen: true,
-            show: {
-              effect: 'fade',
-              duration: 300
-            },
-            hide: {
-              effect: 'fade',
-              duration: 300
-            },
-            create: function (toEvent, toUI)
-            {
-              // The maxWidth property doesn't really work.
-              // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
-              // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css("maxWidth", "800px");
-            }
-          });
-      });
     },
 
     //----------------------------------------------------------------------------------------------------

@@ -39,6 +39,7 @@ beo.routines:
 theme.files:
   js:
     js/routines.js: {}
+    js/beologo.js: {}
 
 global-loading:
   header: true

@@ -56,6 +56,14 @@ a:visited
   text-shadow: grey 0.05em 0.05em 0.09em;
 }
 
+#block-header .fractal
+{
+  float: left;
+  width: 130px;
+  height: 130px;
+  margin-left: 20px;
+}
+
 /*
   Must go after .title a. Otherwise .title a takes precedent and the title color will not change on hover.
 */
