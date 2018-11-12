@@ -56,12 +56,22 @@ a:visited
   text-shadow: grey 0.05em 0.05em 0.09em;
 }
 
-#block-header .fractal
+/*
+  You must declare the width & height inside the canvas tag.
+*/
+#block-header canvas.fractal
 {
   float: left;
-  width: 130px;
-  height: 130px;
   margin-left: 20px;
+  display: none;
+}
+
+@media (min-width: 768px)
+{
+  #block-header canvas.fractal
+  {
+    display: block;
+  }
 }
 
 /*

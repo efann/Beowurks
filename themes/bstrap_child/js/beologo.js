@@ -8,10 +8,11 @@ var BeoLogo =
 
     TITLE_LINK: "#block-header .title a",
 
-    FRACTAL_BLOCK: "#block-header .fractal",
+    FRACTAL_BLOCK: "#block-header canvas.fractal",
 
     faGoldColors: [],
-
+    fnEdges: 32,
+    faSequences: [26, 29, 30],
     fnWidth: 0,
     fnHeight: 0,
     foBlock: null,
@@ -19,43 +20,72 @@ var BeoLogo =
 
     fnLorenzX: 0.9,
     fnLorenzY: 0.1,
+
+    fnCenterX: 0.0,
+    fnCenterY: 0.0,
+
+    fnEnlargeX: 0.0,
+    fnEnlargeY: 0.0,
+
     //----------------------------------------------------------------------------------------------------
     startFractal: function ()
     {
-      if (window.location.pathname !== '/contact')
-      {
-        return;
-      }
-
       BeoLogo.initGoldColors();
+      BeoLogo.initVariables();
 
-      BeoLogo.foBlock = jQuery(BeoLogo.FRACTAL_BLOCK);
-      var loBlock = BeoLogo.foBlock;
-
-      BeoLogo.foCanvas = loBlock.get(0).getContext('2d');
       var loCanvas = BeoLogo.foCanvas;
-      BeoLogo.fnWidth = loBlock.width();
-      BeoLogo.fnHeight = loBlock.height();
+      var lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
+      var lnSequences = BeoLogo.faSequences.length;
 
-      var lnCenterX = BeoLogo.fnWidth * 1.00;
-      var lnCenterY = BeoLogo.fnHeight * 0.75;
-
-      var lnEnlargeX = BeoLogo.fnWidth * 0.75;
-      var lnEnlargeY  = BeoLogo.fnHeight * 0.9;
-
-      for (i = 0; i < 25000; ++i)
+      for (i = 0; i < lnSequences; i++)
       {
-        var back = BeoLogo.fnLorenzX;
-        BeoLogo.fnLorenzX = BeoLogo.fnLorenzY + 1.0 - (1.4 * BeoLogo.fnLorenzX * BeoLogo.fnLorenzX);
-        BeoLogo.fnLorenzY = 0.3 * back;
+        var lnRadians = BeoLogo.faSequences[i] * lnRadianIncrements;
 
-        var lnColor = Math.floor(Math.random() * BeoLogo.faGoldColors.length);
-        loCanvas.fillStyle = BeoLogo.faGoldColors[lnColor];
-        loCanvas.fillRect((BeoLogo.fnLorenzX * lnEnlargeX) + lnCenterX, (BeoLogo.fnLorenzY * lnEnlargeY) + lnCenterY, 1, 1)
+        for (lnRepeat = 0; lnRepeat < 12000; ++lnRepeat)
+        {
+          // Formula for Hénon's Attractor.
+          var back = BeoLogo.fnLorenzX;
+          BeoLogo.fnLorenzX = BeoLogo.fnLorenzY + 1.0 - (1.4 * BeoLogo.fnLorenzX * BeoLogo.fnLorenzX);
+          BeoLogo.fnLorenzY = 0.3 * back;
+
+//          var lnTempX = BeoLogo.fnLorenzX * BeoLogo.fnEnlargeX;
+          //        var lnTempY = BeoLogo.fnLorenzY * BeoLogo.fnEnlargeY;
+
+          var lnTempX = BeoLogo.fnLorenzX * BeoLogo.fnEnlargeX;
+          var lnTempY = BeoLogo.fnLorenzY * BeoLogo.fnEnlargeY;
+
+          var lnCurrentRadian = Math.atan(lnTempY / lnTempX);
+          // I could have also used lnTempX / cos(lnCurrentRadian)
+          var lnHypotenuse = lnTempY / Math.sin(lnCurrentRadian);
+
+          var lnPlotX = (lnHypotenuse * Math.cos(lnRadians + lnCurrentRadian)) + BeoLogo.fnCenterX;
+          var lnPlotY = (lnHypotenuse * Math.sin(lnRadians + lnCurrentRadian)) + BeoLogo.fnCenterY;
+
+          var lnColor = Math.floor(Math.random() * BeoLogo.faGoldColors.length);
+          loCanvas.fillStyle = BeoLogo.faGoldColors[lnColor];
+          loCanvas.fillRect(lnPlotX, lnPlotY, 1, 1)
+        }
       }
 
     },
 
+    //----------------------------------------------------------------------------------------------------
+    initVariables: function ()
+    {
+      BeoLogo.foBlock = jQuery(BeoLogo.FRACTAL_BLOCK);
+      var loBlock = BeoLogo.foBlock;
+
+      BeoLogo.foCanvas = loBlock.get(0).getContext('2d');
+      BeoLogo.fnWidth = loBlock.width();
+      BeoLogo.fnHeight = loBlock.height();
+
+      BeoLogo.fnCenterX = BeoLogo.fnWidth / 2.0;
+      BeoLogo.fnCenterY = BeoLogo.fnHeight / 2.0;
+
+      BeoLogo.fnEnlargeX = BeoLogo.fnWidth * 0.35;
+      BeoLogo.fnEnlargeY = BeoLogo.fnHeight * 0.75;
+
+    },
     //----------------------------------------------------------------------------------------------------
     initGoldColors: function ()
     {
