@@ -10,9 +10,14 @@ var BeoLogo =
 
     FRACTAL_BLOCK: "#block-header canvas.fractal",
 
+    STEPS: 12000,
+
     faGoldColors: [],
     fnEdges: 32,
+
     faSequences: [26, 29, 30],
+    fnCurrentSequence: 0,
+
     fnWidth: 0,
     fnHeight: 0,
     foBlock: null,
@@ -35,21 +40,17 @@ var BeoLogo =
 
       var loCanvas = BeoLogo.foCanvas;
       var lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
-      var lnSequences = BeoLogo.faSequences.length;
 
-      for (i = 0; i < lnSequences; i++)
+      var lnTimerID = setInterval(function ()
       {
-        var lnRadians = BeoLogo.faSequences[i] * lnRadianIncrements;
+        var lnRadians = BeoLogo.faSequences[BeoLogo.fnCurrentSequence] * lnRadianIncrements;
 
-        for (lnRepeat = 0; lnRepeat < 12000; ++lnRepeat)
+        for (var lnSteps = 0; lnSteps < BeoLogo.STEPS; ++lnSteps)
         {
           // Formula for Hénon's Attractor.
           var back = BeoLogo.fnLorenzX;
           BeoLogo.fnLorenzX = BeoLogo.fnLorenzY + 1.0 - (1.4 * BeoLogo.fnLorenzX * BeoLogo.fnLorenzX);
           BeoLogo.fnLorenzY = 0.3 * back;
-
-//          var lnTempX = BeoLogo.fnLorenzX * BeoLogo.fnEnlargeX;
-          //        var lnTempY = BeoLogo.fnLorenzY * BeoLogo.fnEnlargeY;
 
           var lnTempX = BeoLogo.fnLorenzX * BeoLogo.fnEnlargeX;
           var lnTempY = BeoLogo.fnLorenzY * BeoLogo.fnEnlargeY;
@@ -65,7 +66,14 @@ var BeoLogo =
           loCanvas.fillStyle = BeoLogo.faGoldColors[lnColor];
           loCanvas.fillRect(lnPlotX, lnPlotY, 1, 1)
         }
-      }
+
+        BeoLogo.fnCurrentSequence++;
+        if (BeoLogo.fnCurrentSequence >= BeoLogo.faSequences.length)
+        {
+          clearInterval(lnTimerID);
+        }
+
+      }, 250);
 
     },
 
@@ -84,6 +92,8 @@ var BeoLogo =
 
       BeoLogo.fnEnlargeX = BeoLogo.fnWidth * 0.35;
       BeoLogo.fnEnlargeY = BeoLogo.fnHeight * 0.75;
+
+      BeoLogo.fnCurrentSequence = 0;
 
     },
     //----------------------------------------------------------------------------------------------------
@@ -117,6 +127,24 @@ var BeoLogo =
       );
 
     },
+
+    //----------------------------------------------------------------------------------------------------
+    toHex: function (tnDigit)
+    {
+      var lcHex = Number(tnDigit).toString(16);
+      if (lcHex.length < 2)
+      {
+        lcHex = "0" + lcHex;
+      }
+
+      return (lcHex);
+    },
+    //----------------------------------------------------------------------------------------------------
+    rgbToHex: function (tnRed, tnGreen, tnBlue)
+    {
+      return ('#' + BeoLogo.toHex(tnRed) + BeoLogo.toHex(tnGreen) + BeoLogo.toHex(tnBlue));
+    },
+
     //----------------------------------------------------------------------------------------------------
     // Only change the default behaviour of the logo if on the front page where you
     // should find the slogan.
@@ -165,24 +193,6 @@ var BeoLogo =
           });
       });
     },
-
-    //----------------------------------------------------------------------------------------------------
-    toHex: function (tnDigit)
-    {
-      var lcHex = Number(tnDigit).toString(16);
-      if (lcHex.length < 2)
-      {
-        lcHex = "0" + lcHex;
-      }
-
-      return (lcHex);
-    },
-    //----------------------------------------------------------------------------------------------------
-    rgbToHex: function (tnRed, tnGreen, tnBlue)
-    {
-      return ('#' + BeoLogo.toHex(tnRed) + BeoLogo.toHex(tnGreen) + BeoLogo.toHex(tnBlue));
-    },
-
     //----------------------------------------------------------------------------------------------------
 
   };
