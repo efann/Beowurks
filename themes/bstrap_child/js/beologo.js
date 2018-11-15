@@ -6,6 +6,9 @@ var BeoLogo =
     SLOGAN_CREDITS_BLOCK: "#block-slogancredits",
     SLOGAN_CREDITS_DIALOG: "#SloganCredits",
 
+    FRACTAL_DESC_BLOCK: "#block-fractaldescription",
+    FRACTAL_DESC_DIALOG: "#Fractalescription",
+
     TITLE_LINK: "#block-header .title a",
 
     FRACTAL_BLOCK: "#block-header canvas.fractal",
@@ -15,7 +18,11 @@ var BeoLogo =
     faGoldColors: [],
     fnEdges: 32,
 
-    faSequences: [26, 29, 30],
+    /*
+      In the C code, the array sequence was 1-based, but the calculations
+      were 0-based. Not sure why. Now all values are 0-based.
+    */
+    faSequences: [25, 28, 29],
     fnCurrentSequence: 0,
 
     fnWidth: 0,
@@ -37,6 +44,7 @@ var BeoLogo =
     {
       BeoLogo.initGoldColors();
       BeoLogo.initVariables();
+      BeoLogo.setupLogo();
 
       var loCanvas = BeoLogo.foCanvas;
       var lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
@@ -87,11 +95,13 @@ var BeoLogo =
       BeoLogo.fnWidth = loBlock.width();
       BeoLogo.fnHeight = loBlock.height();
 
-      BeoLogo.fnCenterX = BeoLogo.fnWidth / 2.0;
-      BeoLogo.fnCenterY = BeoLogo.fnHeight / 2.0;
+      // Move towards the right.
+      BeoLogo.fnCenterX = BeoLogo.fnWidth / 1.8;
+      // Move towards the top.
+      BeoLogo.fnCenterY = BeoLogo.fnHeight / 2.3;
 
-      BeoLogo.fnEnlargeX = BeoLogo.fnWidth * 0.35;
-      BeoLogo.fnEnlargeY = BeoLogo.fnHeight * 0.75;
+      BeoLogo.fnEnlargeX = BeoLogo.fnWidth * 0.3;
+      BeoLogo.fnEnlargeY = BeoLogo.fnHeight * 0.9;
 
       BeoLogo.fnCurrentSequence = 0;
 
@@ -146,10 +156,54 @@ var BeoLogo =
     },
 
     //----------------------------------------------------------------------------------------------------
+    setupLogo: function ()
+    {
+      var loText = jQuery(BeoLogo.FRACTAL_DESC_BLOCK);
+      if (loText.length == 0)
+      {
+        return;
+      }
+
+      jQuery(BeoLogo.FRACTAL_BLOCK).click(function (toEvent)
+      {
+        toEvent.preventDefault();
+
+        var lcDialog = BeoLogo.FRACTAL_DESC_DIALOG;
+        if (jQuery(lcDialog).length == 0)
+        {
+          jQuery('body').append('<div id="' + lcDialog.substring(1) + '">' + loText.html() + '</div>');
+        }
+
+        jQuery(lcDialog).dialog(
+          {
+            title: 'Fractal',
+            width: '90%',
+            height: 'auto',
+            modal: true,
+            autoOpen: true,
+            show: {
+              effect: 'fade',
+              duration: 300
+            },
+            hide: {
+              effect: 'fade',
+              duration: 300
+            },
+            create: function (toEvent, toUI)
+            {
+              // The maxWidth property doesn't really work.
+              // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
+              // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
+              jQuery(this).parent().css("maxWidth", "800px");
+            }
+          });
+      });
+    },
+    //----------------------------------------------------------------------------------------------------
     // Only change the default behaviour of the logo if on the front page where you
     // should find the slogan.
     // And the slogan is in a block: #block-block-3
-    setupLogo: function ()
+    setupTitle: function ()
     {
       // Should only exist on the front page.
       var loText = jQuery(BeoLogo.SLOGAN_CREDITS_BLOCK);

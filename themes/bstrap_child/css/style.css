@@ -64,6 +64,7 @@ a:visited
   float: left;
   margin-left: 20px;
   display: none;
+  cursor: pointer;
 }
 
 @media (min-width: 768px)
@@ -163,6 +164,15 @@ h1.page-header
   display: none;
 }
 
+/*----------------------------------------------------------------------------------------------------*/
+/*
+  Fractal Description
+*/
+
+#block-fractaldescription
+{
+  display: none;
+}
 /*----------------------------------------------------------------------------------------------------*/
 /*
   Menu
