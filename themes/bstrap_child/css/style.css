@@ -154,6 +154,21 @@ h1.page-header
   display: none;
 }
 
+.view-display-id-block_awards .views-row
+{
+  padding-bottom: 20px;
+}
+
+.view-display-id-block_awards .views-field-title
+{
+  font-style: italic;
+}
+
+.view-display-id-block_awards .views-field-field-company
+{
+  font-weight: bold;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 /*
   Slogan Credits
