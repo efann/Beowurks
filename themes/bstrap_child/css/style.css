@@ -157,14 +157,15 @@ h1.page-header
 .view-display-id-block_awards .views-row
 {
   padding-bottom: 20px;
+  overflow: hidden;
 }
 
-.view-display-id-block_awards .views-field-title
+.view-display-id-block_awards div.title
 {
   font-style: italic;
 }
 
-.view-display-id-block_awards .views-field-field-company
+.view-display-id-block_awards div.company
 {
   font-weight: bold;
 }

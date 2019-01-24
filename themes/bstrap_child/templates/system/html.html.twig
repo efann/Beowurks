@@ -80,6 +80,13 @@ theme.has_glyphicons ? 'has-glyphicons',
       BeoLogo.setupTitle();
 
       BeoLogo.startFractal();
+
+      // Only do this for the Awards page.
+      if (jQuery('.view-display-id-block_awards').length != 0)
+      {
+        Beo.setupImageDialogBox(20, 'explode');
+      }
+
     });
   </script>
 
