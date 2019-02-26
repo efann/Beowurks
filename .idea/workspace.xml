@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/bstrap_child/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2992">
-              <caret line="176" selection-start-line="176" selection-end-line="176" />
+            <state relative-caret-position="190">
+              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -42,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="1377">
               <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
             </state>
           </provider>
@@ -63,7 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ajax</find>
       <find>.</find>
       <find>simplexml_load_file</find>
       <find>#TaxonomyContentAndListforTabs</find>
@@ -93,6 +93,7 @@
       <find>.fractal</find>
       <find>block-slogancredits</find>
       <find>block</find>
+      <find>font-size</find>
     </findStrings>
     <replaceStrings>
       <replace>#002C54</replace>
@@ -128,8 +129,8 @@
         <option value="$PROJECT_DIR$/themes/bstrap_child/bstrap_child.libraries.yml" />
         <option value="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" />
         <option value="$PROJECT_DIR$/themes/bstrap_child/js/beologo.js" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/css/style.css" />
         <option value="$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig" />
+        <option value="$PROJECT_DIR$/themes/bstrap_child/css/style.css" />
       </list>
     </option>
   </component>
@@ -356,16 +357,20 @@
       <workItem from="1549033542460" duration="3000" />
       <workItem from="1550076025784" duration="16000" />
       <workItem from="1550076071084" duration="117000" />
+      <workItem from="1550605827208" duration="2227000" />
+      <workItem from="1551198736635" duration="9000" />
+      <workItem from="1551202136401" duration="261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132472000" />
+    <option name="totallyTimeSpent" value="134969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31236672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32249466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -483,8 +488,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/bstrap_child/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2992">
-          <caret line="176" selection-start-line="176" selection-end-line="176" />
+        <state relative-caret-position="190">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -504,7 +509,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="1377">
           <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
         </state>
       </provider>

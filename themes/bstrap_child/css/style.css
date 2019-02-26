@@ -5,6 +5,7 @@
 body, caption, th, td, input, textarea, select, option, legend, fieldset
 {
   font-family: 'Comfortaa', cursive;
+  font-size: 1.5em;
 }
 
 body
@@ -28,6 +29,11 @@ a:visited
   transition: color 0.3s linear;
   -webkit-transition: color 0.3s linear;
   -moz-transition: color 0.3s linear;
+}
+
+.form-control
+{
+  font-size: 1.0em;
 }
 
 #block-header
@@ -95,12 +101,12 @@ a:focus,
 {
   #block-header .title a
   {
-    font-size: 80px;
+    font-size: 5.0em;
   }
 
   #block-header .slogan
   {
-    font-size: 20px;
+    font-size: 1.25em;
   }
 
 }
@@ -140,7 +146,7 @@ h1.page-header
 .page-node-type-book h1.page-header
 {
   display: block;
-  font-size: 24px;
+  font-size: 1.71em;
   text-align: center;
 }
 
@@ -156,7 +162,7 @@ h1.page-header
 
 .view-display-id-block_awards .views-row
 {
-  padding-bottom: 20px;
+  padding: 20px;
   overflow: hidden;
 }
 
@@ -168,6 +174,21 @@ h1.page-header
 .view-display-id-block_awards div.company
 {
   font-weight: bold;
+}
+
+.view-display-id-block_awards .views-field-field-award-image .field-content
+{
+  text-align: center;
+}
+
+.view-display-id-block_awards .views-field-field-award-image a
+{
+  /*
+    From https://www.cssmatic.com/box-shadow
+  */
+  -webkit-box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
+  -moz-box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
+  box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -189,6 +210,7 @@ h1.page-header
 {
   display: none;
 }
+
 /*----------------------------------------------------------------------------------------------------*/
 /*
   Menu
