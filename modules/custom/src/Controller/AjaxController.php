@@ -300,6 +300,7 @@ class AjaxController
     $laResults = json_decode($loResponse, true);
     curl_close($loCurl);
 
+    $lcContent .= "<p>From the Git log files. . . .</p>";
     $lcContent .= '<ul>';
     foreach ($laResults as $lnKey => $laSubArray)
     {
