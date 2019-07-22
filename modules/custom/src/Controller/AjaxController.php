@@ -183,17 +183,13 @@ class AjaxController
       return ($loErr->getMessage());
     }
 
-    if (($lcTermName === 'JEquity') || ($lcTermName === 'Trash Wizard'))
+    if (($lcTermName === 'JEquity') || ($lcTermName === 'Trash Wizard') || ($lcTermName === 'BeoBasis'))
     {
       return ($this->getJSONChangeLog($lcTermName));
     }
 
     switch ($lcTermName)
     {
-      case 'BeoBasis':
-        $lcXMLFile = "http://efann.users.sourceforge.net/svn/xml/beobasis.xml";
-        break;
-
       case 'BeoZip':
         $lcXMLFile = "http://efann.users.sourceforge.net/svn/xml/beozip.xml";
         break;
@@ -274,6 +270,10 @@ class AjaxController
 
     switch ($tcName)
     {
+      case 'BeoBasis':
+        $lcURL = "https://api.github.com/repos/efann/BeoBasis/commits";
+        break;
+
       case 'JEquity':
         $lcURL = "https://api.github.com/repos/efann/JEquity/commits";
         break;
