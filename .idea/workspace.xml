@@ -19,55 +19,6 @@
   <component name="DrupalConfiguration" enabled="true" version="8">
     <drupalPath>D:\PHP\drupal-8.5.5</drupalPath>
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/bstrap_child/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="273" column="61" selection-start-line="273" selection-start-column="61" selection-end-line="273" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/routines.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1989">
-              <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/beologo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -76,77 +27,8 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>#TaxonomyContentAndListforTabs</find>
-      <find>transition</find>
-      <find>applicationparts</find>
-      <find>excep</find>
-      <find>$lcContentType</find>
-      <find>domdoc</find>
-      <find>dom</find>
-      <find>tnNodeID</find>
-      <find>tnID</find>
-      <find>flex</find>
-      <find>getJSONChangeLog</find>
-      <find>TRASH_WIZARD</find>
-      <find>;</find>
-      <find>Beologo</find>
-      <find>setupLogo</find>
-      <find>SLOGAN_CREDITS_BLOCK</find>
-      <find>SLOGAN_CREDITS_DIALOG</find>
-      <find>rgbToHex</find>
-      <find>TITLE_LINK</find>
-      <find>Routines</find>
-      <find>slogan</find>
-      <find>fillStyle</find>
-      <find>lnEnlarge</find>
-      <find>beolog.</find>
-      <find>.fractal</find>
-      <find>block-slogancredits</find>
-      <find>block</find>
-      <find>font-size</find>
-      <find>from the apach</find>
-      <find>getChangeLog</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>#002C54</replace>
-      <replace>#efd797</replace>
-      <replace>#9A8242</replace>
-      <replace>application_description</replace>
-      <replace>$lcContent .=</replace>
-      <replace>tnID</replace>
-      <replace>,</replace>
-      <replace>BeoLogo</replace>
-      <replace>BeoLogo.fnEnlarge</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/themes/bstrap_child/bstrap_child.info.yml" />
-        <option value="$PROJECT_DIR$/modules/custom/custom.info.yml" />
-        <option value="$PROJECT_DIR$/modules/custom/src/Plugin/Block/PublishersBlock.php" />
-        <option value="$PROJECT_DIR$/modules/custom/src/Controller/CustomController.php" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.routines.js" />
-        <option value="$PROJECT_DIR$/modules/custom/src/Controller/ApplicationPartsController.php" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.style.css" />
-        <option value="$PROJECT_DIR$/modules/custom/custom.routing.yml" />
-        <option value="$PROJECT_DIR$/modules/custom/src/Plugin/Block/ProjectsBlock.php" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/Logo.js" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/logo.js" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/beoLogo.js" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/bstrap_child.libraries.yml" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/js/beologo.js" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig" />
-        <option value="$PROJECT_DIR$/themes/bstrap_child/css/style.css" />
-        <option value="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" />
-      </list>
-    </option>
   </component>
   <component name="JoomlaConfiguration">
     <joomlaConfigPath />
@@ -167,129 +49,8 @@
     <option name="width" value="1936" />
     <option name="height" value="1085" />
   </component>
+  <component name="ProjectId" id="1OpdKBXpupdebI3Csxqqf4RZuyF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="Block" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="beo.routines" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Beowurks" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="bstrap_child" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Beowurks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -380,158 +141,27 @@
       <workItem from="1559751574713" duration="298000" />
       <workItem from="1563828890746" duration="23000" />
       <workItem from="1563829075053" duration="153000" />
+      <workItem from="1563834974640" duration="3000" />
+      <workItem from="1563835003723" duration="165000" />
+      <workItem from="1564678407465" duration="339000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135460000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3411514" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3322949" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.32917964" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" visible="true" weight="0.21801706" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WordPressConfiguration">
     <wordpressPath />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/templates/system/page.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1675">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/templates/menu/menu--custom-main-menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/css/jquery-ui-1.12.1/jquery-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1493" selection-start-line="3" selection-start-column="1493" selection-end-line="3" selection-end-column="1493" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/custom/custom.links.menu.yml" />
-    <entry file="file://$PROJECT_DIR$/modules/custom/custom.info.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/custom/src/Controller/ApplicationPartsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/bstrap_child.theme">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/bstrap_child.info.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" lean-forward="true" selection-start-line="22" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/custom/src/Plugin/Block/ProjectsBlock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/custom/custom.routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.routines.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/bstrap_child.libraries.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/routines.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1989">
-          <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/js/beologo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="273" column="61" selection-start-line="273" selection-start-column="61" selection-end-line="273" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
