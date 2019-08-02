@@ -183,17 +183,14 @@ class AjaxController
       return ($loErr->getMessage());
     }
 
-    if (($lcTermName === 'JEquity') || ($lcTermName === 'PolyJen') || ($lcTermName === 'Trash Wizard') || ($lcTermName === 'BeoBasis'))
+    if (($lcTermName === 'JEquity') || ($lcTermName === 'PolyJen') || ($lcTermName === 'BeoZip')
+        || ($lcTermName === 'Trash Wizard') || ($lcTermName === 'BeoBasis'))
     {
       return ($this->getJSONChangeLog($lcTermName));
     }
 
     switch ($lcTermName)
     {
-      case 'BeoZip':
-        $lcXMLFile = "http://efann.users.sourceforge.net/svn/xml/beozip.xml";
-        break;
-
       case 'JAS Carousel':
         $lcXMLFile = "http://efann.users.sourceforge.net/svn/xml/jasca.xml";
         break;
@@ -276,6 +273,10 @@ class AjaxController
 
       case 'PolyJen':
         $lcURL = "https://api.github.com/repos/efann/PolyJen/commits";
+        break;
+
+      case 'BeoZip':
+        $lcURL = "https://api.github.com/repos/efann/BeoZip/commits";
         break;
 
       case 'Trash Wizard':
