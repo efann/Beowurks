@@ -111,6 +111,24 @@ a:focus,
 
 }
 
+img.responsive-image-large,
+a img
+{
+  opacity: 1.0;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+img.responsive-image-large:hover,
+a img:hover
+{
+  opacity: 0.75;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
 /*
   This keeps the content from sliding under the header.
 */

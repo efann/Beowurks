@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,6 +145,7 @@
       <workItem from="1563835003723" duration="165000" />
       <workItem from="1564678407465" duration="339000" />
       <workItem from="1564768639065" duration="253000" />
+      <workItem from="1565643840784" duration="562000" />
     </task>
     <servers />
   </component>
