@@ -39,7 +39,7 @@ var Routines =
       loSliderImages.find('.flexslider').flexslider(
         {
           directionNav: (jQuery(window).width() >= 768),
-          controlNav: (jQuery(window).width() >= 768),
+          controlNav: true,
           prevText: "",
           nextText: "",
           animation: "fade",
