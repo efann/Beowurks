@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.routines.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.routines.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.style.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/beo.routines/beo.style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +42,11 @@
   </component>
   <component name="ProjectId" id="1OpdKBXpupdebI3Csxqqf4RZuyF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -74,15 +76,15 @@
       <recent name="D:\PhpStorm\Beowurks\themes\bstrap_child" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -148,6 +150,7 @@
       <workItem from="1565643840784" duration="562000" />
       <workItem from="1574201391442" duration="726000" />
       <workItem from="1574720905046" duration="185000" />
+      <workItem from="1579843080663" duration="519000" />
     </task>
     <servers />
   </component>
@@ -166,6 +169,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="830" y="446" key="publish.login" timestamp="1579843097161">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1579843097161" />
   </component>
   <component name="WordPressConfiguration">
     <wordpressPath />
