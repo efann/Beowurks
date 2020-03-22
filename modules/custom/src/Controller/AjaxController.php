@@ -21,14 +21,19 @@ class AjaxController
   //-------------------------------------------------------------------------------------------------
   public function getContent($tcType, $tnID)
   {
-    $lcGeneratedContent = '';
-    $lcContentType = '';
+    $lcGeneratedContent = 'Unfortunately, nothing could be found.';
+    $lcContentType = 'text/html; utf-8';
 
     try
     {
       if (($tcType === 'node') && (isset($tnID)))
       {
         $loNode = $this->getNode($tnID);
+        // PHP try/catch doesn't catch NULL exceptions. Lovely. . . .
+        if ($loNode == null)
+        {
+          throw new \Exception("Unfortunately, the node of $tnID could not be found.");
+        }
         $lcNodeType = $loNode->getType();
 
         if ($lcNodeType === 'project')
@@ -71,7 +76,7 @@ class AjaxController
     catch (\Exception $loErr)
     {
       $lcContentType = 'text/html; utf-8';
-      $lcGeneratedContent = $loErr->getMessage();
+      $lcGeneratedContent = "<h2 style='text-align: center;'>" . $loErr->getMessage() . "</h2><p style='text-align: center;'><a href='/'>Home</a></p>";
     }
 
     /*
