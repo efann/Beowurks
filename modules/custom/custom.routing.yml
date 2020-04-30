@@ -17,7 +17,7 @@ ajax.content:
     tcType: ^[a-zA-Z0-9_-]+
     tnID: ^[0-9]+
 
-folktale.map.content:
+application.single.content:
   # More information on parameters:
   # https://www.drupal.org/node/2186285
   path: '/applications/single/{tcProject}'
@@ -26,3 +26,17 @@ folktale.map.content:
     _title_callback: '\Drupal\custom\Controller\ApplicationPartsController::getTitle'
   requirements:
     _permission: 'access content'
+    # Only allow alpha, digits, underlines & dashes.
+    tcProject: ^[a-zA-Z0-9_-]+
+
+help.system.content:
+  # More information on parameters:
+  # https://www.drupal.org/node/2186285
+  path: '/documentation/{tcProject}'
+  defaults:
+    _controller: '\Drupal\custom\Controller\HelpSystemController::getContent'
+    _title_callback: '\Drupal\custom\Controller\HelpSystemController::getTitle'
+  requirements:
+    _permission: 'access content'
+    # Only allow alpha, digits, underlines & dashes.
+    tcProject: ^[a-zA-Z0-9_-]+

@@ -13,6 +13,10 @@ class AjaxController
   const TRASH_WIZARD = 1;
   const JEQUITY = 2;
 
+  const JEQUITY_TITLE = 'JEquity';
+
+  const INDENT_SPACING_LEVEL = '  ';
+
   private $fcCategory = '';
   // The controller method receives these parameters as arguments.
   // The parameters are mapped to the arguments with the same name.
@@ -69,6 +73,16 @@ class AjaxController
           case self::JEQUITY:
             $lcContentType = 'text/html; utf-8';
             $lcGeneratedContent = $this->getJEquityVersion();
+            break;
+        }
+      }
+      else if (($tcType === 'chaptertree') && (isset($tnID)))
+      {
+        switch ($tnID)
+        {
+          case self::JEQUITY:
+            $lcContentType = 'text/plain; utf-8';
+            $lcGeneratedContent = $this->buildJSONBookChapters(self::JEQUITY_TITLE);
             break;
         }
       }
@@ -509,6 +523,71 @@ class AjaxController
     $lcContent .= "</html>\n";
 
     return ($lcContent);
+  }
+
+  //-------------------------------------------------------------------------------------------------
+  private function buildJSONBookChapters($tcProject)
+  {
+    $lcJSON = '';
+
+    $loBookManger = \Drupal::service('book.manager');
+
+    $laBooks = $loBookManger->getAllBooks();
+    $lnBookID = null;
+    foreach ($laBooks as $loBook)
+    {
+      if (strpos($loBook['title'], $tcProject) !== false)
+      {
+        $lnBookID = $loBook['nid'] + 0;
+        break;
+      }
+    }
+
+    if ($lnBookID)
+    {
+      $laTOC = $loBookManger->getTableOfContents($lnBookID, 20);
+
+      $lcJSON .= '[';
+
+      $lcIndent = '';
+      $lnLevel = 0;
+      foreach ($laTOC as $lnID => $lcTitle)
+      {
+        $lcMask = ltrim($lcTitle, " -");
+        $lnPos = strpos($lcTitle, $lcMask);
+        $lcDashes = trim(substr($lcTitle, 0, $lnPos));
+        $lnDepth = strlen($lcDashes);
+
+        if ($lnLevel < $lnDepth)
+        {
+          $lcJSON .= ", children: [\n";
+          // Indent some more
+          $lcIndent .= self::INDENT_SPACING_LEVEL;
+        }
+        else if ($lnLevel > $lnDepth)
+        {
+          // Remove indentataion level
+          if (strlen($lcIndent) >= strlen(self::INDENT_SPACING_LEVEL))
+          {
+            $lcIndent = substr($lcIndent, 0, strlen($lcIndent) - strlen(self::INDENT_SPACING_LEVEL));
+          }
+          $lcJSON .= "}\n$lcIndent]},\n";
+        }
+        else
+        {
+          $lcJSON .= "},\n";
+        }
+
+        $lcJSON .= "$lcIndent{label: '$lcMask', id: '$lnID', href='/ajax/node/$lnID'";
+
+        $lnLevel = $lnDepth;
+      }
+
+    }
+
+    $lcJSON .= ']';
+
+    return ($lcJSON);
   }
   //-------------------------------------------------------------------------------------------------
 
