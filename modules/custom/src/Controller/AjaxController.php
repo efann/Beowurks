@@ -615,12 +615,13 @@ class AjaxController
         {
           $laResult[$lnResultCount - 1]['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
         }
-        else
+        else // This really should never happen. Only if the first element has some dashes for some reason.
         {
-          // This really should never happen. Only if the first element has some dashes for some reason.
+          // Increment before passing: otherwise, you'll be stuck in the same place.
+          $tnTrack++;
+
           $laItem['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
           $laResult[] = $laItem;
-          $tnTrack++;
         }
       }
       else if ($tnLevel == $lnDepth)
