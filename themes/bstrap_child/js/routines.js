@@ -193,11 +193,25 @@ var Routines =
         {
           var loData = JSON.parse(tcData);
 
-          jQuery("#jqtree_list").tree({
+          var loTree = jQuery("#jqtree_list");
+          loTree.tree({
             data: loData,
             autoOpen: true,
             autoEscape: false,
           });
+
+          loTree.on(
+            'tree.click',
+            function (toEvent)
+            {
+              // The clicked node is 'event.node'
+              var loNode = toEvent.node;
+              var lcPath = "/ajax/node/" + loNode.id;
+
+              jQuery("#jqtree_content").load(lcPath);
+            }
+          );
+
         },
         error: function (loErr)
         {

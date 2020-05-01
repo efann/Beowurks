@@ -30,10 +30,10 @@ class AjaxController
   {
     $loResponse = new Response();
 
-    $lcGeneratedContent = 'Unfortunately, nothing could be found.';
+    $lcGeneratedContent = '<p>Unfortunately, nothing could be found.</p>';
     $lcContentType = 'text/html; utf-8';
 
-    if (!isset($tnID))
+    if (is_null($tnID))
     {
       $loResponse->headers->set('Content-Type', $lcContentType);
       $loResponse->setContent($lcGeneratedContent);
@@ -65,6 +65,11 @@ class AjaxController
             case 'applicationparts':
               $lcContentType = 'text/html; utf-8';
               $lcGeneratedContent = $this->generateNodeApplicationPartsText($loNode);
+              break;
+
+            default;
+              $lcContentType = 'text/html; utf-8';
+              $lcGeneratedContent = $loNode->get('body')->value;
               break;
           }
           break;
