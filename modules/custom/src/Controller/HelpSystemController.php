@@ -22,7 +22,6 @@ class HelpSystemController
 
     $lcContent .= "<div class='row'>\n";
     $lcContent .= "<div class='controller-display-id-help-documentation'>\n";
-    $lcContent .= "<h4 class='documentation'>" . $this->fcProject . "&copy; fred" . "</h4>\n";
 
     $lcContent .= "<div id='jqtree_list' class='col-sm-4'></div>\n";
     $lcContent .= "<div id='jqtree_content' class='col-sm-8'></div>\n";

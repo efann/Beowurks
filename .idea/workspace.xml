@@ -7,6 +7,7 @@
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,7 @@
       <workItem from="1587925870184" duration="39644000" />
       <workItem from="1588275276933" duration="3064000" />
       <workItem from="1588279516271" duration="8964000" />
-      <workItem from="1588303027706" duration="11784000" />
+      <workItem from="1588303027706" duration="19199000" />
     </task>
     <servers />
   </component>
@@ -186,10 +187,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588267937807" />
-    <state x="35" y="149" width="1736" height="896" key="DirDiffDialog" timestamp="1588347579485">
+    <state x="110" y="58" width="1736" height="896" key="DirDiffDialog" timestamp="1588364936860">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="35" y="149" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588347579485" />
+    <state x="110" y="58" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588364936860" />
     <state x="461" y="184" key="SettingsEditor" timestamp="1588283431495">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

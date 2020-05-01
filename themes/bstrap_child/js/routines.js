@@ -167,6 +167,8 @@ var Routines =
     },
 
     //----------------------------------------------------------------------------------------------------
+    // From https://stackoverflow.com/questions/5250630/difference-between-load-and-ajax-functions-in-jquery
+    // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
     getJEquityVersionInfo: function ()
     {
       jQuery("#version-info").load("/ajax/version/2 #jequity-version", function ()
@@ -208,6 +210,8 @@ var Routines =
               var loNode = toEvent.node;
               var lcPath = "/ajax/node/" + loNode.id;
 
+              // From https://stackoverflow.com/questions/5250630/difference-between-load-and-ajax-functions-in-jquery
+              // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
               jQuery("#jqtree_content").load(lcPath);
             }
           );

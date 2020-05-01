@@ -603,13 +603,12 @@ class AjaxController
   }
 
 //-------------------------------------------------------------------------------------------------
-  private function buildTree($taTOC, $taKeys, &$tnTrack, &$tnLevel)
+  private function buildTree($taTOC, $taKeys, &$tnTrack, $tnLevel)
   {
-    // return an array of items with parent = $parentId
     $laResult = array();
     $lnCount = count($taTOC);
 
-    for (; $tnTrack < $lnCount; $tnTrack++)
+    while ($tnTrack < $lnCount)
     {
       $lnID = $taKeys[$tnTrack];
       $lcTitle = $taTOC[$lnID];
@@ -619,21 +618,19 @@ class AjaxController
       $lcDashes = trim(substr($lcTitle, 0, $lnPos));
       $lnDepth = strlen($lcDashes);
 
-      $laNewItem = ["name" => $lcTitleStrip, "id" => $lnID];
-
+      // Next level indicated.
       if ($tnLevel < $lnDepth)
       {
-        $tnLevel = $lnDepth;
-        $laNewItem['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $tnLevel);
-        $laResult[] = $laNewItem;
+        // Add to the previous element.
+        $laResult[count($laResult) - 1]['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
       }
       else if ($tnLevel == $lnDepth)
       {
-        $laResult[] = $laNewItem;
+        $laResult[] = ["name" => $lcTitleStrip, "id" => $lnID];
+        $tnTrack++;
       }
       else if ($tnLevel > $lnDepth)
       {
-        $tnLevel = $lnDepth;
         break;
       }
     }
