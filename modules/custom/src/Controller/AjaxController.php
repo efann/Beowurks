@@ -604,15 +604,28 @@ class AjaxController
       $lcDashes = trim(substr($lcTitle, 0, $lnPos));
       $lnDepth = strlen($lcDashes);
 
+      $laItem = ["name" => $lcTitleStrip, "id" => $lnID];
+
       // Next level indicated.
       if ($tnLevel < $lnDepth)
       {
         // Add to the previous element.
-        $laResult[count($laResult) - 1]['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
+        $lnResultCount = count($laResult);
+        if ($lnResultCount > 0)
+        {
+          $laResult[$lnResultCount - 1]['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
+        }
+        else
+        {
+          // This really should never happen. Only if the first element has some dashes for some reason.
+          $laItem['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
+          $laResult[] = $laItem;
+          $tnTrack++;
+        }
       }
       else if ($tnLevel == $lnDepth)
       {
-        $laResult[] = ["name" => $lcTitleStrip, "id" => $lnID];
+        $laResult[] = $laItem;
         $tnTrack++;
       }
       else if ($tnLevel > $lnDepth)
