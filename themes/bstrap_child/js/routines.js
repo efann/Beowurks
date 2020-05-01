@@ -188,6 +188,8 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     setupChapterTree: function ()
     {
+      Routines.showAJAX(true);
+
       jQuery.ajax({
         url: '/ajax/chaptertree/2',
         type: 'GET',
@@ -208,23 +210,36 @@ var Routines =
             {
               // The clicked node is 'event.node'
               var loNode = toEvent.node;
-              var lcPath = "/ajax/node/" + loNode.id;
-
-              // From https://stackoverflow.com/questions/5250630/difference-between-load-and-ajax-functions-in-jquery
-              // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
-              jQuery("#jqtree_content").load(lcPath);
+              Routines.loadHelpContent(loNode.id);
             }
           );
 
+          // Load the first element after initialization.
+          if (typeof loData[0].id !== 'undefined')
+          {
+            Routines.loadHelpContent(loData[0].id);
+          }
+
+          Routines.showAJAX(false);
         },
         error: function (loErr)
         {
           alert(loErr);
+          Routines.showAJAX(false);
         }
       });
 
     },
 
+    //----------------------------------------------------------------------------------------------------
+    // From https://stackoverflow.com/questions/5250630/difference-between-load-and-ajax-functions-in-jquery
+    // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
+    loadHelpContent: function (tnID)
+    {
+      var lcPath = "/ajax/node/" + tnID;
+
+      jQuery("#jqtree_content").load(lcPath);
+    },
     //----------------------------------------------------------------------------------------------------
     showAJAX: function (tlShow)
     {

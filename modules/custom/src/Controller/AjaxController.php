@@ -575,30 +575,16 @@ class AjaxController
       }
     }
 
-    $lcJSON = '';
-
     if ($lnBookID)
     {
       $laTOC = $loBookManger->getTableOfContents($lnBookID, 20);
 
-      foreach ($laTOC as $lnID => $lcTitle)
-      {
-        $lcJSON .= "$lnID: $lcTitle\n";
-      }
-
-      $lnTrack = 0;
-      $lnLevel = 0;
-
       $laKeys = array_keys($laTOC);
+      $lnTrack = 0;
 
-      $laJSON = $this->buildTree($laTOC, $laKeys, $lnTrack, $lnLevel);
-
+      $laJSON = $this->buildTree($laTOC, $laKeys, $lnTrack, 0);
     }
 
-    $lcJSON .= json_encode($laJSON, JSON_PRETTY_PRINT);
-//    $lcJSON .= json_encode($laJSON);
-
-    //return ($lcJSON);
     return (json_encode($laJSON));
   }
 
