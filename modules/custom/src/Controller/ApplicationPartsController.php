@@ -3,8 +3,10 @@
 
 namespace Drupal\custom\Controller;
 
+use Drupal;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\views\Views;
+use Exception;
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -40,7 +42,7 @@ class ApplicationPartsController
     $laArgs = [$lnProjectID];
 
     $loViewExecutable->setArguments($laArgs);
-    $loViewExecutable->execute(Self::APP_LIST_BLOCK);
+    $loViewExecutable->execute(self::APP_LIST_BLOCK);
 
     $lcContent = '';
 
@@ -51,7 +53,7 @@ class ApplicationPartsController
       $loTerm = Term::load($lnProjectID);
       $lcContent .= "<div  class='application_description'>" . $loTerm->get('description')->value . "</div>\n";
     }
-    catch (\Exception $loErr)
+    catch (Exception $loErr)
     {
       $lcContent .= "<p class='application_description'>Unknown description. . . .</p>\n";
     }
@@ -94,10 +96,20 @@ class ApplicationPartsController
   {
     $lnID = -1;
 
-    // From https://drupal.stackexchange.com/questions/225209/load-term-by-name
-    $laTerms = \Drupal::entityTypeManager()
-        ->getStorage('taxonomy_term')
-        ->loadByProperties(['name' => $tcCategory]);
+    try
+    {// From https://drupal.stackexchange.com/questions/225209/load-term-by-name
+      $laTerms = Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->loadByProperties(['name' => $tcCategory]);
+    }
+    catch (Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException $e)
+    {
+      $laTerms = null;
+    }
+    catch (Drupal\Component\Plugin\Exception\PluginNotFoundException $e)
+    {
+      $laTerms = null;
+    }
 
     if (!$laTerms)
     {

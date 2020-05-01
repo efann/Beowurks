@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/custom.routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/custom.routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/ApplicationPartsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/ApplicationPartsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/src/Plugin/Block/ProjectsBlock.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Plugin/Block/ProjectsBlock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/bstrap_child.libraries.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/bstrap_child.libraries.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/templates/system/html.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +74,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Twig" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -148,7 +154,10 @@
       <workItem from="1586537361210" duration="301000" />
       <workItem from="1587925424663" duration="36000" />
       <workItem from="1587925597922" duration="22000" />
-      <workItem from="1587925870184" duration="30247000" />
+      <workItem from="1587925870184" duration="39644000" />
+      <workItem from="1588275276933" duration="3064000" />
+      <workItem from="1588279516271" duration="8964000" />
+      <workItem from="1588303027706" duration="10493000" />
     </task>
     <servers />
   </component>
@@ -168,30 +177,34 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="722" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584903325478">
+    <state x="552" y="198" key="#Deployment" timestamp="1588346961298">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="722" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1584903325478" />
+    <state x="552" y="198" key="#Deployment/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588346961298" />
+    <state x="722" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588349733656">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="722" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588349733656" />
     <state x="640" y="279" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586537225309">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="640" y="279" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1586537225309" />
-    <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588211508778">
+    <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588267937807">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588211508778" />
-    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog" timestamp="1584907343805">
+    <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588267937807" />
+    <state x="35" y="149" width="1736" height="896" key="DirDiffDialog" timestamp="1588347579485">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1584907343805" />
-    <state x="461" y="184" key="SettingsEditor" timestamp="1587925617582">
+    <state x="35" y="149" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588347579485" />
+    <state x="461" y="184" key="SettingsEditor" timestamp="1588283431495">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1587925617582" />
-    <state x="830" y="446" key="publish.login" timestamp="1584902078857">
+    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588283431495" />
+    <state x="830" y="446" key="publish.login" timestamp="1588346930623">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1584902078857" />
+    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588346930623" />
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588211819938">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

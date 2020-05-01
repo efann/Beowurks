@@ -3,18 +3,11 @@
 
 namespace Drupal\custom\Controller;
 
-use Drupal\views\Views;
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class HelpSystemController
-  //extends BookNavigationBlock
 {
-  const NO_DATA = 'Not much data to show here. . . .';
-  const APP_LIST_VIEW = 'application_list';
-  const APP_LIST_BLOCK = 'block_application_list';
-
   private $fcProject;
   // The controller method receives these parameters as arguments.
   // The parameters are mapped to the arguments with the same name.
@@ -23,72 +16,24 @@ class HelpSystemController
   //-------------------------------------------------------------------------------------------------
   public function getContent($tcProject)
   {
-    $loViewExecutable = Views::getView(self::APP_LIST_VIEW);
-    if (!is_object($loViewExecutable))
-    {
-      return array(
-          '#type' => 'markup',
-          '#markup' => t(self::NO_DATA),
-      );
-    }
+    $lcContent = '';
 
     $this->fcProject = $tcProject;
 
-    $lcContent = '';
+    $lcContent .= "<div class='row'>\n";
+    $lcContent .= "<div class='controller-display-id-help-documentation'>\n";
+    $lcContent .= "<h4 class='documentation'>" . $this->fcProject . "&copy; fred" . "</h4>\n";
 
-    $lcContent .= "<h4 class='documentation'>" . $this->fcProject . "&copy;" . "</h4>\n";
+    $lcContent .= "<div id='jqtree_list' class='col-sm-4'></div>\n";
+    $lcContent .= "<div id='jqtree_content' class='col-sm-8'></div>\n";
 
-    $loBookManger = \Drupal::service('book.manager');
-
-    $laBooks = $loBookManger->getAllBooks();
-    $lnBookID = null;
-    foreach ($laBooks as $loBook)
-    {
-      $lcContent .= "<p>" . $loBook['title'] . "   " . $this->fcProject . "</p>";
-      if (strpos($loBook['title'], $this->fcProject) !== false)
-      {
-        $lnBookID = $loBook['nid'] + 0;
-        break;
-      }
-    }
-
-    if ($lnBookID)
-    {
-
-      $laTOC = $loBookManger->getTableOfContents($lnBookID, 20);
-
-      $lcContent .= '<ul>';
-      $lnLevel = 0;
-      foreach ($laTOC as $lnID => $lcTitle)
-      {
-        $lcMask = ltrim($lcTitle, " -");
-        $lnPos = strpos($lcTitle, $lcMask);
-        $lcDashes = trim(substr($lcTitle, 0, $lnPos));
-        $lnDepth = strlen($lcDashes);
-
-        if ($lnLevel < $lnDepth)
-        {
-          $lcContent .= '<ul>';
-        }
-        else if ($lnLevel > $lnDepth)
-        {
-          $lcContent .= '</ul>';
-        }
-        $lcContent .= "<li id='$lnID'>$lcMask</li>";
-
-        $lnLevel = $lnDepth;
-
-      }
-      $lcContent .= '</ul>';
-
-    }
-
+    $lcContent .= "</div>\n";
+    $lcContent .= "</div>\n";
 
     return array(
         '#type' => 'markup',
         '#markup' => t($lcContent),
     );
-
 
   }
 
@@ -100,32 +45,10 @@ class HelpSystemController
     $lcValue = str_replace('-', ' ', $lcValue);
     $lcValue = str_replace('_', ' ', $lcValue);
 
+    $lcValue .= " Documentation";
+
     return (ucwords($lcValue, " "));
   }
-
-  //-------------------------------------------------------------------------------------------------
-
-  private function getTermID($tcCategory)
-  {
-    $lnID = -1;
-
-    // From https://drupal.stackexchange.com/questions/225209/load-term-by-name
-    $laTerms = \Drupal::entityTypeManager()
-        ->getStorage('taxonomy_term')
-        ->loadByProperties(['name' => $tcCategory]);
-
-    if (!$laTerms)
-    {
-      return ($lnID);
-    }
-
-    // reset() rewinds array's internal pointer to the first element and returns the
-    // value of the first array element, or FALSE if the array is empty.
-    $lnID = (int)reset($laTerms)->id();
-
-    return ($lnID);
-  }
-
   //-------------------------------------------------------------------------------------------------
 
 }

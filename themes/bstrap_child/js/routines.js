@@ -180,6 +180,31 @@ var Routines =
         loLink.attr('href', lcFolder);
         loLink.html(lcFolder);
       });
+
+    },
+
+    //----------------------------------------------------------------------------------------------------
+    setupChapterTree: function ()
+    {
+      jQuery.ajax({
+        url: '/ajax/chaptertree/2',
+        type: 'GET',
+        success: function (tcData)
+        {
+          var loData = JSON.parse(tcData);
+
+          jQuery("#jqtree_list").tree({
+            data: loData,
+            autoOpen: true,
+            autoEscape: false,
+          });
+        },
+        error: function (loErr)
+        {
+          alert(loErr);
+        }
+      });
+
     },
 
     //----------------------------------------------------------------------------------------------------
@@ -202,7 +227,8 @@ var Routines =
         loAJAX.hide();
       }
 
-    }
+    },
+
     //----------------------------------------------------------------------------------------------------
   };
 

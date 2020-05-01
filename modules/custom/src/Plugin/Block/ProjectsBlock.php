@@ -4,7 +4,9 @@
 
 namespace Drupal\custom\Plugin\Block;
 
+use Drupal;
 use Drupal\Core\Block\BlockBase;
+use Drupal\file\Entity\File;
 use Drupal\views\Views;
 
 //-------------------------------------------------------------------------------------------------
@@ -22,7 +24,6 @@ use Drupal\views\Views;
  */
 class ProjectsBlock extends BlockBase
 {
-
   const VIEW_PROJECTS = 'project_list';
   const VIEW_PROJECTS_BLOCK = 'block_projects_list';
   const NO_DATA = 'Not much data to show here. . . .';
@@ -43,8 +44,7 @@ class ProjectsBlock extends BlockBase
       );
     }
 
-
-    $loViewExecutable->execute(Self::VIEW_PROJECTS_BLOCK);
+    $loViewExecutable->execute(self::VIEW_PROJECTS_BLOCK);
 
     $lcContent = '';
 
@@ -95,10 +95,10 @@ class ProjectsBlock extends BlockBase
     {
       $loField = $toNode->get($tcField);
 
-      if ($loField->entity instanceof \Drupal\file\Entity\File)
+      if ($loField->entity instanceof File)
       {
         $lcPublicValue = $loField->entity->uri->value;
-        $lcURL = \Drupal::service('stream_wrapper_manager')->getViaUri($lcPublicValue)->getExternalUrl();
+        $lcURL = Drupal::service('stream_wrapper_manager')->getViaUri($lcPublicValue)->getExternalUrl();
 
         $laURL = parse_url($lcURL);
         $lcValue = $laURL['path'];

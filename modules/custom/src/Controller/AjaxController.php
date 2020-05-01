@@ -2,8 +2,14 @@
 
 namespace Drupal\custom\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use DOMDocument;
+use DOMXPath;
+use Drupal;
 use Drupal\taxonomy\Entity\Term;
+use Exception;
+use Symfony\Component\HttpFoundation\Response;
+use XMLWriter;
+use function simplexml_load_file;
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -15,9 +21,6 @@ class AjaxController
 
   const JEQUITY_TITLE = 'JEquity';
 
-  const INDENT_SPACING_LEVEL = '  ';
-
-  private $fcCategory = '';
   // The controller method receives these parameters as arguments.
   // The parameters are mapped to the arguments with the same name.
   // So in this case, the page method of the NodeController has one argument: $tcCustomCategory. There may be multiple parameters in a
@@ -25,69 +28,86 @@ class AjaxController
   //-------------------------------------------------------------------------------------------------
   public function getContent($tcType, $tnID)
   {
+    $loResponse = new Response();
+
     $lcGeneratedContent = 'Unfortunately, nothing could be found.';
     $lcContentType = 'text/html; utf-8';
 
+    if (!isset($tnID))
+    {
+      $loResponse->headers->set('Content-Type', $lcContentType);
+      $loResponse->setContent($lcGeneratedContent);
+
+      return ($loResponse);
+    }
+
     try
     {
-      if (($tcType === 'node') && (isset($tnID)))
+      switch ($tcType)
       {
-        $loNode = $this->getNode($tnID);
-        // PHP try/catch doesn't catch NULL exceptions. Lovely. . . .
-        if ($loNode == null)
-        {
-          throw new \Exception("Unfortunately, the node of $tnID could not be found.");
-        }
-        $lcNodeType = $loNode->getType();
+        // Returning node content.
+        case 'node':
+          $loNode = $this->getNode($tnID);
+          // PHP try/catch doesn't catch NULL exceptions. Lovely. . . .
+          if ($loNode == null)
+          {
+            throw new Exception("Unfortunately, the node of $tnID could not be found.");
+          }
+          $lcNodeType = $loNode->getType();
 
-        if ($lcNodeType === 'project')
-        {
-          $lcContentType = 'application/xml';
-          $lcGeneratedContent = $this->generateNodeProjectXML($loNode);
-        }
-        else if ($lcNodeType === 'applicationparts')
-        {
-          $lcContentType = 'text/html; utf-8';
-          $lcGeneratedContent = $this->generateNodeApplicationPartsText($loNode);
-        }
-      }
-      else if (($tcType === 'version') && (isset($tnID)))
-      {
-        switch ($tnID)
-        {
-          case self::TRASH_WIZARD:
-            $lcVersion = $this->getTrashWizardVersion();
+          switch ($lcNodeType)
+          {
+            case 'project':
+              $lcContentType = 'application/xml';
+              $lcGeneratedContent = $this->generateNodeProjectXML($loNode);
+              break;
 
-            if (isset($_GET['skipjavascript']))
-            {
+            case 'applicationparts':
               $lcContentType = 'text/html; utf-8';
-              $lcGeneratedContent = $lcVersion;
-            }
-            else
-            {
-              $lcContentType = 'application/x-javascript';
-              $lcGeneratedContent = "document.write(\"" . $lcVersion . "\")";
-            }
-            break;
+              $lcGeneratedContent = $this->generateNodeApplicationPartsText($loNode);
+              break;
+          }
+          break;
 
-          case self::JEQUITY:
-            $lcContentType = 'text/html; utf-8';
-            $lcGeneratedContent = $this->getJEquityVersion();
-            break;
-        }
-      }
-      else if (($tcType === 'chaptertree') && (isset($tnID)))
-      {
-        switch ($tnID)
-        {
-          case self::JEQUITY:
-            $lcContentType = 'text/plain; utf-8';
-            $lcGeneratedContent = $this->buildJSONBookChapters(self::JEQUITY_TITLE);
-            break;
-        }
+        // Returning version information
+        case 'version':
+          switch ($tnID)
+          {
+            case self::TRASH_WIZARD:
+              $lcVersion = $this->getTrashWizardVersion();
+
+              if (isset($_GET['skipjavascript']))
+              {
+                $lcContentType = 'text/html; utf-8';
+                $lcGeneratedContent = $lcVersion;
+              }
+              else
+              {
+                $lcContentType = 'application/x-javascript';
+                $lcGeneratedContent = "document.write(\"" . $lcVersion . "\")";
+              }
+              break;
+
+            case self::JEQUITY:
+              $lcContentType = 'text/html; utf-8';
+              $lcGeneratedContent = $this->getJEquityVersion();
+              break;
+          }
+          break;
+
+        // Returning JSON information from Book content
+        case 'chaptertree':
+          switch ($tnID)
+          {
+            case self::JEQUITY:
+              $lcContentType = 'text/plain; utf-8';
+              $lcGeneratedContent = $this->buildJSONBookChapters(self::JEQUITY_TITLE);
+              break;
+          }
+          break;
       }
     }
-    catch (\Exception $loErr)
+    catch (Exception $loErr)
     {
       $lcContentType = 'text/html; utf-8';
       $lcGeneratedContent = "<h2 style='text-align: center;'>" . $loErr->getMessage() . "</h2><p style='text-align: center;'><a href='/'>Home</a></p>";
@@ -97,7 +117,6 @@ class AjaxController
        Awesome!!!!
        From https://drupal.stackexchange.com/questions/182022/how-to-output-from-custom-module-without-rest-of-theme
     */
-    $loResponse = new Response();
     // From https://symfony.com/doc/2.1/components/http_foundation/introduction.html
     $loResponse->headers->set('Content-Type', $lcContentType);
     $loResponse->setContent($lcGeneratedContent);
@@ -145,7 +164,7 @@ class AjaxController
 
     $lcContent .= '</div>';
 
-    $loWriter = new \XMLWriter();
+    $loWriter = new XMLWriter();
     // Let's store our XML into the memory so we can output it later
     $loWriter->openMemory();
     // Let's also set the indent so its a very clean and formatted XML
@@ -170,12 +189,23 @@ class AjaxController
 
   //-------------------------------------------------------------------------------------------------
 
-  private function getNode($tnNodeID)
+  private function getNode($tnNodeID): ?Drupal\Core\Entity\EntityInterface
   {
-    // From https://drupal.stackexchange.com/questions/225209/load-term-by-name
-    $loNode = \Drupal::entityTypeManager()
-        ->getStorage('node')
-        ->load($tnNodeID);
+    try
+    {
+      // From https://drupal.stackexchange.com/questions/225209/load-term-by-name
+      $loNode = Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($tnNodeID);
+    }
+    catch (Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException $loErr)
+    {
+      $loNode = null;
+    }
+    catch (Drupal\Component\Plugin\Exception\PluginNotFoundException $loErr)
+    {
+      $loNode = null;
+    }
 
     return ($loNode);
   }
@@ -186,7 +216,6 @@ class AjaxController
   {
     $lcContent = '';
     $lcXMLFile = '';
-    $lcTermName = '';
 
     // From https://stackoverflow.com/questions/37122908/drupal-8-get-taxonomy-term-value-in-node
     // Geesh.
@@ -197,7 +226,7 @@ class AjaxController
       $loTerm = Term::load($lnTermID);
       $lcTermName = $loTerm->get('name')->value;
     }
-    catch (\Exception $loErr)
+    catch (Exception $loErr)
     {
       return ($loErr->getMessage());
     }
@@ -224,7 +253,7 @@ class AjaxController
 
     $lcContent .= '<div><ul>';
     // Geesh, don't forget the \.
-    $loXML = \simplexml_load_file($lcXMLFile);
+    $loXML = simplexml_load_file($lcXMLFile);
 
     $lcVersionTag1 = 'Created tag';
     $lcVersionTag2 = 'Create tag';
@@ -452,7 +481,7 @@ class AjaxController
     curl_close($loCurl);
 
     // Create a DOM parser object
-    $loDOM = new \DOMDocument();
+    $loDOM = new DOMDocument();
 
     // The @ before the method call suppresses any warnings that
     // loadHTML might throw because of invalid HTML in the page.
@@ -461,12 +490,12 @@ class AjaxController
     $lcContent = '';
 
     $lcContent .= "<html lang='en'>\n";
-    $lcContent .= "<head></head>\n";
+    $lcContent .= "<head><title>Version Info</title></head>\n";
     $lcContent .= "<body>\n";
     $lcContent .= "<div id='jequity-version'>\n";
 
     // Iterate over all the table <a> tags
-    $loXPath = new \DOMXPath($loDOM);
+    $loXPath = new DOMXPath($loDOM);
     $loNodes = $loXPath->query('//table//a/@href');
     $lnMax = 0;
     $lcAppFolder = '';
@@ -528,9 +557,7 @@ class AjaxController
   //-------------------------------------------------------------------------------------------------
   private function buildJSONBookChapters($tcProject)
   {
-    $lcJSON = '';
-
-    $loBookManger = \Drupal::service('book.manager');
+    $loBookManger = Drupal::service('book.manager');
 
     $laBooks = $loBookManger->getAllBooks();
     $lnBookID = null;
@@ -543,51 +570,75 @@ class AjaxController
       }
     }
 
+    $lcJSON = '';
+
     if ($lnBookID)
     {
       $laTOC = $loBookManger->getTableOfContents($lnBookID, 20);
 
-      $lcJSON .= '[';
-
-      $lcIndent = '';
-      $lnLevel = 0;
       foreach ($laTOC as $lnID => $lcTitle)
       {
-        $lcMask = ltrim($lcTitle, " -");
-        $lnPos = strpos($lcTitle, $lcMask);
-        $lcDashes = trim(substr($lcTitle, 0, $lnPos));
-        $lnDepth = strlen($lcDashes);
-
-        if ($lnLevel < $lnDepth)
-        {
-          $lcJSON .= ", children: [\n";
-          // Indent some more
-          $lcIndent .= self::INDENT_SPACING_LEVEL;
-        }
-        else if ($lnLevel > $lnDepth)
-        {
-          // Remove indentataion level
-          if (strlen($lcIndent) >= strlen(self::INDENT_SPACING_LEVEL))
-          {
-            $lcIndent = substr($lcIndent, 0, strlen($lcIndent) - strlen(self::INDENT_SPACING_LEVEL));
-          }
-          $lcJSON .= "}\n$lcIndent]},\n";
-        }
-        else
-        {
-          $lcJSON .= "},\n";
-        }
-
-        $lcJSON .= "$lcIndent{label: '$lcMask', id: '$lnID', href='/ajax/node/$lnID'";
-
-        $lnLevel = $lnDepth;
+        $lcJSON .= "$lnID: $lcTitle\n";
       }
+
+      $lnTrack = 0;
+      $lnLevel = 0;
+
+      $laKeys = array_keys($laTOC);
+
+      $laJSON = $this->buildTree($laTOC, $laKeys, $lnTrack, $lnLevel);
 
     }
 
-    $lcJSON .= ']';
+    $lcJSON .= json_encode($laJSON, JSON_PRETTY_PRINT);
+//    $lcJSON .= json_encode($laJSON);
 
-    return ($lcJSON);
+    //return ($lcJSON);
+    return (json_encode($laJSON));
+  }
+
+//-------------------------------------------------------------------------------------------------
+  private function buildTree($taTOC, $taKeys, &$tnTrack, &$tnLevel)
+  {
+    // return an array of items with parent = $parentId
+    $laResult = array();
+    $lnCount = count($taTOC);
+
+    for (; $tnTrack < $lnCount; $tnTrack++)
+    {
+      $lnID = $taKeys[$tnTrack];
+      $lcTitle = $taTOC[$lnID];
+
+      $lcTitleStrip = ltrim($lcTitle, " -");
+      $lnPos = strpos($lcTitle, $lcTitleStrip);
+      $lcDashes = trim(substr($lcTitle, 0, $lnPos));
+      $lnDepth = strlen($lcDashes);
+
+      $laNewItem = ["name" => $lcTitleStrip, "id" => $lnID];
+
+      if ($tnLevel < $lnDepth)
+      {
+        $tnLevel = $lnDepth;
+        $laNewItem['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $tnLevel);
+        $laResult[] = $laNewItem;
+      }
+      else if ($tnLevel == $lnDepth)
+      {
+        $laResult[] = $laNewItem;
+      }
+      else if ($tnLevel > $lnDepth)
+      {
+        $tnLevel = $lnDepth;
+        break;
+      }
+    }
+
+    if (count($laResult) > 0)
+    {
+      return ($laResult);
+    }
+
+    return (null);
   }
   //-------------------------------------------------------------------------------------------------
 
