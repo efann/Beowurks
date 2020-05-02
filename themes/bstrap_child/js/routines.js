@@ -237,8 +237,16 @@ var Routines =
     loadHelpContent: function (tnID)
     {
       var lcPath = "/ajax/node/" + tnID;
+      var loContent = jQuery("#jqtree_content");
 
-      jQuery("#jqtree_content").load(lcPath);
+      loContent.fadeOut('fast', function ()
+      {
+        // Wait till fading completes, then load content.
+        loContent.load(lcPath, function ()
+        {
+          loContent.fadeIn('fast');
+        });
+      });
     },
     //----------------------------------------------------------------------------------------------------
     showAJAX: function (tlShow)
