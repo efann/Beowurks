@@ -21,6 +21,9 @@ class AjaxController
 
   const JEQUITY_TITLE = 'JEquity';
 
+  private $faTOC;
+  private $faTOCKeys;
+
   // The controller method receives these parameters as arguments.
   // The parameters are mapped to the arguments with the same name.
   // So in this case, the page method of the NodeController has one argument: $tcCustomCategory. There may be multiple parameters in a
@@ -577,52 +580,43 @@ class AjaxController
 
     if ($lnBookID)
     {
-      $laTOC = $loBookManger->getTableOfContents($lnBookID, 20);
+      $this->faTOC = $loBookManger->getTableOfContents($lnBookID, 20);
 
-      $laKeys = array_keys($laTOC);
+      $this->faTOCKeys = array_keys($this->faTOC);
       $lnTrack = 0;
 
-      $laJSON = $this->buildTree($laTOC, $laKeys, $lnTrack, 0);
+      // Get the first depth
+      $laValues = $this->getChapterInfo($lnTrack);
+
+      $laJSON = $this->buildTree($lnTrack, $laValues['depth']);
     }
 
     return (json_encode($laJSON));
   }
 
 //-------------------------------------------------------------------------------------------------
-  private function buildTree($taTOC, $taKeys, &$tnTrack, $tnLevel)
+  private function buildTree(&$tnTrack, $tnLevel)
   {
     $laResult = array();
-    $lnCount = count($taTOC);
+    $lnCount = count($this->faTOC);
 
     while ($tnTrack < $lnCount)
     {
-      $lnID = $taKeys[$tnTrack];
-      $lcTitle = $taTOC[$lnID];
+      $laValues = $this->getChapterInfo($tnTrack);
 
-      $lcTitleStrip = ltrim($lcTitle, " -");
-      $lnPos = strpos($lcTitle, $lcTitleStrip);
-      $lcDashes = trim(substr($lcTitle, 0, $lnPos));
-      $lnDepth = strlen($lcDashes);
+      $laItem = ["name" => $laValues['title'], "id" => $laValues['id']];
 
-      $laItem = ["name" => $lcTitleStrip, "id" => $lnID];
+      $lnDepth = $laValues['depth'];
 
       // Next level indicated.
       if ($tnLevel < $lnDepth)
       {
         // Add to the previous element.
         $lnResultCount = count($laResult);
-        if ($lnResultCount > 0)
-        {
-          $laResult[$lnResultCount - 1]['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
-        }
-        else // This really should never happen. Only if the first element has some dashes for some reason.
-        {
-          // Increment before passing: otherwise, you'll be stuck in the same place.
-          $tnTrack++;
-
-          $laItem['children'] = $this->buildTree($taTOC, $taKeys, $tnTrack, $lnDepth);
-          $laResult[] = $laItem;
-        }
+        // This will not error out. If $lnResultCount is equal to 0, then you will get an index
+        // key of -1. Yea PHP. And, there should not be a case where $lnResultCount == 0 at
+        // this point, anyway.
+        $laResult[$lnResultCount - 1]['children'] = $this->buildTree($tnTrack, $lnDepth);
       }
       else if ($tnLevel == $lnDepth)
       {
@@ -641,6 +635,20 @@ class AjaxController
     }
 
     return (null);
+  }
+
+  //-------------------------------------------------------------------------------------------------
+  private function getChapterInfo($tnTrack)
+  {
+    $lnID = $this->faTOCKeys[$tnTrack];
+    $lcTOCTitle = $this->faTOC[$lnID];
+
+    $loNode = $this->getNode($lnID);
+
+    $lcTitle = ($loNode != null) ? $loNode->getTitle() : $lcTOCTitle . " null";
+    $lnDepth = ($loNode != null) ? strpos($lcTOCTitle, $lcTitle) : 0;
+
+    return (['title' => $lcTitle, 'depth' => $lnDepth, 'id' => $lnID]);
   }
   //-------------------------------------------------------------------------------------------------
 
