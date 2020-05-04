@@ -334,6 +334,28 @@ h1.page-header
 
 /*----------------------------------------------------------------------------------------*/
 /*
+  jqTree
+*/
+
+#jqtree_list
+{
+  background-color: lightgray;
+  /*
+    From https://www.cssmatic.com/box-shadow
+  */
+  -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  -moz-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+}
+
+#jqtree_list,
+#jqtree_content
+{
+  min-height: 550px;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
   Flexslider
 */
 

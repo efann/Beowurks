@@ -200,8 +200,9 @@ var Routines =
           var loTree = jQuery("#jqtree_list");
           loTree.tree({
             data: loData,
-            autoOpen: true,
+            autoOpen: 1,
             autoEscape: false,
+            saveState: 'help-documentation-tree',
           });
 
           loTree.on(
@@ -236,6 +237,7 @@ var Routines =
     // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
     loadHelpContent: function (tnID)
     {
+      Routines.showAJAX(true);
       var lcPath = "/ajax/node/" + tnID;
       var loContent = jQuery("#jqtree_content");
 
@@ -244,7 +246,10 @@ var Routines =
         // Wait till fading completes, then load content.
         loContent.load(lcPath, function ()
         {
-          loContent.fadeIn('fast');
+          loContent.fadeIn('fast', function ()
+          {
+            Routines.showAJAX(false);
+          });
         });
       });
     },
