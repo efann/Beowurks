@@ -73,6 +73,7 @@ class AjaxController
             default;
               $lcContentType = 'text/html; utf-8';
               $lcGeneratedContent = $loNode->get('body')->value;
+
               break;
           }
           break;
@@ -108,6 +109,8 @@ class AjaxController
           switch ($tnID)
           {
             case self::JEQUITY:
+              // We're sending the JSON in text form which is converted by the Javascript.
+              // So content type is not 'application/json'.
               $lcContentType = 'text/plain; utf-8';
               $lcGeneratedContent = $this->buildJSONBookChapters(self::JEQUITY_TITLE);
               break;

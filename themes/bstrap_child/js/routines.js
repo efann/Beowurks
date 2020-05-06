@@ -248,6 +248,9 @@ var Routines =
         {
           loContent.fadeIn('fast', function ()
           {
+            // Otherwise, images will not appear. Unless you specifically set display: block for
+            // images in #jqtree_content.
+            Beo.setupImageDialogBox(20, 'explode', true, '#jqtree_content');
             Routines.showAJAX(false);
           });
         });
