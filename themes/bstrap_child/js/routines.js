@@ -202,7 +202,6 @@ var Routines =
             data: loData,
             autoOpen: 1,
             autoEscape: false,
-            saveState: 'help-documentation-tree',
           });
 
           loTree.on(
