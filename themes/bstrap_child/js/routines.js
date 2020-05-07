@@ -251,11 +251,31 @@ var Routines =
             // Otherwise, images will not appear. Unless you specifically set display: block for
             // images in #jqtree_content.
             Beo.setupImageDialogBox(20, 'explode', true, '#jqtree_content');
+            Routines.tweakHelpImages();
             Routines.showAJAX(false);
           });
         });
       });
     },
+
+    //----------------------------------------------------------------------------------------------------
+    tweakHelpImages: function ()
+    {
+      jQuery("#jqtree_content img").each(function ()
+      {
+        var loImage = jQuery(this);
+
+        // If an link, then it's a.img type element.
+        var loParent = loImage.parent();
+        if (loParent.is('a'))
+        {
+          loParent.addClass('jqtree_help_border');
+          loParent.wrap('<div><div class="col-sm-12" style="text-align: center;"></div></div>');
+        }
+      });
+
+    },
+
     //----------------------------------------------------------------------------------------------------
     showAJAX: function (tlShow)
     {
