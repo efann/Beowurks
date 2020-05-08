@@ -6,7 +6,6 @@ namespace Drupal\custom\Controller;
 use Drupal;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\views\Views;
-use Exception;
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -48,15 +47,8 @@ class ApplicationPartsController
 
     $lcContent .= "<h4 class='application_description'>" . $lcPageTitle . "&copy;" . "</h4>\n";
 
-    try
-    {
-      $loTerm = Term::load($lnProjectID);
-      $lcContent .= "<div  class='application_description'>" . $loTerm->get('description')->value . "</div>\n";
-    }
-    catch (Exception $loErr)
-    {
-      $lcContent .= "<p class='application_description'>Unknown description. . . .</p>\n";
-    }
+    $loTerm = Term::load($lnProjectID);
+    $lcContent .= ($loTerm != null) ? "<div  class='application_description'>" . $loTerm->get('description')->value . "</div>\n" : "<p class='application_description'>Unknown description. . . .</p>\n";;
 
     $lcContent .= "<div id='TaxonomyContentAndListforTabs'>\n";
     $lcContent .= "<ul>\n";
