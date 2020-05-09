@@ -360,6 +360,11 @@ h1.page-header
   margin: 10px 0;
 }
 
+#jqtree_content
+{
+  padding-left: 35px;
+}
+
 #jqtree_list,
 #jqtree_content
 {
