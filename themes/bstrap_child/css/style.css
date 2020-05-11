@@ -371,6 +371,12 @@ h1.page-header
   min-height: 550px;
 }
 
+#jqtree_list
+{
+  max-height: 580px;
+  overflow-y: scroll;
+}
+
 #jqtree_content li
 {
   padding: 5px 0;
