@@ -152,6 +152,10 @@ var Routines =
         },
         load: function (event, ui)
         {
+          // Otherwise, images will not appear. Unless you specifically set display: block for
+          // images in #jqtree_content.
+          Beo.setupImageDialogBox(20, 'fadeOut', true, tcTabBlock);
+          Routines.tweakAjaxImages(tcTabBlock);
           Routines.showAJAX(false);
         }
       });
@@ -250,7 +254,7 @@ var Routines =
             // Otherwise, images will not appear. Unless you specifically set display: block for
             // images in #jqtree_content.
             Beo.setupImageDialogBox(20, 'fadeOut', true, '#jqtree_content');
-            Routines.tweakHelpImages();
+            Routines.tweakAjaxImages('#jqtree_content');
             Routines.showAJAX(false);
           });
         });
@@ -258,9 +262,9 @@ var Routines =
     },
 
     //----------------------------------------------------------------------------------------------------
-    tweakHelpImages: function ()
+    tweakAjaxImages: function (tcBlock)
     {
-      jQuery("#jqtree_content img").each(function ()
+      jQuery(tcBlock + ' img').each(function ()
       {
         var loImage = jQuery(this);
 
@@ -268,7 +272,7 @@ var Routines =
         var loParent = loImage.parent();
         if (loParent.is('a'))
         {
-          loParent.addClass('jqtree_help_border');
+          loParent.addClass('ajax_content_images');
           loParent.wrap('<div><div class="col-sm-12" style="text-align: center;"></div></div>');
         }
       });

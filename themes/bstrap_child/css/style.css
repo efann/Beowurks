@@ -348,18 +348,6 @@ h1.page-header
   box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
 }
 
-.jqtree_help_border
-{
-  /*
-     From https://www.cssmatic.com/box-shadow
-   */
-  -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
-  -moz-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
-  box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
-
-  margin: 10px 0;
-}
-
 #jqtree_content
 {
   padding-left: 35px;
@@ -438,6 +426,18 @@ h1.page-header
   width: 32px;
   height: auto;
   margin: 5px;
+}
+
+.ajax_content_images
+{
+  /*
+     From https://www.cssmatic.com/box-shadow
+   */
+  -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  -moz-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+
+  margin: 10px 0;
 }
 
 /*----------------------------------------------------------------------------------------*/
