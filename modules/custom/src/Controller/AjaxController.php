@@ -568,21 +568,10 @@ class AjaxController
   //-------------------------------------------------------------------------------------------------
   private function buildJSONBookChapters($tcProject)
   {
-    $loBookManger = Drupal::service('book.manager');
-
-    $laBooks = $loBookManger->getAllBooks();
-    $lnBookID = null;
-    foreach ($laBooks as $loBook)
-    {
-      if (strpos($loBook['title'], $tcProject) !== false)
-      {
-        $lnBookID = $loBook['nid'] + 0;
-        break;
-      }
-    }
-
+    $lnBookID = AjaxController::getBookID($tcProject);
     if ($lnBookID)
     {
+      $loBookManger = Drupal::service('book.manager');
       $this->faTOC = $loBookManger->getTableOfContents($lnBookID, 20);
 
       $this->faTOCKeys = array_keys($this->faTOC);
@@ -653,6 +642,26 @@ class AjaxController
 
     return (['title' => $lcTitle, 'depth' => $lnDepth, 'id' => $lnID]);
   }
+
+  //-------------------------------------------------------------------------------------------------
+  public static function getBookID($tcProject)
+  {
+    $loBookManger = Drupal::service('book.manager');
+
+    $laBooks = $loBookManger->getAllBooks();
+    $lnBookID = null;
+    foreach ($laBooks as $loBook)
+    {
+      if (strpos($loBook['title'], $tcProject) !== false)
+      {
+        $lnBookID = $loBook['nid'] + 0;
+        break;
+      }
+    }
+
+    return ($lnBookID);
+  }
+
   //-------------------------------------------------------------------------------------------------
 
 }

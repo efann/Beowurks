@@ -194,6 +194,13 @@ var Routines =
     {
       Routines.showAJAX(true);
 
+      var lnOpenID = -1;
+      var lcHash = window.location.hash;
+      if (lcHash.length > 1)
+      {
+        lnOpenID = parseInt(lcHash.substr(1), 10);
+      }
+
       jQuery.ajax({
         url: '/ajax/chaptertree/2',
         type: 'GET',
@@ -218,10 +225,17 @@ var Routines =
             }
           );
 
-          // Load the first element after initialization.
-          if (typeof loData[0].id !== 'undefined')
+          if (lnOpenID == -1)
           {
-            Routines.loadHelpContent(loData[0].id);
+            // Load the first element after initialization.
+            if (typeof loData[0].id !== 'undefined')
+            {
+              Routines.loadHelpContent(loData[0].id);
+            }
+          }
+          else
+          {
+            Routines.loadHelpContent(lnOpenID);
           }
 
           Routines.showAJAX(false);

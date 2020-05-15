@@ -20,14 +20,22 @@ class HelpSystemController
 
     $this->fcProject = $tcProject;
 
-    $lcContent .= "<div class='row'>\n";
-    $lcContent .= "<div class='controller-display-id-help-documentation'>\n";
+    $lnBookID = AjaxController::getBookID($tcProject);
+    if ($lnBookID)
+    {
+      $lcContent .= "<div class='row'>\n";
+      $lcContent .= "<div class='controller-display-id-help-documentation'>\n";
 
-    $lcContent .= "<div id='jqtree_list' class='col-sm-3'></div>\n";
-    $lcContent .= "<div id='jqtree_content' class='col-sm-9'></div>\n";
+      $lcContent .= "<div id='jqtree_list' class='col-sm-3'></div>\n";
+      $lcContent .= "<div id='jqtree_content' class='col-sm-9'></div>\n";
 
-    $lcContent .= "</div>\n";
-    $lcContent .= "</div>\n";
+      $lcContent .= "</div>\n";
+      $lcContent .= "</div>\n";
+    }
+    else
+    {
+      $lcContent .= "$tcProject not found.";
+    }
 
     return array(
         '#type' => 'markup',
