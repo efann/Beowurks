@@ -194,13 +194,6 @@ var Routines =
     {
       Routines.showAJAX(true);
 
-      var lnOpenID = -1;
-      var lcHash = window.location.hash;
-      if (lcHash.length > 1)
-      {
-        lnOpenID = parseInt(lcHash.substr(1), 10);
-      }
-
       jQuery.ajax({
         url: '/ajax/chaptertree/2',
         type: 'GET',
@@ -224,6 +217,9 @@ var Routines =
               Routines.loadHelpContent(loNode.id);
             }
           );
+
+          var lcHash = window.location.hash;
+          var lnOpenID = (lcHash.length > 1) ? parseInt(lcHash.substr(1), 10) : -1;
 
           var lnInitID = ((lnOpenID == -1) && (typeof loData[0].id !== 'undefined')) ? loData[0].id : lnOpenID;
 
