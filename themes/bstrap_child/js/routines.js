@@ -225,18 +225,12 @@ var Routines =
             }
           );
 
-          if (lnOpenID == -1)
-          {
-            // Load the first element after initialization.
-            if (typeof loData[0].id !== 'undefined')
-            {
-              Routines.loadHelpContent(loData[0].id);
-            }
-          }
-          else
-          {
-            Routines.loadHelpContent(lnOpenID);
-          }
+          var lnInitID = ((lnOpenID == -1) && (typeof loData[0].id !== 'undefined')) ? loData[0].id : lnOpenID;
+
+          var loNode = loTree.tree('getNodeById', lnInitID);
+          loTree.tree('selectNode', loNode);
+          // The act of programmatically selecting does not fire the click event.
+          Routines.loadHelpContent(lnInitID);
 
           Routines.showAJAX(false);
         },

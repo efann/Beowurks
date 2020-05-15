@@ -7,8 +7,6 @@
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/src/Controller/HelpSystemController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,6 +172,7 @@
       <workItem from="1589231885423" duration="826000" />
       <workItem from="1589488751407" duration="1072000" />
       <workItem from="1589573424278" duration="3459000" />
+      <workItem from="1589579811700" duration="902000" />
     </task>
     <servers />
   </component>
@@ -209,10 +208,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588267937807" />
-    <state x="17" y="159" width="1736" height="896" key="DirDiffDialog" timestamp="1589579591938">
+    <state x="17" y="159" width="1736" height="896" key="DirDiffDialog" timestamp="1589580714220">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="17" y="159" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589579591938" />
+    <state x="17" y="159" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589580714220" />
     <state x="105" y="313" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588785869304" />
     <state x="461" y="184" key="SettingsEditor" timestamp="1588874322272">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -222,10 +221,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="666" y="273" width="587" height="534" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589140866407" />
-    <state x="830" y="446" key="publish.login" timestamp="1589573439993">
+    <state x="830" y="446" key="publish.login" timestamp="1589579821496">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589573439993" />
+    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589579821496" />
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588211819938">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
