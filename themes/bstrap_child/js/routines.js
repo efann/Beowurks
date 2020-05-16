@@ -214,7 +214,7 @@ var Routines =
             {
               // The clicked node is 'event.node'
               var loNode = toEvent.node;
-              Routines.loadHelpContent(loNode.id);
+              Routines.loadHelpContent(loNode);
             }
           );
 
@@ -226,7 +226,7 @@ var Routines =
           var loNode = loTree.tree('getNodeById', lnInitID);
           loTree.tree('selectNode', loNode);
           // The act of programmatically selecting does not fire the click event.
-          Routines.loadHelpContent(lnInitID);
+          Routines.loadHelpContent(loNode);
 
           Routines.showAJAX(false);
         },
@@ -242,10 +242,10 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     // From https://stackoverflow.com/questions/5250630/difference-between-load-and-ajax-functions-in-jquery
     // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
-    loadHelpContent: function (tnID)
+    loadHelpContent: function (toNode)
     {
       Routines.showAJAX(true);
-      var lcPath = "/ajax/node/" + tnID;
+      var lcPath = toNode.href;
       var loContent = jQuery("#jqtree_content");
 
       loContent.fadeOut('fast', function ()

@@ -594,9 +594,12 @@ class AjaxController
 
     while ($tnTrack < $lnCount)
     {
+      // laValues has extra parameters so you can't just assign it to $laItem. For example,
+      // the 'depth' key. And I would prefer the JSON data to be as simple as possible
+      // in order not to possibly conflict with jqTree data.
       $laValues = $this->getChapterInfo($tnTrack);
 
-      $laItem = ["name" => $laValues['title'], "id" => $laValues['id']];
+      $laItem = ["name" => $laValues['title'], "id" => $laValues['id'], "href" => $laValues['href']];
 
       $lnDepth = $laValues['depth'];
 
@@ -640,7 +643,7 @@ class AjaxController
     $lcTitle = ($loNode != null) ? $loNode->getTitle() : $lcTOCTitle . " null";
     $lnDepth = ($loNode != null) ? strpos($lcTOCTitle, $lcTitle) : 0;
 
-    return (['title' => $lcTitle, 'depth' => $lnDepth, 'id' => $lnID]);
+    return (['title' => $lcTitle, 'depth' => $lnDepth, 'id' => $lnID, 'href' => "/ajax/node/$lnID"]);
   }
 
   //-------------------------------------------------------------------------------------------------
