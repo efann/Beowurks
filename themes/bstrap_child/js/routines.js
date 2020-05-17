@@ -244,8 +244,14 @@ var Routines =
     // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
     loadHelpContent: function (toNode)
     {
+      if (typeof toNode === 'undefined')
+      {
+        return;
+      }
+
       Routines.showAJAX(true);
       var lcPath = toNode.href;
+
       var loContent = jQuery("#jqtree_content");
 
       loContent.fadeOut('fast', function ()
