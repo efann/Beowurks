@@ -177,6 +177,8 @@
       <workItem from="1589586241236" duration="183000" />
       <workItem from="1589595284625" duration="1075000" />
       <workItem from="1589728452128" duration="738000" />
+      <workItem from="1590161084610" duration="585000" />
+      <workItem from="1590168270705" duration="3287000" />
     </task>
     <servers />
   </component>
@@ -216,23 +218,23 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588267937807" />
-    <state x="85" y="149" width="1736" height="896" key="DirDiffDialog" timestamp="1589729190676">
+    <state x="85" y="149" width="1736" height="896" key="DirDiffDialog" timestamp="1590170609449">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="85" y="149" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589729190676" />
+    <state x="85" y="149" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1590170609449" />
     <state x="105" y="313" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588785869304" />
     <state x="461" y="184" key="SettingsEditor" timestamp="1588874322272">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="184" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588874322272" />
-    <state x="666" y="273" width="587" height="534" key="find.popup" timestamp="1589140866407">
+    <state x="666" y="273" width="587" height="534" key="find.popup" timestamp="1590169483543">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="666" y="273" width="587" height="534" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589140866407" />
-    <state x="830" y="446" key="publish.login" timestamp="1589728467991">
+    <state x="666" y="273" width="587" height="534" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1590169483543" />
+    <state x="830" y="446" key="publish.login" timestamp="1590168354014">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589728467991" />
+    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1590168354014" />
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588211819938">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -6,6 +6,7 @@
 var Routines =
   {
     CONTACT_BLOCK: "#contact-message-feedback-form",
+    CHAPTER_TREE_LIST: "#jqtree_list",
 
     //----------------------------------------------------------------------------------------------------
     initializeRoutines: function ()
@@ -201,7 +202,7 @@ var Routines =
         {
           var loData = JSON.parse(tcData);
 
-          var loTree = jQuery("#jqtree_list");
+          var loTree = jQuery(Routines.CHAPTER_TREE_LIST);
           loTree.tree({
             data: loData,
             autoOpen: 1,
@@ -259,6 +260,8 @@ var Routines =
         // Wait till fading completes, then load content.
         loContent.load(lcPath, function ()
         {
+          Routines.updateHelpContentHashLinks(loContent);
+
           loContent.fadeIn('fast', function ()
           {
             // Otherwise, images will not appear. Unless you specifically set display: block for
@@ -269,6 +272,35 @@ var Routines =
           });
         });
       });
+    },
+    //----------------------------------------------------------------------------------------------------
+    updateHelpContentHashLinks: function (toContent)
+    {
+      toContent.find("a").each(function ()
+      {
+        var loThis = jQuery(this);
+        var lcHref = loThis.attr('href');
+
+        if (lcHref.startsWith('#'))
+        {
+          var lnID = (lcHref.length > 1) ? parseInt(lcHref.substr(1), 10) : -1;
+          if (lnID != -1)
+          {
+            loThis.click(function (toEvent)
+            {
+              toEvent.preventDefault();
+
+              var loTree = jQuery(Routines.CHAPTER_TREE_LIST);
+
+              var loNode = loTree.tree('getNodeById', lnID);
+              loTree.tree('selectNode', loNode);
+              // The act of programmatically selecting does not fire the click event.
+              Routines.loadHelpContent(loNode);
+            });
+          }
+        }
+      });
+
     },
 
     //----------------------------------------------------------------------------------------------------
