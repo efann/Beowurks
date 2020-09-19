@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c042b5c-94d9-42e8-a109-cbaac80d7328" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/js/routines.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/bstrap_child/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +67,10 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.CSS" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -80,6 +81,7 @@
       <recent name="D:\PhpStorm\Beowurks\themes\bstrap_child" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -179,11 +181,12 @@
       <workItem from="1589728452128" duration="738000" />
       <workItem from="1590161084610" duration="585000" />
       <workItem from="1590168270705" duration="3287000" />
+      <workItem from="1600532512963" duration="1463000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -198,47 +201,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="198" key="#Deployment" timestamp="1589728618729">
+    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog" timestamp="1600532836100">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="198" key="#Deployment/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589728618729" />
-    <state x="536" y="185" key="#SSH_Configurations" timestamp="1589728609336">
+    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600532836100" />
+    <state x="830" y="431" key="publish.login" timestamp="1600532533360">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="536" y="185" key="#SSH_Configurations/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1589728609336" />
-    <state x="722" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588963702457">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="722" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588963702457" />
-    <state x="640" y="279" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586537225309">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="640" y="279" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1586537225309" />
-    <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588267937807">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="706" y="394" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588267937807" />
-    <state x="85" y="149" width="1736" height="896" key="DirDiffDialog" timestamp="1590170609449">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="85" y="149" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1590170609449" />
-    <state x="105" y="313" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588785869304" />
-    <state x="461" y="184" key="SettingsEditor" timestamp="1588874322272">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588874322272" />
-    <state x="666" y="273" width="587" height="534" key="find.popup" timestamp="1590169483543">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="666" y="273" width="587" height="534" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1590169483543" />
-    <state x="830" y="446" key="publish.login" timestamp="1590168354014">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="830" y="446" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1590168354014" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588211819938">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1588211819938" />
+    <state x="830" y="431" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600532533360" />
   </component>
   <component name="WordPressConfiguration">
     <wordpressPath />

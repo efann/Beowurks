@@ -47,7 +47,8 @@ a:visited
   color: #EFD797;
   font-size: 2.5vw;
   font-style: italic;
-  padding-left: 40px;
+  /*Top Right Bottom Left*/
+  padding: 0 0 5px 40px;
 }
 
 #block-header .title
@@ -73,7 +74,11 @@ a:visited
   cursor: pointer;
 }
 
-@media (min-width: 768px)
+/*
+  Anything smaller, and the fractal
+  wraps to the bottom of the header
+*/
+@media (min-width: 480px)
 {
   #block-header canvas.fractal
   {
@@ -107,6 +112,7 @@ a:focus,
   #block-header .slogan
   {
     font-size: 1.25em;
+    padding-bottom: 0;
   }
 
 }
@@ -207,7 +213,18 @@ h1.page-header
   -webkit-box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
   -moz-box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
   box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
+
+  margin-bottom: 15px;
 }
+
+@media (min-width: 768px)
+{
+  .view-display-id-block_awards .views-field-field-award-image a
+  {
+    margin-bottom: 0px;
+  }
+}
+
 
 /*----------------------------------------------------------------------------------------------------*/
 /*
