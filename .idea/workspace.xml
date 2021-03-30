@@ -182,6 +182,7 @@
       <workItem from="1590161084610" duration="585000" />
       <workItem from="1590168270705" duration="3287000" />
       <workItem from="1600532512963" duration="1463000" />
+      <workItem from="1617045137743" duration="463000" />
     </task>
     <servers />
   </component>
@@ -199,16 +200,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog" timestamp="1600532836100">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="92" y="92" width="1736" height="896" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600532836100" />
-    <state x="830" y="431" key="publish.login" timestamp="1600532533360">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="830" y="431" key="publish.login/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600532533360" />
   </component>
   <component name="WordPressConfiguration">
     <wordpressPath />
