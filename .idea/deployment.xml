@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Beowurks" compareModeInSync="TIMESTAMP">
+  <component name="PublishConfigData" serverName="Beowurks">
     <serverData>
       <paths name="Beowurks">
         <serverdata>
@@ -52,6 +52,7 @@
             <excludedPath path="/var/www/beowurks.com/public_html/google45ba2ba32ed1905e.html" />
             <excludedPath local="true" path="$PROJECT_DIR$/.gitignore" />
             <excludedPath local="true" path="$PROJECT_DIR$/.gitattributes" />
+            <excludedPath path="/var/www/beowurks.com/public_html/themes/bstrap_child/js/lightbox2-2.11.3" />
           </excludedPaths>
         </serverdata>
       </paths>

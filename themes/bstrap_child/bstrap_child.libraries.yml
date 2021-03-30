@@ -45,6 +45,18 @@ jqtree:
   js:
     js/jqtree/tree.jquery.js: {}
 
+lightbox2:
+  remote: https://lokeshdhakar.com/projects/lightbox2/
+  license:
+    name: MIT License
+    url: https://lokeshdhakar.com/projects/lightbox2/#license
+    gpl-compatible: true
+  js:
+    js/lightbox2-2.11.3/dist/js/lightbox.min.js: {}
+  css:
+    component:
+      js/lightbox2-2.11.3/dist/css/lightbox.min.css: {}
+
 # routines.js needs to be loaded before the google maps api. That's
 # why I place it in theme.files rather than under global-styling.
 theme.files:
@@ -64,4 +76,5 @@ global-loading:
     - bstrap_child/flexslider
     - bstrap_child/beo.routines
     - bstrap_child/jqtree
+    - bstrap_child/lightbox2
     - bstrap_child/theme.files
