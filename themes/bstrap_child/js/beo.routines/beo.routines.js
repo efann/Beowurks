@@ -1,4 +1,4 @@
-//   Updated on March 30, 2021
+//   Updated on March 31, 2021
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -177,6 +177,8 @@ var Beo =
     // By the way, to pass undefined as a parameter, use void 0
     setupImageDialogBox: function (tnTitleBarHeight, tcFadeEffect, tlCheckClass, tcMainContent, tcDefaultImageClass)
     {
+      // By the way, can't use Boolean here. For example, what if tlCheckClass is
+      // defined and is false. llCheckClass would always be true.
       tlCheckClass = (typeof tlCheckClass !== 'undefined') ? tlCheckClass : true;
       tcMainContent = (typeof tcMainContent !== 'undefined') ? tcMainContent : "div.main-container";
       tcDefaultImageClass = (typeof tcDefaultImageClass !== 'undefined') ? tcDefaultImageClass : "responsive-image-regular";
@@ -193,12 +195,12 @@ var Beo =
       jQuery(tcMainContent + " img").each(function ()
       {
         let loImage = jQuery(this);
-        if (!loImage.attr('alt'))
+        if (!Boolean(loImage.attr('alt')))
         {
           loImage.attr('alt', lcPageTitle);
         }
 
-        if (!loImage.attr('title'))
+        if (!Boolean(loImage.attr('title')))
         {
           loImage.attr('title', lcPageTitle);
         }
@@ -211,7 +213,7 @@ var Beo =
         {
           let lcClasses = loImage.attr('class');
 
-          if ((typeof lcClasses === 'undefined') || (lcClasses.indexOf('responsive-image') < 0))
+          if ((!Boolean(lcClasses)) || (lcClasses.indexOf('responsive-image') < 0))
           {
             loImage.addClass(tcDefaultImageClass);
           }
@@ -242,12 +244,12 @@ var Beo =
       let lcSource = loImage.attr('src');
 
       let lcAlt = loImage.attr('alt');
-      if ((typeof lcAlt === "undefined") || (lcAlt.trim().length == 0))
+      if (!Boolean(lcAlt))
       {
         lcAlt = "Image";
       }
       let lcTitle = loImage.attr('title');
-      if ((typeof lcTitle === "undefined") || (lcTitle.trim().length == 0))
+      if (!Boolean(lcTitle))
       {
         lcTitle = lcAlt;
       }
@@ -369,6 +371,8 @@ var Beo =
     // Now using Lightbox to display images.
     setupLightbox: function (tlCheckClass, tcMainContent, tcDefaultImageClass)
     {
+      // By the way, can't use Boolean here. For example, what if tlCheckClass is
+      // defined and is false. llCheckClass would always be true.
       let llCheckClass = (typeof tlCheckClass !== 'undefined') ? tlCheckClass : true;
       let lcMainContent = (typeof tcMainContent !== 'undefined') ? tcMainContent : "div.main-container";
       let lcImageClass = (typeof tcDefaultImageClass !== 'undefined') ? tcDefaultImageClass : "responsive-image-large";
@@ -381,14 +385,14 @@ var Beo =
       {
         let loImage = jQuery(this);
         let lcAlt = loImage.attr('alt');
-        if (!lcAlt)
+        if (!Boolean(lcAlt))
         {
           lcAlt = lcPageTitle;
           loImage.attr('alt', lcAlt);
         }
 
         let lcTitle = loImage.attr('title');
-        if (!lcTitle)
+        if (!Boolean(lcTitle))
         {
           lcTitle = lcPageTitle;
           loImage.attr('title', lcTitle);
@@ -402,7 +406,7 @@ var Beo =
         {
           let lcClasses = loImage.attr('class');
 
-          if ((typeof lcClasses === 'undefined') || (lcClasses.indexOf('responsive-image') < 0))
+          if ((!Boolean(lcClasses)) || (lcClasses.indexOf('responsive-image') < 0))
           {
             loImage.addClass(lcImageClass);
           }

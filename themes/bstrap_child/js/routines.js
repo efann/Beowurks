@@ -1,4 +1,3 @@
-// Updated on March 12, 2017
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -18,7 +17,7 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     setupProjectsFlexSlider: function ()
     {
-      var loSliderImages = jQuery("#projects_block");
+      let loSliderImages = jQuery("#projects_block");
 
       if (loSliderImages.length == 0)
       {
@@ -54,7 +53,7 @@ var Routines =
         // The ID is in the form of #_project. Note the following with parseInt.
         //   Only the first numbers in the string are returned.
         //   If the first character cannot be converted to a number, parseInt() returns NaN.
-        var lnNodeID = parseInt(jQuery(this).attr("id"));
+        let lnNodeID = parseInt(jQuery(this).attr("id"));
         Routines.loadProjectByAJAX(lnNodeID);
 
         return (false);
@@ -73,13 +72,13 @@ var Routines =
         url: window.location.protocol + "//" + window.location.host + "/ajax/node/" + tnNodeID
       }).done(function (toData)
       {
-        var lcDialog = "#ProjectInformation";
+        let lcDialog = "#ProjectInformation";
         if (jQuery(lcDialog).length == 0)
         {
           jQuery('body').append('<div id="' + lcDialog.substring(1) + '"></div>');
         }
 
-        var loData = jQuery(toData);
+        let loData = jQuery(toData);
         jQuery(lcDialog).html(loData.find('nodeinfo').find('body').text());
 
         jQuery(lcDialog).find("a").each(function ()
@@ -121,7 +120,7 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     setupWatermarks: function ()
     {
-      var lcForm = Routines.CONTACT_BLOCK;
+      let lcForm = Routines.CONTACT_BLOCK;
       if (jQuery(lcForm).length == 0)
       {
         return;
@@ -137,7 +136,7 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     setupTaxonomyTabsForAjax: function (tcTabBlock)
     {
-      var loTabs = jQuery(tcTabBlock);
+      let loTabs = jQuery(tcTabBlock);
 
       if (loTabs.length == 0)
       {
@@ -178,12 +177,12 @@ var Routines =
     {
       jQuery("#version-info").load("/ajax/version/2 #jequity-version", function ()
       {
-        var lcVersion = jQuery('#app_version').html();
+        let lcVersion = jQuery('#app_version').html();
         jQuery('#installation span.version').html(lcVersion);
 
-        var lcFolder = jQuery('#app_folder').html();
+        let lcFolder = jQuery('#app_folder').html();
 
-        var loLink = jQuery('#installation a.folder');
+        let loLink = jQuery('#installation a.folder');
         loLink.attr('href', lcFolder);
         loLink.html(lcFolder);
       });
@@ -200,9 +199,9 @@ var Routines =
         type: 'GET',
         success: function (tcData)
         {
-          var loData = JSON.parse(tcData);
+          let loData = JSON.parse(tcData);
 
-          var loTree = jQuery(Routines.CHAPTER_TREE_LIST);
+          let loTree = jQuery(Routines.CHAPTER_TREE_LIST);
           loTree.tree({
             data: loData,
             autoOpen: 1,
@@ -214,17 +213,17 @@ var Routines =
             function (toEvent)
             {
               // The clicked node is 'event.node'
-              var loNode = toEvent.node;
+              let loNode = toEvent.node;
               Routines.loadHelpContent(loNode);
             }
           );
 
-          var lcHash = window.location.hash;
-          var lnOpenID = (lcHash.length > 1) ? parseInt(lcHash.substr(1), 10) : -1;
+          let lcHash = window.location.hash;
+          let lnOpenID = (lcHash.length > 1) ? parseInt(lcHash.substr(1), 10) : -1;
 
-          var lnInitID = ((lnOpenID == -1) && (typeof loData[0].id !== 'undefined')) ? loData[0].id : lnOpenID;
+          let lnInitID = ((lnOpenID == -1) && (typeof loData[0].id !== 'undefined')) ? loData[0].id : lnOpenID;
 
-          var loNode = loTree.tree('getNodeById', lnInitID);
+          let loNode = loTree.tree('getNodeById', lnInitID);
           loTree.tree('selectNode', loNode);
           // The act of programmatically selecting does not fire the click event.
           Routines.loadHelpContent(loNode);
@@ -251,9 +250,9 @@ var Routines =
       }
 
       Routines.showAJAX(true);
-      var lcPath = toNode.href;
+      let lcPath = toNode.href;
 
-      var loContent = jQuery("#jqtree_content");
+      let loContent = jQuery("#jqtree_content");
 
       loContent.fadeOut('fast', function ()
       {
@@ -278,21 +277,21 @@ var Routines =
     {
       toContent.find("a").each(function ()
       {
-        var loThis = jQuery(this);
-        var lcHref = loThis.attr('href');
+        let loThis = jQuery(this);
+        let lcHref = loThis.attr('href');
 
         if (lcHref.startsWith('#'))
         {
-          var lnID = (lcHref.length > 1) ? parseInt(lcHref.substr(1), 10) : -1;
+          let lnID = (lcHref.length > 1) ? parseInt(lcHref.substr(1), 10) : -1;
           if (lnID != -1)
           {
             loThis.click(function (toEvent)
             {
               toEvent.preventDefault();
 
-              var loTree = jQuery(Routines.CHAPTER_TREE_LIST);
+              let loTree = jQuery(Routines.CHAPTER_TREE_LIST);
 
-              var loNode = loTree.tree('getNodeById', lnID);
+              let loNode = loTree.tree('getNodeById', lnID);
               loTree.tree('selectNode', loNode);
               // The act of programmatically selecting does not fire the click event.
               Routines.loadHelpContent(loNode);
@@ -308,10 +307,10 @@ var Routines =
     {
       jQuery(tcBlock + ' img').each(function ()
       {
-        var loImage = jQuery(this);
+        let loImage = jQuery(this);
 
         // If an link, then it's a.img type element.
-        var loParent = loImage.parent();
+        let loParent = loImage.parent();
         if (loParent.is('a'))
         {
           loParent.addClass('ajax_content_images');
@@ -324,8 +323,8 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     showAJAX: function (tlShow)
     {
-      var lcAJAX = "#ajax-loading";
-      var loAJAX = jQuery(lcAJAX);
+      let lcAJAX = "#ajax-loading";
+      let loAJAX = jQuery(lcAJAX);
       if (loAJAX.length == 0)
       {
         alert("The HTML element " + lcAJAX + " does not exist!");

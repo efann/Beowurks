@@ -46,31 +46,31 @@ var BeoLogo =
       BeoLogo.initVariables();
       BeoLogo.setupLogo();
 
-      var loCanvas = BeoLogo.foCanvas;
-      var lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
+      let loCanvas = BeoLogo.foCanvas;
+      let lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
 
-      var lnTimerID = setInterval(function ()
+      let lnTimerID = setInterval(function ()
       {
-        var lnRadians = BeoLogo.faSequences[BeoLogo.fnCurrentSequence] * lnRadianIncrements;
+        let lnRadians = BeoLogo.faSequences[BeoLogo.fnCurrentSequence] * lnRadianIncrements;
 
-        for (var lnSteps = 0; lnSteps < BeoLogo.STEPS; ++lnSteps)
+        for (let lnSteps = 0; lnSteps < BeoLogo.STEPS; ++lnSteps)
         {
           // Formula for Hénon's Attractor.
-          var back = BeoLogo.fnLorenzX;
+          let back = BeoLogo.fnLorenzX;
           BeoLogo.fnLorenzX = BeoLogo.fnLorenzY + 1.0 - (1.4 * BeoLogo.fnLorenzX * BeoLogo.fnLorenzX);
           BeoLogo.fnLorenzY = 0.3 * back;
 
-          var lnTempX = BeoLogo.fnLorenzX * BeoLogo.fnEnlargeX;
-          var lnTempY = BeoLogo.fnLorenzY * BeoLogo.fnEnlargeY;
+          let lnTempX = BeoLogo.fnLorenzX * BeoLogo.fnEnlargeX;
+          let lnTempY = BeoLogo.fnLorenzY * BeoLogo.fnEnlargeY;
 
-          var lnCurrentRadian = Math.atan(lnTempY / lnTempX);
+          let lnCurrentRadian = Math.atan(lnTempY / lnTempX);
           // I could have also used lnTempX / cos(lnCurrentRadian)
-          var lnHypotenuse = lnTempY / Math.sin(lnCurrentRadian);
+          let lnHypotenuse = lnTempY / Math.sin(lnCurrentRadian);
 
-          var lnPlotX = (lnHypotenuse * Math.cos(lnRadians + lnCurrentRadian)) + BeoLogo.fnCenterX;
-          var lnPlotY = (lnHypotenuse * Math.sin(lnRadians + lnCurrentRadian)) + BeoLogo.fnCenterY;
+          let lnPlotX = (lnHypotenuse * Math.cos(lnRadians + lnCurrentRadian)) + BeoLogo.fnCenterX;
+          let lnPlotY = (lnHypotenuse * Math.sin(lnRadians + lnCurrentRadian)) + BeoLogo.fnCenterY;
 
-          var lnColor = Math.floor(Math.random() * BeoLogo.faGoldColors.length);
+          let lnColor = Math.floor(Math.random() * BeoLogo.faGoldColors.length);
           loCanvas.fillStyle = BeoLogo.faGoldColors[lnColor];
           loCanvas.fillRect(lnPlotX, lnPlotY, 1, 1)
         }
@@ -89,7 +89,7 @@ var BeoLogo =
     initVariables: function ()
     {
       BeoLogo.foBlock = jQuery(BeoLogo.FRACTAL_BLOCK);
-      var loBlock = BeoLogo.foBlock;
+      let loBlock = BeoLogo.foBlock;
 
       BeoLogo.foCanvas = loBlock.get(0).getContext('2d');
       BeoLogo.fnWidth = loBlock.width();
@@ -141,7 +141,7 @@ var BeoLogo =
     //----------------------------------------------------------------------------------------------------
     toHex: function (tnDigit)
     {
-      var lcHex = Number(tnDigit).toString(16);
+      let lcHex = Number(tnDigit).toString(16);
       if (lcHex.length < 2)
       {
         lcHex = "0" + lcHex;
@@ -158,7 +158,7 @@ var BeoLogo =
     //----------------------------------------------------------------------------------------------------
     setupLogo: function ()
     {
-      var loText = jQuery(BeoLogo.FRACTAL_DESC_BLOCK);
+      let loText = jQuery(BeoLogo.FRACTAL_DESC_BLOCK);
       if (loText.length == 0)
       {
         return;
@@ -168,7 +168,7 @@ var BeoLogo =
       {
         toEvent.preventDefault();
 
-        var lcDialog = BeoLogo.FRACTAL_DESC_DIALOG;
+        let lcDialog = BeoLogo.FRACTAL_DESC_DIALOG;
         if (jQuery(lcDialog).length == 0)
         {
           jQuery('body').append('<div id="' + lcDialog.substring(1) + '">' + loText.html() + '</div>');
@@ -206,7 +206,7 @@ var BeoLogo =
     setupTitle: function ()
     {
       // Should only exist on the front page.
-      var loText = jQuery(BeoLogo.SLOGAN_CREDITS_BLOCK);
+      let loText = jQuery(BeoLogo.SLOGAN_CREDITS_BLOCK);
       if (loText.length == 0)
       {
         return;
@@ -216,7 +216,7 @@ var BeoLogo =
       {
         toEvent.preventDefault();
 
-        var lcDialog = BeoLogo.SLOGAN_CREDITS_DIALOG;
+        let lcDialog = BeoLogo.SLOGAN_CREDITS_DIALOG;
         if (jQuery(lcDialog).length == 0)
         {
           jQuery('body').append('<div id="' + lcDialog.substring(1) + '">' + loText.html() + '</div>');
