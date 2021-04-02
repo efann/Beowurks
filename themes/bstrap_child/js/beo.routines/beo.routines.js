@@ -1,4 +1,4 @@
-//   Updated on March 31, 2021
+//   Updated on April 1, 2021
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -178,10 +178,10 @@ var Beo =
     setupImageDialogBox: function (tnTitleBarHeight, tcFadeEffect, tlCheckClass, tcMainContent, tcDefaultImageClass)
     {
       // By the way, can't use Boolean here. For example, what if tlCheckClass is
-      // defined and is false. llCheckClass would always be true.
+      // defined and is false. tlCheckClass would always be reset to true.
       tlCheckClass = (typeof tlCheckClass !== 'undefined') ? tlCheckClass : true;
-      tcMainContent = (typeof tcMainContent !== 'undefined') ? tcMainContent : "div.main-container";
-      tcDefaultImageClass = (typeof tcDefaultImageClass !== 'undefined') ? tcDefaultImageClass : "responsive-image-regular";
+      tcMainContent = Boolean(tcMainContent) ? tcMainContent : "div.main-container";
+      tcDefaultImageClass = Boolean(tcDefaultImageClass) ? tcDefaultImageClass : "responsive-image-regular";
 
       Beo.fnDialogImageTitleBarHeight = tnTitleBarHeight;
 
@@ -374,8 +374,8 @@ var Beo =
       // By the way, can't use Boolean here. For example, what if tlCheckClass is
       // defined and is false. llCheckClass would always be true.
       let llCheckClass = (typeof tlCheckClass !== 'undefined') ? tlCheckClass : true;
-      let lcMainContent = (typeof tcMainContent !== 'undefined') ? tcMainContent : "div.main-container";
-      let lcImageClass = (typeof tcDefaultImageClass !== 'undefined') ? tcDefaultImageClass : "responsive-image-large";
+      let lcMainContent = Boolean(tcMainContent) ? tcMainContent : "div.main-container";
+      let lcImageClass = Boolean(tcDefaultImageClass) ? tcDefaultImageClass : "responsive-image-large";
 
       // Unfortunately, I can't get the title in the template of field.html.twig.
       // to override the image output.
@@ -384,6 +384,7 @@ var Beo =
       jQuery(lcMainContent + " img").each(function ()
       {
         let loImage = jQuery(this);
+
         let lcAlt = loImage.attr('alt');
         if (!Boolean(lcAlt))
         {
