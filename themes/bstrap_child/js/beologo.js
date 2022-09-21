@@ -9,9 +9,9 @@ var BeoLogo =
     FRACTAL_DESC_BLOCK: "#block-fractaldescription",
     FRACTAL_DESC_DIALOG: "#Fractalescription",
 
-    TITLE_LINK: "#block-header .title a",
+    TITLE_LINK: "#block-headerblock .title a",
 
-    FRACTAL_BLOCK: "#block-header canvas.fractal",
+    FRACTAL_BLOCK: "#block-headerblock canvas.fractal",
 
     STEPS: 12000,
 
