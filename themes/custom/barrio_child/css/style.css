@@ -1,0 +1,480 @@
+/**
+ * Place your custom styles here.
+ */
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset
+{
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.5em;
+}
+
+body
+{
+  font-weight: normal;
+  background-color: white;
+  color: black;
+}
+
+a,
+a:link,
+a:visited
+{
+  text-decoration: none;
+  color: #002C54;
+  font-weight: bold;
+
+  /*
+    From https://stackoverflow.com/questions/6008324/fade-effect-on-link-hover
+  */
+  transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  -moz-transition: color 0.3s linear;
+}
+
+.form-control
+{
+  font-size: 1.0em;
+}
+
+#block-headerblock
+{
+  background-color: #002C54;
+  line-height: 1.0;
+}
+
+#block-headerblock .slogan
+{
+  color: #EFD797;
+  font-size: 2.5vw;
+  font-style: italic;
+  /*Top Right Bottom Left*/
+  padding: 0 0 5px 40px;
+}
+
+#block-headerblock .title
+{
+  padding: 20px 0 10px 0;
+}
+
+#block-headerblock .title a
+{
+  color: #EFD797;
+  font-size: 10.0vw;
+  text-shadow: grey 0.05em 0.05em 0.09em;
+}
+
+/*
+  You must declare the width & height inside the canvas tag.
+*/
+#block-headerblock canvas.fractal
+{
+  float: left;
+  margin-left: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+/*
+  Anything smaller, and the fractal
+  wraps to the bottom of the header
+*/
+@media (min-width: 480px)
+{
+  #block-headerblock canvas.fractal
+  {
+    display: block;
+  }
+}
+
+/*
+  Must go after .title a. Otherwise .title a takes precedent and the title color will not change on hover.
+*/
+a:active,
+a:hover,
+a:focus,
+#block-headerblock .title a:active,
+#block-headerblock .title a:hover,
+#block-headerblock .title a:focus
+{
+  /*
+    #EFD797 - 555555
+  */
+  color: #9A8242;
+}
+
+@media (min-width: 768px)
+{
+  #block-headerblock .title a
+  {
+    font-size: 5.0em;
+  }
+
+  #block-headerblock .slogan
+  {
+    font-size: 1.25em;
+    padding-bottom: 0;
+  }
+
+}
+
+img.responsive-image-large,
+a img
+{
+  opacity: 1.0;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+img.responsive-image-large:hover,
+a img:hover
+{
+  opacity: 0.75;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+/*
+  This keeps the content from sliding under the header.
+*/
+
+.main-container
+{
+  padding-top: 67px;
+}
+
+@media (min-width: 768px)
+{
+  .main-container
+  {
+    padding-top: 150px;
+  }
+}
+
+.navbar-inverse
+{
+  background-color: #002C54;
+}
+
+.navbar-toggle
+{
+  background-color: gray;
+}
+
+h1.page-header
+{
+  display: none;
+}
+
+.page-node-type-book h1.page-header
+{
+  display: block;
+  font-size: 1.71em;
+  text-align: center;
+}
+
+.book nav
+{
+  padding-top: 20px;
+}
+
+.book nav h2
+{
+  display: none;
+}
+
+.view-display-id-block_awards .views-row
+{
+  padding: 20px;
+  overflow: hidden;
+}
+
+.view-display-id-block_awards div.title
+{
+  font-style: italic;
+}
+
+.view-display-id-block_awards div.company
+{
+  font-weight: bold;
+}
+
+.view-display-id-block_awards .views-field-field-award-image .field-content
+{
+  text-align: center;
+}
+
+.view-display-id-block_awards .views-field-field-award-image a
+{
+  /*
+    From https://www.cssmatic.com/box-shadow
+  */
+  -webkit-box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
+  -moz-box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
+  box-shadow: 0px 0px 15px 10px rgba(0, 44, 84, 0.76);
+
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px)
+{
+  .view-display-id-block_awards .views-field-field-award-image a
+  {
+    margin-bottom: 0px;
+  }
+}
+
+
+div.region-content li
+{
+  padding: 7px 0;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/*
+  Slogan Credits
+*/
+
+#block-slogancredits
+{
+  display: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/*
+  Fractal Description
+*/
+
+#block-fractaldescription
+{
+  display: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/*
+  Menu
+*/
+
+#block-custommainmenu,
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form
+{
+  background-color: #002C54;
+}
+
+.navbar-inverse .navbar-nav > li > a
+{
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus
+{
+  color: #EFD797;
+  background-color: #002C54;
+}
+
+.navbar-header
+{
+  width: 100%;
+}
+
+@media (min-width: 768px)
+{
+  .navbar .navbar-nav
+  {
+    float: right;
+  }
+
+  .navbar-nav > li > a
+  {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+}
+
+/*
+  Weird, but otherwise you get scroll bars when expanding sub-menu.
+*/
+#navbar-collapse.in
+{
+  overflow: hidden;
+  display: table;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/*
+  Contact Form
+*/
+
+.captcha .panel-heading
+{
+  display: none;
+}
+
+#contact-message-feedback-form label
+{
+  display: none;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Blocks
+*/
+
+#projects_block
+{
+  display: none;
+}
+
+#projects_block h4
+{
+  text-align: center;
+  font-weight: bold;
+}
+
+.application_description
+{
+  text-align: center;
+}
+
+#TaxonomyContentAndListforTabs
+{
+  padding-top: 20px;
+  /*
+     Important: otherwise, on small screens, the tab content will stretch past
+     the right side
+  */
+  width: 100%;
+
+  display: none;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  jqTree
+*/
+
+#jqtree_list
+{
+  background-color: lightgray;
+  /*
+    From https://www.cssmatic.com/box-shadow
+  */
+  -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  -moz-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+}
+
+#jqtree_content
+{
+  padding-left: 35px;
+}
+
+#jqtree_list,
+#jqtree_content
+{
+  min-height: 550px;
+}
+
+#jqtree_list
+{
+  max-height: 580px;
+  overflow-y: scroll;
+}
+
+#jqtree_content li
+{
+  padding: 5px 0;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Flexslider
+*/
+
+.flexslider .slides img
+{
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.flex-direction-nav .flex-prev,
+.flex-direction-nav .flex-next
+{
+  height: auto;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Ajax
+*/
+
+#ajax-loading
+{
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1100;
+  width: 42px;
+  height: 42px;
+  top: 15px;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: none;
+  background-color: white;
+}
+
+@media (min-width: 768px)
+{
+  #ajax-loading
+  {
+    top: 110px;
+  }
+}
+
+#ajax-loading img
+{
+  /* Override beo.style.css img setting */
+  display: block;
+
+  width: 32px;
+  height: auto;
+  margin: 5px;
+}
+
+.ajax_content_images
+{
+  /*
+     From https://www.cssmatic.com/box-shadow
+   */
+  -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  -moz-box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+  box-shadow: 0px 0px 7px 5px rgba(0, 44, 84, 0.76);
+
+  margin: 10px 0;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  jQuery UI
+*/
+
+.ui-dialog .ui-dialog-content
+{
+  padding: 15px;
+  background-color: wheat;
+}
+
+.ui-widget.ui-widget-content
+{
+  border: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
