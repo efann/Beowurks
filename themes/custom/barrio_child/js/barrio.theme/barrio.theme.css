@@ -62,16 +62,9 @@ h1.title
   margin: 0;
 }
 
-#navbar-main,
 .navbar-toggler
 {
-  /* navbar fixed-top is set at 1030 */
-  z-index: 2000;
-}
-
-.navbar-toggler
-{
-  background-color: #0B93D5;
+  background-color: gray;
   position: fixed;
   top: 10px;
   right: 15px;

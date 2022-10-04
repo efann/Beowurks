@@ -2,10 +2,10 @@
  * Place your custom styles here.
  */
 
-body, caption, th, td, input, textarea, select, option, legend, fieldset
+body, caption, th, td, input, textarea, select, option, legend,
+fieldset, p, span, ul, li, a, div
 {
-  font-family: 'Comfortaa', cursive;
-  font-size: 1.5em;
+  font-family: 'Comfortaa', cursive !important;
 }
 
 body
@@ -19,6 +19,11 @@ a,
 a:link,
 a:visited
 {
+  /*
+    Using inline-block causes the link to adjust its height to the tne entire content.
+  */
+  display: inline-block;
+
   text-decoration: none;
   font-weight: bold;
 
@@ -116,6 +121,12 @@ a:focus,
 
 }
 
+a img
+{
+  max-width: 100%;
+  height: auto;
+}
+
 img.responsive-image-large,
 a img
 {
@@ -149,16 +160,6 @@ a img:hover
   {
     padding-top: 150px;
   }
-}
-
-.navbar-inverse
-{
-  background-color: #002C54;
-}
-
-.navbar-toggle
-{
-  background-color: gray;
 }
 
 h1.page-header
@@ -255,55 +256,41 @@ div.region-content li
   Menu
 */
 
-#block-custommainmenu,
-.navbar-inverse .navbar-collapse,
-.navbar-inverse .navbar-form
-{
-  background-color: #002C54;
-}
-
-.navbar-inverse .navbar-nav > li > a
+#navbar-main li a
 {
   color: white;
   font-weight: bold;
 }
 
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus
+#navbar-main a,
+#navbar-main a:hover,
+#navbar-main a:focus
 {
   color: #EFD797;
-  background-color: #002C54;
 }
 
-.navbar-header
+#navbar-main a.is-active,
+#navbar-main a.is-active:hover,
+#navbar-main a.is-active:focus
 {
-  width: 100%;
+  background-color: RGBA(255, 255, 255, 0.1);
 }
 
-@media (min-width: 768px)
+
+#navbar-main .menu.dropdown-menu
 {
-  .navbar .navbar-nav
-  {
-    float: right;
-  }
-
-  .navbar-nav > li > a
-  {
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-
+  background: #002C54;
 }
 
 /*
   Weird, but otherwise you get scroll bars when expanding sub-menu.
-*/
+
 #navbar-collapse.in
 {
   overflow: hidden;
   display: table;
 }
+*/
 
 /*----------------------------------------------------------------------------------------------------*/
 /*
@@ -474,6 +461,45 @@ div.region-content li
 .ui-widget.ui-widget-content
 {
   border: none;
+}
+
+.ui-dialog .ui-dialog-titlebar
+{
+  padding: 0.1em 1em;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Footer
+*/
+
+.site-footer .content
+{
+  color: black;
+  text-align: center;
+}
+
+.site-footer .content a,
+.site-footer .content a:link,
+.site-footer .content a:visited
+{
+  font-weight: bold;
+  color: #002C54;
+}
+
+.site-footer .content a:active,
+.site-footer .content a:hover,
+.site-footer .content a:focus
+{
+  color: #9A8242;
+}
+
+#block-barrio-child-footer
+{
+  clear: both;
+  font-size: 0.9em;
+  padding-top: 20px;
+  line-height: 1.4em;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
