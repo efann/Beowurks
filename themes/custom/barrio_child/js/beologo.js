@@ -3,15 +3,15 @@
 //----------------------------------------------------------------------------------------------------
 var BeoLogo =
   {
-    SLOGAN_CREDITS_BLOCK: "#block-slogancredits",
+    SLOGAN_CREDITS_BLOCK: "#block-barrio-child-slogancredits",
     SLOGAN_CREDITS_DIALOG: "#SloganCredits",
 
-    FRACTAL_DESC_BLOCK: "#block-fractaldescription",
+    FRACTAL_DESC_BLOCK: "#block-barrio-child-fractaldescription",
     FRACTAL_DESC_DIALOG: "#Fractalescription",
 
-    TITLE_LINK: "#block-headerblock .title a",
+    TITLE_LINK: "#block-barrio-child-headerblock .title a",
 
-    FRACTAL_BLOCK: "#block-headerblock canvas.fractal",
+    FRACTAL_BLOCK: "#block-barrio-child-headerblock canvas.fractal",
 
     STEPS: 12000,
 

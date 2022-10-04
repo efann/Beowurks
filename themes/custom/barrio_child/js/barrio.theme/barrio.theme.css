@@ -1,0 +1,178 @@
+/**
+ * Place your custom styles here.
+ */
+
+h1.title
+{
+  display: none;
+}
+
+#main-wrapper
+{
+  min-height: 550px;
+  padding-top: 140px;
+}
+
+/* Looks like 992 is the new mobile navicon */
+@media (min-width: 992px)
+{
+  #main-wrapper
+  {
+    min-height: 850px;
+    padding-top: 180px;
+  }
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Footer
+*/
+
+.site-footer
+{
+  font-family: 'Comfortaa', cursive !important;
+  padding: 0;
+}
+
+.site-footer .block
+{
+  border: none;
+  margin: 0;
+}
+
+.site-footer .row,
+.site-footer .block
+{
+  width: 100%;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Navbars & Menu items.
+*/
+
+/*
+  By the way, the top for #navbar-main is being handled
+  dynamically by Routines.onResizeNavbarMain()
+ */
+#navbar-main,
+#navbar-top
+{
+  padding: 0;
+  margin: 0;
+}
+
+#navbar-main,
+.navbar-toggler
+{
+  /* navbar fixed-top is set at 1030 */
+  z-index: 2000;
+}
+
+.navbar-toggler
+{
+  background-color: #0B93D5;
+  position: fixed;
+  top: 10px;
+  right: 15px;
+
+  float: right;
+  padding: 9px 10px;
+  margin-right: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+/*
+  Brilliant. . . .
+  From https://julienmelissas.com/animated-x-icon-for-the-bootstrap-navbar-toggle/
+  Make sure that you add the classes to system/page.html.twig
+*/
+.navbar-toggler .icon-bar
+{
+  width: 22px;
+  transition: all 0.2s;
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #FFF;
+  margin: 4px 0;
+}
+
+.navbar-toggler .top-bar
+{
+  -webkit-transform: translateX(3px) rotate(45deg);
+  -moz-transform: translateX(3px) rotate(45deg);
+  -o-transform: translateX(3px) rotate(45deg);
+
+  transform: translateX(3px) rotate(45deg);
+
+  -webkit-transform-origin: 10% 10%;
+  -moz-transform-origin: 10% 10%;
+  -o-transform-origin: 10% 10%;
+
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar
+{
+  opacity: 0;
+}
+
+.navbar-toggler .bottom-bar
+{
+  -webkit-transform: translateX(3px) rotate(-45deg);
+  -moz-transform: translateX(3px) rotate(-45deg);
+  -o-transform: rotate(-45deg);
+
+  transform: translateX(3px) rotate(-45deg);
+
+  -webkit-transform-origin: 10% 90%;
+  -moz-transform-origin: 10% 90%;
+  -o-transform-origin: 10% 90%;
+
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar
+{
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -o-transform: rotate(0);
+
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar
+{
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar
+{
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -o-transform: rotate(0);
+
+  transform: rotate(0);
+}
+
+@media (max-width: 991px)
+{
+  div.navbar-collapse
+  {
+    position: fixed;
+    width: 150px;
+    top: 60px;
+    right: 30px;
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid #0B93D5;
+    background: #002C54;
+    border-radius: 4px;
+  }
+}
+
+/*----------------------------------------------------------------------------------------*/

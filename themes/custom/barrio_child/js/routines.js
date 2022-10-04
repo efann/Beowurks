@@ -15,11 +15,11 @@ var Routines =
     },
 
     //----------------------------------------------------------------------------------------------------
-    setupProjectsFlexSlider: function ()
+    setupProjectsCarousel: function ()
     {
-      let loSliderImages = jQuery("#projects_block");
+      let loCarousel = jQuery("#block-barrio-child-projectsblock");
 
-      if (loSliderImages.length == 0)
+      if (loCarousel.length == 0)
       {
         return;
       }
@@ -27,26 +27,13 @@ var Routines =
       // FlexSlide setup should come before Beo.setupLightbox. Otherwise, there appears
       // to be some issues with the first image linking to the image and not Beo.setupLightbox().
       // Strange. . . .
-      if (loSliderImages.find("a.dialogbox-image").length > 0)
+      if (loCarousel.find("a.dialogbox-image").length > 0)
       {
-        alert("Routines.setupFlexSlider must be run before Beo.setupLightbox().");
+        alert("Routines.setupProjectsCarousel must be run before Beo.setupLightbox().");
         return;
       }
 
-      // From https://github.com/woocommerce/FlexSlider/issues/292
-      // If you use animation: slide, the first image shown will be the last in
-      // the queue. animation: fade fixes this issue, and it looks better anyway.
-      loSliderImages.find('.flexslider').flexslider(
-        {
-          directionNav: (jQuery(window).width() >= 768),
-          controlNav: true,
-          prevText: "",
-          nextText: "",
-          animation: "fade",
-          slideshow: false
-        });
-
-      loSliderImages.find('img').click(function (toEvent)
+      loCarousel.find('img').click(function (toEvent)
       {
         toEvent.preventDefault();
 
@@ -59,7 +46,8 @@ var Routines =
         return (false);
       });
 
-      loSliderImages.fadeIn('slow');
+      loCarousel.carousel();
+      loCarousel.fadeIn('slow');
     },
 
     //----------------------------------------------------------------------------------------------------

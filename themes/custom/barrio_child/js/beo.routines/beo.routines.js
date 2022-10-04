@@ -1,4 +1,4 @@
-//   Updated on April 1, 2021
+//   Updated on September 24, 2022
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ var Beo =
       // For browser console
       window.onerror = function (message, url, line)
       {
-        console.log("window.onerror was invoked with message = " + message + ", url  " + url + ", line = " + line);
+        console.log('window.onerror was invoked with message = ' + message + ', url  ' + url + ', line = ' + line);
       };
 
     },
@@ -59,10 +59,10 @@ var Beo =
     // http://stackoverflow.com/questions/148901/is-there-a-better-way-to-do-optional-function-parameters-in-javascript
     writeCurrentDate: function (tlLongVersion)
     {
-      let llLongVersion = (typeof tlLongVersion === "undefined") ? true : tlLongVersion;
+      let llLongVersion = (typeof tlLongVersion === 'undefined') ? true : tlLongVersion;
 
-      let laMonths = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-      let laDays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+      let laMonths = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+      let laDays = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
       let lnYear = this.getCurrentYear();
       let loNow = new Date();
@@ -76,30 +76,30 @@ var Beo =
         lcMonth = lcMonth.substring(0, 3);
       }
 
-      document.write(lcDay + ", " + lcMonth + " " + loNow.getDate() + ", " + lnYear);
+      document.write(lcDay + ', ' + lcMonth + ' ' + loNow.getDate() + ', ' + lnYear);
     },
     //----------------------------------------------------------------------------------------------------
     // Set the cursor for buttons, radio, checkboxes and combo boxes.
     standardizeControls: function ()
     {
-      jQuery("input:submit, input:button, button, td.views-field.views-field-edit-node a, td.views-field.views-field-delete-node a, a.make-button-from-link, div.date-prev a, div.date-next a, li.calendar-year a, li.calendar-month a, li.calendar-day a").each(function (tnIndex)
+      jQuery('input:submit, input:button, button, td.views-field.views-field-edit-node a, td.views-field.views-field-delete-node a, a.make-button-from-link, div.date-prev a, div.date-next a, li.calendar-year a, li.calendar-month a, li.calendar-day a').each(function (tnIndex)
       {
         // If already has been stamped with ui-button, like with the Close Icon for jQuery.dialog.
-        if (jQuery(this).hasClass("ui-button"))
+        if (jQuery(this).hasClass('ui-button'))
         {
           // Equivalent of continue. Return false is the equivalent of break;
           return (true);
         }
 
         // Used by Bootstrap
-        if (jQuery(this).hasClass("btn-primary"))
+        if (jQuery(this).hasClass('btn-primary'))
         {
           // Equivalent of continue. Return false is the equivalent of break;
           return (true);
         }
 
         // If already has an element with an icon. . . .
-        if (jQuery(this).find("[class^='icon']").length > 0)
+        if (jQuery(this).find('[class^=\'icon\']').length > 0)
         {
           // Equivalent of continue. Return false is the equivalent of break;
           return (true);
@@ -108,12 +108,12 @@ var Beo =
         jQuery(this).button();
       });
 
-      jQuery("select").each(function (tnIndex)
+      jQuery('select').each(function (tnIndex)
       {
         jQuery(this).css('cursor', 'pointer');
       });
 
-      jQuery("input:checkbox, input:radio").each(function (tnIndex)
+      jQuery('input:checkbox, input:radio').each(function (tnIndex)
       {
         jQuery(this).css('cursor', 'pointer');
         // Get the label which is in the parent due to the Zen theme.
@@ -157,7 +157,7 @@ var Beo =
       });
 
 
-      let loForm = loInput.closest("form");
+      let loForm = loInput.closest('form');
       loForm.submit(function ()
       {
         if (loInput.val() == tcWatermark)
@@ -180,8 +180,8 @@ var Beo =
       // By the way, can't use Boolean here. For example, what if tlCheckClass is
       // defined and is false. tlCheckClass would always be reset to true.
       tlCheckClass = (typeof tlCheckClass !== 'undefined') ? tlCheckClass : true;
-      tcMainContent = Boolean(tcMainContent) ? tcMainContent : "div.main-container";
-      tcDefaultImageClass = Boolean(tcDefaultImageClass) ? tcDefaultImageClass : "responsive-image-regular";
+      tcMainContent = Boolean(tcMainContent) ? tcMainContent : 'div.main-container';
+      tcDefaultImageClass = Boolean(tcDefaultImageClass) ? tcDefaultImageClass : 'responsive-image-regular';
 
       Beo.fnDialogImageTitleBarHeight = tnTitleBarHeight;
 
@@ -192,7 +192,7 @@ var Beo =
       // to override the image output.
       let lcPageTitle = jQuery(document).attr('title').split('|')[0].trim();
 
-      jQuery(tcMainContent + " img").each(function ()
+      jQuery(tcMainContent + ' img').each(function ()
       {
         let loImage = jQuery(this);
         if (!Boolean(loImage.attr('alt')))
@@ -226,7 +226,7 @@ var Beo =
         }
       });
 
-      jQuery("a.dialogbox-image").click(function (toEvent)
+      jQuery('a.dialogbox-image').click(function (toEvent)
       {
         toEvent.preventDefault();
         Beo.onDialogImageClick(jQuery(this));
@@ -246,7 +246,7 @@ var Beo =
       let lcAlt = loImage.attr('alt');
       if (!Boolean(lcAlt))
       {
-        lcAlt = "Image";
+        lcAlt = 'Image';
       }
       let lcTitle = loImage.attr('title');
       if (!Boolean(lcTitle))
@@ -295,8 +295,8 @@ var Beo =
         loDialogImg.css('width', lnWidth + 'px');
         loDialogImg.css('height', lnHeight + 'px');
 
-        loDialog.dialog("option", "title", lcTitle);
-        loDialog.dialog("open");
+        loDialog.dialog('option', 'title', lcTitle);
+        loDialog.dialog('open');
       };
 
       // Now load the image so the above loLoadImage.onload fires.
@@ -312,8 +312,8 @@ var Beo =
 
       jQuery('body').append('<div id="' + lcDialog + '" style="display: none;"><img id="' + lcDialogImg + '" alt="" /></div>');
 
-      Beo.foDialogImage = jQuery("#" + lcDialog);
-      Beo.foDialogImageImg = jQuery("#" + lcDialogImg);
+      Beo.foDialogImage = jQuery('#' + lcDialog);
+      Beo.foDialogImageImg = jQuery('#' + lcDialogImg);
 
       // Unfortunately, I tried querying css('width'): it returns a width in
       // pixels. So the below is the actual default: I verified in the
@@ -374,14 +374,14 @@ var Beo =
       // By the way, can't use Boolean here. For example, what if tlCheckClass is
       // defined and is false. llCheckClass would always be true.
       let llCheckClass = (typeof tlCheckClass !== 'undefined') ? tlCheckClass : true;
-      let lcMainContent = Boolean(tcMainContent) ? tcMainContent : "div.main-container";
-      let lcImageClass = Boolean(tcDefaultImageClass) ? tcDefaultImageClass : "responsive-image-large";
+      let lcMainContent = Boolean(tcMainContent) ? tcMainContent : 'div.main-container';
+      let lcImageClass = Boolean(tcDefaultImageClass) ? tcDefaultImageClass : 'responsive-image-large';
 
       // Unfortunately, I can't get the title in the template of field.html.twig.
       // to override the image output.
       let lcPageTitle = jQuery(document).attr('title').split('|')[0].trim();
 
-      jQuery(lcMainContent + " img").each(function ()
+      jQuery(lcMainContent + ' img').each(function ()
       {
         let loImage = jQuery(this);
 
@@ -417,7 +417,7 @@ var Beo =
         {
           let lcSource = loImage.attr('src');
           // From https://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
-          loImage.wrap(`<a class="dialogbox-image" href="${lcSource}" data-lightbox="${lcTitle}" data-alt="${lcAlt}" data-title="${lcTitle}"></a>`);
+          loImage.wrap(`<a class='dialogbox-image' href='${lcSource}' data-lightbox='${lcTitle}' data-alt='${lcAlt}' data-title='${lcTitle}'></a>`);
         }
       });
 
@@ -444,20 +444,50 @@ var Beo =
 
       if (lnWidth >= 768)
       {
-        if (toTabs.tabs().hasClass("ui-tabs-vertical ui-helper-clearfix"))
+        if (toTabs.tabs().hasClass('ui-tabs-vertical ui-helper-clearfix'))
         {
-          toTabs.tabs().removeClass("ui-tabs-vertical ui-helper-clearfix");
-          toTabs.find("li").addClass("ui-corner-top").removeClass("ui-corner-left");
+          toTabs.tabs().removeClass('ui-tabs-vertical ui-helper-clearfix');
+          toTabs.find('li').addClass('ui-corner-top').removeClass('ui-corner-left');
         }
       }
       else
       {
-        if (!toTabs.tabs().hasClass("ui-tabs-vertical ui-helper-clearfix"))
+        if (!toTabs.tabs().hasClass('ui-tabs-vertical ui-helper-clearfix'))
         {
-          toTabs.tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
-          toTabs.find("li").removeClass("ui-corner-top").addClass("ui-corner-left");
+          toTabs.tabs().addClass('ui-tabs-vertical ui-helper-clearfix');
+          toTabs.find('li').removeClass('ui-corner-top').addClass('ui-corner-left');
         }
       }
+
+    },
+    //----------------------------------------------------------------------------------------------------
+    updateLinksWithExternalURLs: function (tcSelect)
+    {
+      jQuery(tcSelect).find('a').each(function ()
+      {
+        let loThis = jQuery(this);
+        let lcHref = loThis.attr('href');
+        let lcHostname = window.location.hostname;
+
+        if (Boolean(lcHref) && (!lcHref.startsWith('/')) && (!lcHref.startsWith('?')) && (!lcHref.includes(lcHostname)))
+        {
+          loThis.attr('target', '_blank');
+        }
+
+      });
+
+      jQuery(tcSelect).find('form').each(function ()
+      {
+        let loThis = jQuery(this);
+        let lcAction = loThis.attr('action');
+        let lcHostname = window.location.hostname;
+
+        if (Boolean(lcAction) && (!lcAction.startsWith('/')) && (!lcHref.startsWith('?')) && (!lcAction.includes(lcHostname)))
+        {
+          loThis.attr('target', '_blank');
+        }
+
+      });
 
     }
     //----------------------------------------------------------------------------------------------------
