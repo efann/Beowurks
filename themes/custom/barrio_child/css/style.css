@@ -280,6 +280,12 @@ div.region-content li
 #navbar-main .menu.dropdown-menu
 {
   background: #002C54;
+  display: none;
+}
+
+#navbar-main .menu.dropdown-menu.show
+{
+  display: block;
 }
 
 /*

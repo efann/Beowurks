@@ -26,6 +26,10 @@
 #}
 {{ menus.menu_links(items, attributes, 0) }}
 
+{#
+  From https://getbootstrap.com/docs/4.6/components/navbar/
+#}
+
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
@@ -52,7 +56,14 @@
             'nav-link-' ~ item.url.toString() | clean_class,
           ]
         %}
-        {{ link(item.title, item.url, {'class': link_classes}) }}
+        {% if item.is_expanded %}
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            {{ item.title }}
+          </a>
+        {% else %}
+          {{ link(item.title, item.url, {'class': link_classes}) }}
+        {% endif %}
+
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
