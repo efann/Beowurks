@@ -24,15 +24,6 @@ var Routines =
         return;
       }
 
-      // FlexSlide setup should come before Beo.setupLightbox. Otherwise, there appears
-      // to be some issues with the first image linking to the image and not Beo.setupLightbox().
-      // Strange. . . .
-      if (loCarousel.find("a.dialogbox-image").length > 0)
-      {
-        alert("Routines.setupProjectsCarousel must be run before Beo.setupLightbox().");
-        return;
-      }
-
       loCarousel.find('img').click(function (toEvent)
       {
         toEvent.preventDefault();
@@ -142,7 +133,7 @@ var Routines =
         {
           // Otherwise, images will not appear. Unless you specifically set display: block for
           // images in #jqtree_content.
-          Beo.setupLightbox();
+          Beo.setupLightbox(true, '#main-wrapper');
           Routines.tweakAjaxImages(tcTabBlock);
           Routines.showAJAX(false);
         }
@@ -253,7 +244,7 @@ var Routines =
           {
             // Otherwise, images will not appear. Unless you specifically set display: block for
             // images in #jqtree_content.
-            Beo.setupLightbox();
+            Beo.setupLightbox(true, '#main-wrapper');
             Routines.tweakAjaxImages('#jqtree_content');
             Routines.showAJAX(false);
           });

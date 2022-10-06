@@ -82,7 +82,7 @@ a:visited
   Anything smaller, and the fractal
   wraps to the bottom of the header
 */
-@media (min-width: 480px)
+@media (min-width: 360px)
 {
   #block-barrio-child-headerblock canvas.fractal
   {
@@ -119,30 +119,6 @@ a:focus,
     padding-bottom: 0;
   }
 
-}
-
-a img
-{
-  max-width: 100%;
-  height: auto;
-}
-
-img.responsive-image-large,
-a img
-{
-  opacity: 1.0;
-  -moz-transition: opacity 0.25s ease;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-img.responsive-image-large:hover,
-a img:hover
-{
-  opacity: 0.75;
-  -moz-transition: opacity 0.25s ease;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
 }
 
 /*
@@ -256,47 +232,30 @@ div.region-content li
   Menu
 */
 
-#navbar-main li a
+.navbar-collapse li a
 {
   color: white;
   font-weight: bold;
 }
 
-#navbar-main a,
-#navbar-main a:hover,
-#navbar-main a:focus
+.navbar-collapse a,
+.navbar-collapse a:hover,
+.navbar-collapse a:focus
 {
   color: #EFD797;
 }
 
-#navbar-main a.is-active,
-#navbar-main a.is-active:hover,
-#navbar-main a.is-active:focus
+.navbar-collapse a.is-active,
+.navbar-collapse a.is-active:hover,
+.navbar-collapse a.is-active:focus
 {
   background-color: RGBA(255, 255, 255, 0.1);
 }
 
-
-#navbar-main .menu.dropdown-menu
+.menu.dropdown-menu
 {
   background: #002C54;
-  display: none;
 }
-
-#navbar-main .menu.dropdown-menu.show
-{
-  display: block;
-}
-
-/*
-  Weird, but otherwise you get scroll bars when expanding sub-menu.
-
-#navbar-collapse.in
-{
-  overflow: hidden;
-  display: table;
-}
-*/
 
 /*----------------------------------------------------------------------------------------------------*/
 /*
@@ -506,6 +465,26 @@ div.region-content li
   font-size: 0.9em;
   padding-top: 20px;
   line-height: 1.4em;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Carousel
+*/
+
+#carousel_projects_block
+{
+  background: #BBBBBB;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+/* Keeps the arrows from being active over the left and right sides. */
+.carousel-control-next, .carousel-control-prev
+{
+  top: unset;
+  bottom: 25%;
+  width: 7%;
 }
 
 /*----------------------------------------------------------------------------------------------------*/

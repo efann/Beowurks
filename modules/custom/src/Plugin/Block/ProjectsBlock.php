@@ -47,17 +47,22 @@ class ProjectsBlock extends BlockBase
     $loViewExecutable->execute(self::VIEW_PROJECTS_BLOCK);
 
     $lcContent = '';
-
-    $lcContent .= "<div id='projects_block' style='overflow: hidden; clear: both;'>\n";
     $lcContent .= "<h4>Projects</h4>\n";
 
-    $lcContent .= "<div class='flexslider'>\n";
-    $lcContent .= "<ul class='slides'>\n";
+    $lcContent .= "<div id='carousel_projects_block' class='carousel slide row' data-ride='carousel'>\n";
 
+    $lcContent .= "<ol class='carousel-indicators'>\n";
     foreach ($loViewExecutable->result as $lnIndex => $loRow)
     {
-      $lcContent .= "<li>\n";
+      $lcContent .= "<li data-target='#carousel_projects_block' data-slide-to='$lnIndex'" . ($lnIndex == 0 ? " class='active'" : "") . "></li>\n";
+    }
+    $lcContent .= "</ol>\n";
 
+    $lcContent .= "<div class='carousel-inner'>\n";
+
+    $lcActive = " active";
+    foreach ($loViewExecutable->result as $lnIndex => $loRow)
+    {
       $loNode = $loRow->_entity;
 
       $lnID = $loNode->id();
@@ -67,13 +72,23 @@ class ProjectsBlock extends BlockBase
       $lcImage = $this->getNodeField($loNode, 'field_screen_shot');
       $lcAlt = "$lcTitle ($lcURL)";
 
-      $lcContent .= "<img class='responsive-image-large' id='$lcID' src='$lcImage' alt='$lcAlt' title='$lcAlt' />" . "\n";
+      $lcContent .= "<div class='col-xs-12 carousel-item$lcActive'>";
+      $lcContent .= "<a class='dialogbox-image' href><img class='responsive-image-large' id='$lcID' src='$lcImage' alt='$lcAlt' title='$lcAlt' /></a>\n";
+      $lcContent .= "</div>\n";
 
-      $lcContent .= "</li>\n";
+      $lcActive = "";
     }
 
-    $lcContent .= "</ul>\n";
     $lcContent .= "</div>\n";
+
+    $lcContent .= "<a class='carousel-control-prev' href='#carousel_projects_block' role='button' data-slide='prev'>\n";
+    $lcContent .= "<span class='carousel-control-prev-icon' aria-hidden='true'></span>\n";
+    $lcContent .= "<span class='sr-only'>Previous</span>\n";
+    $lcContent .= "</a>\n";
+    $lcContent .= "<a class='carousel-control-next' href='#carousel_projects_block' role='button' data-slide='next'>\n";
+    $lcContent .= "<span class='carousel-control-next-icon' aria-hidden='true'></span>\n";
+    $lcContent .= "<span class='sr-only'>Next</span>\n";
+    $lcContent .= "</a>\n";
 
     $lcContent .= "</div>\n";
 

@@ -30,7 +30,6 @@ h1.title
 
 .site-footer
 {
-  font-family: 'Comfortaa', cursive !important;
   padding: 0;
 }
 
@@ -44,6 +43,16 @@ h1.title
 .site-footer .block
 {
   width: 100%;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Tabs
+*/
+
+.nav-tabs .nav-link
+{
+  background-color: darkgray;
 }
 
 /*----------------------------------------------------------------------------------------*/
@@ -154,7 +163,7 @@ h1.title
 
 @media (max-width: 991px)
 {
-  div.navbar-collapse
+  .navbar-collapse
   {
     position: fixed;
     width: 150px;
@@ -168,4 +177,257 @@ h1.title
   }
 }
 
+.navbar-collapse .nav-item.dropdown .dropdown-toggle::after
+{
+  transform: rotate(0deg);
+
+  transition: all 0.2s;
+}
+
+.navbar-collapse .nav-item.dropdown.show .dropdown-toggle::after
+{
+  transform: rotate(180deg);
+
+  transition: all 0.2s;
+}
+
+.navbar-collapse .menu.dropdown-menu
+{
+  display: none;
+  margin: 0;
+}
+
+.navbar-collapse .menu.dropdown-menu.show
+{
+  display: block;
+}
+
+/*
+  Forces the sub-menu to expand the main menu on click.
+*/
+@media (max-width: 991px)
+{
+  .navbar-collapse .dropdown-menu
+  {
+    position: revert;
+  }
+}
+
+.navbar-collapse .menu.dropdown-menu .nav-item
+{
+  padding-left: 10px;
+  font-size: 0.75em;
+}
+
+
 /*----------------------------------------------------------------------------------------*/
+/*
+  Watermarks
+*/
+
+textarea.watermark,
+input.watermark
+{
+  color: #999999;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  From https://stackoverflow.com/questions/20751316/how-to-make-div-to-match-image-height-with-css
+  Otherwise, the <a></a> will not stretch to fit the image.
+*/
+
+/*
+  This way, the image doesn't briefly appear large and then resize.
+  I'm also assuming that I will be using the  Beo.setupImageDialogBox
+  for all images.
+*/
+img
+{
+  display: none;
+}
+
+.ui-dialog img
+{
+  display: block;
+  padding: 0;
+}
+
+/* ------ */
+
+.dialogbox-image
+{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+}
+
+a.dialogbox-image img
+{
+  opacity: 1.0;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+
+  transition: opacity 0.25s ease;
+}
+
+a.dialogbox-image img:hover
+{
+  opacity: 0.75;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  From https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block
+  I'm modifying .img-responsive from Bootstrap. I need to use inline-block.
+*/
+
+.responsive-image-small,
+.responsive-image-regular,
+.responsive-image-large
+{
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.responsive-image-small
+{
+  max-height: 240px;
+}
+
+.responsive-image-regular
+{
+  max-height: 350px;
+}
+
+.responsive-image-large
+{
+  max-height: 480px;
+}
+
+/*
+  Bootstrap uses min-width: 768px settings,
+  so max-width: 767px works in concert
+*/
+@media (max-width: 767px)
+{
+  .responsive-image-small
+  {
+    max-height: 175px;
+  }
+
+  .responsive-image-regular
+  {
+    max-height: 285px;
+  }
+
+  .responsive-image-large
+  {
+    max-height: 415px;
+  }
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  jQuery UI
+*/
+
+.ui-dialog
+{
+  z-index: 99999;
+}
+
+.ui-dialog .ui-dialog-titlebar
+{
+  padding: 0.1em 1.0em;
+}
+
+.ui-dialog .ui-dialog-content
+{
+  padding: 0;
+}
+
+.ui-corner-all
+{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ui-tabs-vertical
+{
+  width: 100%;
+}
+
+.ui-tabs-vertical .ui-tabs-nav .ui-tabs-anchor
+{
+  width: 100%;
+}
+
+.ui-tabs-vertical .ui-tabs-nav
+{
+  padding: .2em .1em .2em .2em;
+  float: left;
+  width: 12em;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li
+{
+  clear: left;
+  width: 100%;
+  border-bottom-width: 1px !important;
+  border-right-width: 0 !important;
+  margin: 0 -1px .2em 0;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li a
+{
+  display: block;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active
+{
+  padding-bottom: 0;
+  padding-right: 0.1em;
+  border-right-width: 1px;
+}
+
+.ui-tabs-vertical .ui-tabs-panel
+{
+  padding: 1.0em;
+  float: left;
+  width: 100%;
+
+  /*
+    From https://stackoverflow.com/questions/36418352/css-word-wrap-break-word-wont-work
+    Now, all the text wraps, even the long URLs, and the text no longer overflows the sides.
+  */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*
+  Carousel
+*/
+
+/* Keeps the arrows from being active over the left and right sides. */
+.carousel-control-next, .carousel-control-prev
+{
+  top: unset;
+  bottom: 25%;
+  width: 7%;
+}
+
+
+/*----------------------------------------------------------------------------------------*/
+

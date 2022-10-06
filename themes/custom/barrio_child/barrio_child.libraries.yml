@@ -98,13 +98,13 @@ theme.files:
   js:
     js/routines.js: {}
     js/beologo.js: {}
-
-custom-loading:
-  header: true
   css:
     theme:
       //fonts.googleapis.com/css?family=Comfortaa: { type: external }
       css/style.css: {}
+
+custom-loading:
+  header: true
 
   dependencies:
     - core/jquery
