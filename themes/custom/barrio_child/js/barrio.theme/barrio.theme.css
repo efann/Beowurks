@@ -1,5 +1,5 @@
 /**
- * Updated October 5, 2020
+ * Updated October 25, 2020
  */
 
 h1.title
@@ -421,12 +421,19 @@ a.dialogbox-image img:hover
 */
 
 /* Keeps the arrows from being active over the left and right sides. */
-.carousel-control-next, .carousel-control-prev
+.carousel-control-next,
+.carousel-control-prev
 {
   top: unset;
   bottom: 25%;
-  width: 7%;
+  width: 30px;
+  height: 30px;
 }
 
+.carousel-control-next-icon,
+.carousel-control-prev-icon
+{
+  margin-top: 4px;
+}
 
 /*----------------------------------------------------------------------------------------*/

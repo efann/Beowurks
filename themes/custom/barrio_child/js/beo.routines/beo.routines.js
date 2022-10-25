@@ -1,4 +1,4 @@
-//   Updated on September 24, 2022
+//   Updated on October 24, 2022
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -469,7 +469,7 @@ var Beo =
         let lcHref = loThis.attr('href');
         let lcHostname = window.location.hostname;
 
-        if (Boolean(lcHref) && (!lcHref.startsWith('/')) && (!lcHref.startsWith('?')) && (!lcHref.includes(lcHostname)))
+        if (Boolean(lcHref) && (!lcHref.startsWith('/')) && (!lcHref.startsWith('?')) && (!lcHref.startsWith('#')) && (!lcHref.includes(lcHostname)))
         {
           loThis.attr('target', '_blank');
         }
@@ -482,7 +482,7 @@ var Beo =
         let lcAction = loThis.attr('action');
         let lcHostname = window.location.hostname;
 
-        if (Boolean(lcAction) && (!lcAction.startsWith('/')) && (!lcHref.startsWith('?')) && (!lcAction.includes(lcHostname)))
+        if (Boolean(lcAction) && (!lcAction.startsWith('/')) && (!lcHref.startsWith('?')) && (!lcHref.startsWith('#')) && (!lcAction.includes(lcHostname)))
         {
           loThis.attr('target', '_blank');
         }

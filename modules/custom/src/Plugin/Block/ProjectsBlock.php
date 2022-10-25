@@ -81,11 +81,11 @@ class ProjectsBlock extends BlockBase
 
     $lcContent .= "</div>\n";
 
-    $lcContent .= "<a class='carousel-control-prev' href='#carousel_projects_block' role='button' data-slide='prev'>\n";
+    $lcContent .= "<a class='carousel-control-prev btn btn-primary' href='#carousel_projects_block' role='button' data-slide='prev'>\n";
     $lcContent .= "<span class='carousel-control-prev-icon' aria-hidden='true'></span>\n";
     $lcContent .= "<span class='sr-only'>Previous</span>\n";
     $lcContent .= "</a>\n";
-    $lcContent .= "<a class='carousel-control-next' href='#carousel_projects_block' role='button' data-slide='next'>\n";
+    $lcContent .= "<a class='carousel-control-next btn btn-primary' href='#carousel_projects_block' role='button' data-slide='next'>\n";
     $lcContent .= "<span class='carousel-control-next-icon' aria-hidden='true'></span>\n";
     $lcContent .= "<span class='sr-only'>Next</span>\n";
     $lcContent .= "</a>\n";
