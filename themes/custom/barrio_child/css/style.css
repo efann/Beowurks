@@ -106,7 +106,7 @@ a:focus,
   color: #9A8242;
 }
 
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
   #block-barrio-child-headerblock .title a
   {
@@ -130,7 +130,7 @@ a:focus,
   padding-top: 67px;
 }
 
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
   .main-container
   {
@@ -193,7 +193,7 @@ h1.page-header
   margin-bottom: 15px;
 }
 
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
   .view-display-id-block_awards .views-field-field-award-image a
   {
@@ -373,31 +373,23 @@ div.region-content li
   right: 0;
   position: fixed;
   z-index: 1100;
-  width: 42px;
-  height: 42px;
+  width: 3.0rem;
+  height: 3.0rem;
   top: 15px;
   border-radius: 15px;
   margin: 0 auto;
   display: none;
   background-color: white;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 }
 
-@media (min-width: 768px)
+#ajax-loading .text-info
 {
-  #ajax-loading
-  {
-    top: 110px;
-  }
-}
-
-#ajax-loading img
-{
-  /* Override beo.style.css img setting */
-  display: block;
-
-  width: 32px;
-  height: auto;
-  margin: 5px;
+  /*
+    Important is still needed to override .text-info, but it is limited to #ajax-loading
+  */
+  color: #002C54 !important;
 }
 
 .ajax_content_images

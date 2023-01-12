@@ -80,7 +80,9 @@
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     <div id="ajax-loading">
-      <img src='/sites/default/files/images/ajax-loader.gif' alt='' />
+      <div class="spinner-border text-info" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
 
     <a href="#main-content" class="visually-hidden focusable skip-link">
