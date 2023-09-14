@@ -40,6 +40,18 @@ a:visited
   font-size: 1.0em;
 }
 
+.btn
+{
+  background-color: #002C54;
+  color: whitesmoke;
+}
+
+.btn:hover
+{
+  background-color: #9A8242;
+}
+
+
 #block-barrio-child-headerblock
 {
   background-color: #002C54;
@@ -466,7 +478,7 @@ div.region-content li
 
 #carousel_projects_block
 {
-  background: #002c54;
+  background: #002C54;
   text-align: center;
   padding-bottom: 50px;
 }
