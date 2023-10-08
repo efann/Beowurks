@@ -4,8 +4,8 @@
 
 var Routines =
   {
-    CONTACT_BLOCK: "#contact-message-feedback-form",
-    CHAPTER_TREE_LIST: "#jqtree_list",
+    CONTACT_BLOCK: '#contact-message-feedback-form',
+    CHAPTER_TREE_LIST: '#jqtree_list',
 
     //----------------------------------------------------------------------------------------------------
     initializeRoutines: function ()
@@ -17,7 +17,7 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     setupProjectsCarousel: function ()
     {
-      let loCarousel = jQuery("#block-barrio-child-projectsblock");
+      let loCarousel = jQuery('#block-barrio-child-projectsblock');
 
       if (loCarousel.length == 0)
       {
@@ -31,7 +31,7 @@ var Routines =
         // The ID is in the form of #_project. Note the following with parseInt.
         //   Only the first numbers in the string are returned.
         //   If the first character cannot be converted to a number, parseInt() returns NaN.
-        let lnNodeID = parseInt(jQuery(this).attr("id"));
+        let lnNodeID = parseInt(jQuery(this).attr('id'));
         Routines.loadProjectByAJAX(lnNodeID);
 
         return (false);
@@ -48,10 +48,10 @@ var Routines =
 
       // To determine the URL. From http://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
       jQuery.ajax({
-        url: window.location.protocol + "//" + window.location.host + "/ajax/node/" + tnNodeID
+        url: window.location.protocol + '//' + window.location.host + '/ajax/node/' + tnNodeID
       }).done(function (toData)
       {
-        let lcDialog = "#ProjectInformation";
+        let lcDialog = '#ProjectInformation';
         if (jQuery(lcDialog).length == 0)
         {
           jQuery('body').append('<div id="' + lcDialog.substring(1) + '"></div>');
@@ -60,10 +60,10 @@ var Routines =
         let loData = jQuery(toData);
         jQuery(lcDialog).html(loData.find('nodeinfo').find('body').text());
 
-        jQuery(lcDialog).find("a").each(function ()
+        jQuery(lcDialog).find('a').each(function ()
         {
-          jQuery(this).attr("target", "_blank");
-          jQuery(this).attr("title", "This link will open in a new browser window");
+          jQuery(this).attr('target', '_blank');
+          jQuery(this).attr('title', 'This link will open in a new browser window');
         });
 
         jQuery(lcDialog).dialog(
@@ -86,7 +86,7 @@ var Routines =
               // The maxWidth property doesn't really work.
               // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
               // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css("maxWidth", "800px");
+              jQuery(this).parent().css('maxWidth', '800px');
             }
           });
 
@@ -105,10 +105,10 @@ var Routines =
         return;
       }
 
-      Beo.setupWatermark(lcForm + " #edit-name", "Your Name");
-      Beo.setupWatermark(lcForm + " #edit-mail", "Your@E-mail.com");
-      Beo.setupWatermark(lcForm + " #edit-subject-0-value", "Subject");
-      Beo.setupWatermark(lcForm + " #edit-message-0-value", "Message");
+      Beo.setupWatermark(lcForm + ' #edit-name', 'Your Name');
+      Beo.setupWatermark(lcForm + ' #edit-mail', 'Your@E-mail.com');
+      Beo.setupWatermark(lcForm + ' #edit-subject-0-value', 'Subject');
+      Beo.setupWatermark(lcForm + ' #edit-message-0-value', 'Message');
 
     },
 
@@ -123,8 +123,8 @@ var Routines =
       }
 
       loTabs.tabs({
-        show: {effect: "slide", direction: "up"},
-        hide: {effect: "fadeOut", duration: 400},
+        show: {effect: 'slide', direction: 'up'},
+        hide: {effect: 'fadeOut', duration: 400},
         beforeLoad: function (event, ui)
         {
           Routines.showAJAX(true);
@@ -154,7 +154,7 @@ var Routines =
     // $.get(), $.post(), .load() are all just wrappers for $.ajax() as it's called internally.
     getJEquityVersionInfo: function ()
     {
-      jQuery("#version-info").load("/ajax/version/2 #jequity-version", function ()
+      jQuery('#version-info').load('/ajax/version/2 #jequity-version', function ()
       {
         let lcVersion = jQuery('#app_version').html();
         jQuery('#installation span.version').html(lcVersion);
@@ -231,7 +231,7 @@ var Routines =
       Routines.showAJAX(true);
       let lcPath = toNode.href;
 
-      let loContent = jQuery("#jqtree_content");
+      let loContent = jQuery('#jqtree_content');
 
       loContent.fadeOut('fast', function ()
       {
@@ -254,7 +254,7 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     updateHelpContentHashLinks: function (toContent)
     {
-      toContent.find("a").each(function ()
+      toContent.find('a').each(function ()
       {
         let loThis = jQuery(this);
         let lcHref = loThis.attr('href');
@@ -302,11 +302,11 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     showAJAX: function (tlShow)
     {
-      let lcAJAX = "#ajax-loading";
+      let lcAJAX = '#ajax-loading';
       let loAJAX = jQuery(lcAJAX);
       if (loAJAX.length == 0)
       {
-        alert("The HTML element " + lcAJAX + " does not exist!");
+        alert('The HTML element ' + lcAJAX + ' does not exist!');
         return;
       }
 
@@ -316,7 +316,7 @@ var Routines =
       }
       else
       {
-        loAJAX.hide();
+        loAJAX.fadeOut(750);
       }
 
     },
