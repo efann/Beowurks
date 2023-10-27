@@ -85,9 +85,18 @@ a:visited
 #block-barrio-child-headerblock canvas.fractal
 {
   float: left;
-  margin-left: 20px;
+  margin-left: 0;
   display: none;
   cursor: pointer;
+}
+
+@media (min-width: 992px)
+{
+  #block-barrio-child-headerblock canvas.fractal
+  {
+    margin-left: 20px;
+  }
+
 }
 
 /*
