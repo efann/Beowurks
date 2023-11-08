@@ -493,3 +493,23 @@ div.region-content li
 }
 
 /*----------------------------------------------------------------------------------------------------*/
+/*
+  Canvas
+*/
+
+canvas
+{
+  opacity: 1.0;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+
+  transition: opacity 0.25s ease;
+}
+
+canvas:hover
+{
+  opacity: 0.75;
+  -moz-transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
