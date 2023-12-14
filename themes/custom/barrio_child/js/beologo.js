@@ -3,15 +3,16 @@
 //----------------------------------------------------------------------------------------------------
 var BeoLogo =
   {
-    SLOGAN_CREDITS_BLOCK: "#block-barrio-child-slogancredits",
-    SLOGAN_CREDITS_DIALOG: "#SloganCredits",
+    SLOGAN_CREDITS_BLOCK: '#block-barrio-child-slogancredits',
+    SLOGAN_CREDITS_DIALOG: '#SloganCredits',
 
-    FRACTAL_DESC_BLOCK: "#block-barrio-child-fractaldescription",
-    FRACTAL_DESC_DIALOG: "#Fractalescription",
+    FRACTAL_DESC_BLOCK: '#block-barrio-child-fractaldescription',
+    FRACTAL_DESC_DIALOG: '#FractalDescription',
 
-    TITLE_LINK: "#block-barrio-child-headerblock .title a",
+    TITLE_LINK: '#block-barrio-child-headerblock .title a',
 
-    FRACTAL_BLOCK: "#block-barrio-child-headerblock canvas.fractal",
+    FRACTAL_CANVAS_HEADER: '#block-barrio-child-headerblock canvas.fractal',
+    FRACTAL_CANVAS_DESCRIPTION: '#FractalDescription canvas.fractal',
 
     STEPS: 12000,
 
@@ -42,13 +43,23 @@ var BeoLogo =
     //----------------------------------------------------------------------------------------------------
     startFractal: function ()
     {
-      BeoLogo.initGoldColors();
-      BeoLogo.initVariables();
-      BeoLogo.setupLogo();
+      Routines.showAJAX(true);
 
+      BeoLogo.setupLogoOnClick();
+
+      BeoLogo.initGoldColors();
+
+      BeoLogo.initVariables(BeoLogo.FRACTAL_CANVAS_HEADER);
+      BeoLogo.drawFractal();
+    },
+
+    //----------------------------------------------------------------------------------------------------
+    drawFractal: function ()
+    {
       let loCanvas = BeoLogo.foCanvas;
       let lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
 
+      // This timer creates a loop with a delay of 250 milliseconds between loops.
       let lnTimerID = setInterval(function ()
       {
         let lnRadians = BeoLogo.faSequences[BeoLogo.fnCurrentSequence] * lnRadianIncrements;
@@ -81,19 +92,22 @@ var BeoLogo =
           clearInterval(lnTimerID);
         }
 
+        Routines.showAJAX(false);
       }, 250);
 
     },
-
     //----------------------------------------------------------------------------------------------------
-    initVariables: function ()
+    initVariables: function (tcBlock)
     {
-      BeoLogo.foBlock = jQuery(BeoLogo.FRACTAL_BLOCK);
+      BeoLogo.foBlock = jQuery(tcBlock);
       let loBlock = BeoLogo.foBlock;
 
       BeoLogo.foCanvas = loBlock.get(0).getContext('2d');
       BeoLogo.fnWidth = loBlock.width();
       BeoLogo.fnHeight = loBlock.height();
+
+      // Ensure that the canvas is blank.
+      BeoLogo.foCanvas.clearRect(0, 0, BeoLogo.fnWidth, BeoLogo.fnHeight);
 
       // Move towards the right.
       BeoLogo.fnCenterX = BeoLogo.fnWidth / 1.8;
@@ -104,7 +118,6 @@ var BeoLogo =
       BeoLogo.fnEnlargeY = BeoLogo.fnHeight * 0.9;
 
       BeoLogo.fnCurrentSequence = 0;
-
     },
     //----------------------------------------------------------------------------------------------------
     initGoldColors: function ()
@@ -144,7 +157,7 @@ var BeoLogo =
       let lcHex = Number(tnDigit).toString(16);
       if (lcHex.length < 2)
       {
-        lcHex = "0" + lcHex;
+        lcHex = '0' + lcHex;
       }
 
       return (lcHex);
@@ -156,7 +169,7 @@ var BeoLogo =
     },
 
     //----------------------------------------------------------------------------------------------------
-    setupLogo: function ()
+    setupLogoOnClick: function ()
     {
       let loText = jQuery(BeoLogo.FRACTAL_DESC_BLOCK);
       if (loText.length == 0)
@@ -164,7 +177,7 @@ var BeoLogo =
         return;
       }
 
-      jQuery(BeoLogo.FRACTAL_BLOCK).click(function (toEvent)
+      jQuery(BeoLogo.FRACTAL_CANVAS_HEADER).click(function (toEvent)
       {
         toEvent.preventDefault();
 
@@ -194,8 +207,14 @@ var BeoLogo =
               // The maxWidth property doesn't really work.
               // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
               // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css("maxWidth", "800px");
+              jQuery(this).parent().css('maxWidth', '800px');
+            },
+            open: function (toEvent, toUI)
+            {
+              BeoLogo.initVariables(BeoLogo.FRACTAL_CANVAS_DESCRIPTION);
+              BeoLogo.drawFractal();
             }
+
           });
       });
     },
@@ -242,7 +261,7 @@ var BeoLogo =
               // The maxWidth property doesn't really work.
               // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
               // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css("maxWidth", "800px");
+              jQuery(this).parent().css('maxWidth', '800px');
             }
           });
       });

@@ -111,6 +111,14 @@ a:visited
   }
 }
 
+#FractalDescription canvas.fractal
+{
+  padding: 0;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+}
+
 /*
   Must go after .title a. Otherwise .title a takes precedent and the title color will not change on hover.
 */
@@ -444,6 +452,22 @@ div.region-content li
 .ui-dialog .ui-dialog-titlebar
 {
   padding: 0.1em 1em;
+}
+
+#FractalDescription.ui-widget-content
+{
+  background-color: #002C54;
+  color: white;
+}
+
+#FractalDescription.ui-widget-content a
+{
+  color: #787878;
+}
+
+#FractalDescription.ui-widget-content a:hover
+{
+  color: lightgray;
 }
 
 /*----------------------------------------------------------------------------------------*/
