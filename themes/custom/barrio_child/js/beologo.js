@@ -43,8 +43,6 @@ var BeoLogo =
     //----------------------------------------------------------------------------------------------------
     startFractal: function ()
     {
-      Routines.showAJAX(true);
-
       BeoLogo.setupLogoOnClick();
 
       BeoLogo.initGoldColors();
@@ -56,6 +54,8 @@ var BeoLogo =
     //----------------------------------------------------------------------------------------------------
     drawFractal: function ()
     {
+      Routines.showAJAX(true);
+
       let loCanvas = BeoLogo.foCanvas;
       let lnRadianIncrements = (2 * Math.PI) / BeoLogo.fnEdges;
 
@@ -90,9 +90,9 @@ var BeoLogo =
         if (BeoLogo.fnCurrentSequence >= BeoLogo.faSequences.length)
         {
           clearInterval(lnTimerID);
+          Routines.showAJAX(false);
         }
 
-        Routines.showAJAX(false);
       }, 250);
 
     },
