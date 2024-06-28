@@ -57,8 +57,12 @@ beo.routines:
     gpl-compatible: true
   # We now only want the beo.routines.js, not the css
   # as Bootstrap 4 has subtle differences from 3.
+  header: true
   js:
     js/beo.routines/beo.routines.js: {}
+  dependencies:
+    - core/jquery
+    - barrio_child/jquery.ui
 
 jqtree:
   remote: https://mbraak.github.io/jqTree/
@@ -104,11 +108,7 @@ theme.files:
       css/style.css: {}
 
 custom-loading:
-  header: true
-
   dependencies:
-    - core/jquery
-    - barrio_child/jquery.ui
     - barrio_child/beo.routines
     - barrio_child/jqtree
     - barrio_child/lightbox2
