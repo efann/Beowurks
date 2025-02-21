@@ -3,7 +3,7 @@
  */
 
 body, caption, th, td, input, textarea, select, option, legend,
-fieldset, p, span, ul, li, a, div
+fieldset, p, span, ul, li, a, div, .site-footer
 {
   font-family: 'Comfortaa', cursive !important;
 }
@@ -474,6 +474,11 @@ div.region-content li
 /*
   Footer
 */
+
+.site-footer
+{
+  background-color: white;
+}
 
 .site-footer .content
 {
