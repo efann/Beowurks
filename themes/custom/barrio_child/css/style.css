@@ -230,30 +230,9 @@ h1.page-header
   }
 }
 
-
 div.region-content li
 {
   padding: 7px 0;
-}
-
-/*----------------------------------------------------------------------------------------------------*/
-/*
-  Slogan Credits
-*/
-
-#block-barrio-child-slogancredits
-{
-  display: none;
-}
-
-/*----------------------------------------------------------------------------------------------------*/
-/*
-  Fractal Description
-*/
-
-#block-barrio-child-fractaldescription
-{
-  display: none;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -435,43 +414,6 @@ div.region-content li
 
 /*----------------------------------------------------------------------------------------*/
 /*
-  jQuery UI
-*/
-
-.ui-dialog .ui-dialog-content
-{
-  padding: 15px;
-  background-color: wheat;
-}
-
-.ui-widget.ui-widget-content
-{
-  border: none;
-}
-
-.ui-dialog .ui-dialog-titlebar
-{
-  padding: 0.1em 1em;
-}
-
-#FractalDescription.ui-widget-content
-{
-  background-color: #002C54;
-  color: white;
-}
-
-#FractalDescription.ui-widget-content a
-{
-  color: #787878;
-}
-
-#FractalDescription.ui-widget-content a:hover
-{
-  color: lightgray;
-}
-
-/*----------------------------------------------------------------------------------------*/
-/*
   Footer
 */
 
@@ -541,4 +483,53 @@ canvas:hover
   -moz-transition: opacity 0.25s ease;
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/*
+  Bootstrap Modal
+*/
+
+.modal-header
+{
+  font-weight: bold;
+  height: 15px;
+}
+
+.modal-header .modal-title
+{
+  margin: -0.5rem;
+}
+
+.modal-header .close
+{
+  padding: 0.5rem;
+}
+
+.modal-body
+{
+  background-color: wheat;
+}
+
+.modal-header,
+.modal-body
+{
+  border: 1px solid #002C54;
+}
+
+
+#FractalDescription .modal-body
+{
+  background-color: #002C54;
+  color: white;
+}
+
+#FractalDescription .modal-body a
+{
+  color: #787878;
+}
+
+#FractalDescription .modal-body a:hover
+{
+  color: lightgray;
 }

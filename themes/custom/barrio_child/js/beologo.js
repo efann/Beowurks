@@ -171,51 +171,25 @@ var BeoLogo =
     //----------------------------------------------------------------------------------------------------
     setupLogoOnClick: function ()
     {
-      let loText = jQuery(BeoLogo.FRACTAL_DESC_BLOCK);
-      if (loText.length == 0)
+      if (jQuery(BeoLogo.FRACTAL_DESC_BLOCK).length == 0)
       {
         return;
       }
+
+      let loModal = jQuery(BeoLogo.FRACTAL_DESC_DIALOG);
+      loModal.on('shown.bs.modal', function (toEvent)
+      {
+        BeoLogo.initVariables(BeoLogo.FRACTAL_CANVAS_DESCRIPTION);
+        BeoLogo.drawFractal();
+      })
 
       jQuery(BeoLogo.FRACTAL_CANVAS_HEADER).click(function (toEvent)
       {
         toEvent.preventDefault();
 
-        let lcDialog = BeoLogo.FRACTAL_DESC_DIALOG;
-        if (jQuery(lcDialog).length == 0)
-        {
-          jQuery('body').append('<div id="' + lcDialog.substring(1) + '">' + loText.html() + '</div>');
-        }
+        // From https://stackoverflow.com/questions/45621755/add-bootstrap-modal-using-javascript-and-cloned-node
+        loModal.modal('show')
 
-        jQuery(lcDialog).dialog(
-          {
-            title: 'Fractal',
-            width: '90%',
-            height: 'auto',
-            modal: true,
-            autoOpen: true,
-            show: {
-              effect: 'fade',
-              duration: 300
-            },
-            hide: {
-              effect: 'fade',
-              duration: 300
-            },
-            create: function (toEvent, toUI)
-            {
-              // The maxWidth property doesn't really work.
-              // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
-              // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css('maxWidth', '800px');
-            },
-            open: function (toEvent, toUI)
-            {
-              BeoLogo.initVariables(BeoLogo.FRACTAL_CANVAS_DESCRIPTION);
-              BeoLogo.drawFractal();
-            }
-
-          });
       });
     },
     //----------------------------------------------------------------------------------------------------
@@ -225,45 +199,18 @@ var BeoLogo =
     setupTitle: function ()
     {
       // Should only exist on the front page.
-      let loText = jQuery(BeoLogo.SLOGAN_CREDITS_BLOCK);
-      if (loText.length == 0)
+      if (jQuery(BeoLogo.SLOGAN_CREDITS_BLOCK).length == 0)
       {
         return;
       }
 
+      // Overriding the URL link for the title.
       jQuery(BeoLogo.TITLE_LINK).click(function (toEvent)
       {
         toEvent.preventDefault();
 
-        let lcDialog = BeoLogo.SLOGAN_CREDITS_DIALOG;
-        if (jQuery(lcDialog).length == 0)
-        {
-          jQuery('body').append('<div id="' + lcDialog.substring(1) + '">' + loText.html() + '</div>');
-        }
-
-        jQuery(lcDialog).dialog(
-          {
-            title: 'Slogan',
-            width: '90%',
-            height: 'auto',
-            modal: true,
-            autoOpen: true,
-            show: {
-              effect: 'fade',
-              duration: 300
-            },
-            hide: {
-              effect: 'fade',
-              duration: 300
-            },
-            create: function (toEvent, toUI)
-            {
-              // The maxWidth property doesn't really work.
-              // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
-              // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css('maxWidth', '800px');
-            }
-          });
+        // From https://stackoverflow.com/questions/45621755/add-bootstrap-modal-using-javascript-and-cloned-node
+        jQuery(BeoLogo.SLOGAN_CREDITS_DIALOG).modal('show')
       });
     },
     //----------------------------------------------------------------------------------------------------
