@@ -48,10 +48,11 @@ class ApplicationPartsController
     $lcContent .= "<h4 class='application_description'>" . $lcPageTitle . "&copy;" . "</h4>\n";
 
     $loTerm = Term::load($lnProjectID);
-    $lcContent .= ($loTerm != null) ? "<div  class='application_description'>" . $loTerm->get('description')->value . "</div>\n" : "<p class='application_description'>Unknown description. . . .</p>\n";;
+    $lcContent .= ($loTerm != null) ? "<div class='application_description'>" . $loTerm->get('description')->value . "</div>\n" : "<p class='application_description'>Unknown description. . . .</p>\n";;
 
     $lcContent .= "<div id='TaxonomyContentAndListforTabs'>\n";
-    $lcContent .= "<ul>\n";
+    $lcContent .= "<ul class='nav nav-pills'>\n";
+
     foreach ($loViewExecutable->result as $lnIndex => $loRow)
     {
       $loNode = $loRow->_entity;
@@ -60,10 +61,15 @@ class ApplicationPartsController
       $lcTitle = $loNode->get('title')->value;
 
       $lcHref = "/ajax/node/" . $lnID;
-      $lcContent .= "<li><a href='$lcHref'>$lcTitle</a></li>\n";
+
+      $lcContent .= "<li class='nav-item'>\n";
+      $lcActive = ($lnIndex == 0) ? "active" : "";
+      $lcContent .= "<a class='nav-link $lcActive' href='$lcHref'>$lcTitle</a>\n";
+      $lcContent .= "</li>\n";
     }
-    $lcContent .= "</div>\n";
     $lcContent .= "</ul>\n";
+    $lcContent .= "<div class='content-panel'></div>\n";
+    $lcContent .= "</div>\n";
 
     return array(
         '#type' => 'markup',

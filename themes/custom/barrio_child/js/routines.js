@@ -19,7 +19,7 @@ var Routines =
     {
       let loCarousel = jQuery('#block-barrio-child-projectsblock');
 
-      if (loCarousel.length == 0)
+      if (loCarousel.length === 0)
       {
         return;
       }
@@ -51,47 +51,22 @@ var Routines =
         url: window.location.protocol + '//' + window.location.host + '/ajax/node/' + tnNodeID
       }).done(function (toData)
       {
-        let lcDialog = '#ProjectInformation';
-        if (jQuery(lcDialog).length == 0)
+        let loModal = jQuery('#ProjectInformation');
+        if (loModal.length !== 0)
         {
-          jQuery('body').append('<div id="' + lcDialog.substring(1) + '"></div>');
-        }
+          let loData = jQuery(toData);
+          loModal.find('.modal-body').html(loData.find('nodeinfo').find('body').text());
 
-        let loData = jQuery(toData);
-        jQuery(lcDialog).html(loData.find('nodeinfo').find('body').text());
-
-        jQuery(lcDialog).find('a').each(function ()
-        {
-          jQuery(this).attr('target', '_blank');
-          jQuery(this).attr('title', 'This link will open in a new browser window');
-        });
-
-        jQuery(lcDialog).dialog(
+          loModal.find('a').each(function ()
           {
-            title: 'Information',
-            width: '90%',
-            height: 'auto',
-            modal: true,
-            autoOpen: true,
-            show: {
-              effect: 'fade',
-              duration: 300
-            },
-            hide: {
-              effect: 'fade',
-              duration: 300
-            },
-            create: function (toEvent, toUI)
-            {
-              // The maxWidth property doesn't really work.
-              // From http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
-              // And id="ShowTellQuote" gets enclosed in a ui-dialog wrapper. So. . . .
-              jQuery(this).parent().css('maxWidth', '800px');
-            }
+            jQuery(this).attr('target', '_blank');
+            jQuery(this).attr('title', 'This link will open in a new browser window');
           });
 
-        Routines.showAJAX(false);
+          loModal.modal('show');
+        }
 
+        Routines.showAJAX(false);
       });
 
     },
@@ -100,7 +75,7 @@ var Routines =
     setupWatermarks: function ()
     {
       let lcForm = Routines.CONTACT_BLOCK;
-      if (jQuery(lcForm).length == 0)
+      if (jQuery(lcForm).length === 0)
       {
         return;
       }
@@ -115,38 +90,59 @@ var Routines =
     //----------------------------------------------------------------------------------------------------
     setupTaxonomyTabsForAjax: function (tcTabBlock)
     {
-      let loTabs = jQuery(tcTabBlock);
+      let loTabBlock = jQuery(tcTabBlock);
 
-      if (loTabs.length == 0)
+      if (loTabBlock.length === 0)
       {
         return;
       }
 
-      loTabs.tabs({
-        show: {effect: 'slide', direction: 'up'},
-        hide: {effect: 'fadeOut', duration: 400},
-        beforeLoad: function (event, ui)
-        {
-          Routines.showAJAX(true);
-        },
-        load: function (event, ui)
-        {
-          // Otherwise, images will not appear. Unless you specifically set display: block for
-          // images in #jqtree_content.
-          Beo.setupLightbox(true, '#main-wrapper');
-          Routines.tweakAjaxImages(tcTabBlock);
-          Routines.showAJAX(false);
-        }
-      });
+      let loTabs = loTabBlock.find('a');
+      let loPanel = loTabBlock.find('.content-panel');
 
-
-      Beo.adjustTabsAlignment(loTabs);
-      jQuery(window).resize(function ()
+      // After converting from jQuery UI to Bootstrap Navs, I had to some things programmatically, like
+      // the Ajax, the active selection, the fadeIn/fadeOut, and load the first tab content.
+      loTabs.on('click', function (toEvent)
       {
-        Beo.adjustTabsAlignment(loTabs);
+        toEvent.preventDefault();
+
+        Routines.showAJAX(true);
+
+        let loThis = jQuery(this);
+        loTabs.removeClass('active');
+        loThis.addClass('active');
+
+        let lcHref = window.location.protocol + '//' + window.location.host + loThis.attr('href');
+
+        loPanel.fadeOut('slow', function ()
+        {
+          jQuery.ajax({
+            url: lcHref
+          }).done(function (toData)
+          {
+            loPanel.html(jQuery(toData).html());
+
+            loPanel.find('a').each(function ()
+            {
+              jQuery(this).attr('target', '_blank');
+              jQuery(this).attr('title', 'This link will open in a new browser window');
+            });
+
+            // Otherwise, images will not appear. Unless you specifically set display: block for
+            // images in #jqtree_content.
+            Beo.setupLightbox(true, '#main-wrapper');
+            Routines.tweakAjaxImages(tcTabBlock);
+
+            loPanel.fadeIn('slow');
+            Routines.showAJAX(false);
+          });
+        });
+
       });
 
-      loTabs.fadeIn('slow');
+      // Now the first tab content.
+      loTabs.first().trigger('click');
+
     },
 
     //----------------------------------------------------------------------------------------------------
@@ -200,7 +196,7 @@ var Routines =
           let lcHash = window.location.hash;
           let lnOpenID = (lcHash.length > 1) ? parseInt(lcHash.substr(1), 10) : -1;
 
-          let lnInitID = ((lnOpenID == -1) && (typeof loData[0].id !== 'undefined')) ? loData[0].id : lnOpenID;
+          let lnInitID = ((lnOpenID === -1) && (typeof loData[0].id !== 'undefined')) ? loData[0].id : lnOpenID;
 
           let loNode = loTree.tree('getNodeById', lnInitID);
           loTree.tree('selectNode', loNode);
@@ -262,7 +258,7 @@ var Routines =
         if (lcHref.startsWith('#'))
         {
           let lnID = (lcHref.length > 1) ? parseInt(lcHref.substr(1), 10) : -1;
-          if (lnID != -1)
+          if (lnID !== -1)
           {
             loThis.click(function (toEvent)
             {
@@ -304,7 +300,7 @@ var Routines =
     {
       let lcAJAX = '#ajax-loading';
       let loAJAX = jQuery(lcAJAX);
-      if (loAJAX.length == 0)
+      if (loAJAX.length === 0)
       {
         alert('The HTML element ' + lcAJAX + ' does not exist!');
         return;

@@ -37,18 +37,6 @@ color.preview:
 # Custom additions
 # -------------------------------------------
 
-jquery.ui:
-  remote: https://jqueryui.com/
-  license:
-    name: MIT License
-    url: https://tldrlegal.com/license/mit-license
-    gpl-compatible: true
-  js:
-    //ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js: { type: external, minified: true }
-  css:
-    component:
-      css/jquery-ui-1.13.2/jquery-ui.min.css: { minified: true }
-
 beo.routines:
   remote: https://gist.github.com/efann
   license:
@@ -62,7 +50,6 @@ beo.routines:
     js/beo.routines/beo.routines.js: {}
   dependencies:
     - core/jquery
-    - barrio_child/jquery.ui
 
 jqtree:
   remote: https://mbraak.github.io/jqTree/

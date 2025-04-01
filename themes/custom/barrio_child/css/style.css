@@ -309,8 +309,15 @@ div.region-content li
      the right side
   */
   width: 100%;
+}
 
-  display: none;
+#TaxonomyContentAndListforTabs .content-panel
+{
+  display: block;
+  border-width: 0;
+  padding: 1em 1.4em;
+  background: none;
+  min-height: 750px;
 }
 
 /*----------------------------------------------------------------------------------------*/
