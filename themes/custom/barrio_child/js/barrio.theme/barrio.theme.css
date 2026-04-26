@@ -184,7 +184,7 @@ h1.title
   transition: all 0.2s;
 }
 
-.navbar-collapse .nav-item.dropdown.show .dropdown-toggle::after
+.navbar-collapse .nav-item.dropdown .dropdown-toggle.show::after
 {
   transform: rotate(180deg);
 
