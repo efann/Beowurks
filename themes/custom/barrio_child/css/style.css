@@ -51,6 +51,11 @@ a:visited
   background-color: #9A8242;
 }
 
+#navbar-top,
+#navbar-main
+{
+  background: #002C54;
+}
 
 #block-barrio-child-headerblock
 {
@@ -468,6 +473,21 @@ div.region-content li
   background: #002C54;
   text-align: center;
   padding-bottom: 50px;
+}
+
+div.carousel.slide .carousel-control-prev,
+div.carousel.slide .carousel-control-next
+{
+  height: auto;
+}
+
+/*
+  The ::marker CSS pseudo-element is not used by default in Bootstrap's carousel because indicators are buttons rather than list items.
+*/
+.carousel-indicators li::marker
+{
+  font-size: 0;
+  content: "";
 }
 
 /*----------------------------------------------------------------------------------------------------*/

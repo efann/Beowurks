@@ -49,7 +49,7 @@ class ProjectsBlock extends BlockBase
     $lcContent = '';
     $lcContent .= "<h4>Projects</h4>\n";
 
-    $lcContent .= "<div id='carousel_projects_block' class='carousel slide row' data-ride='carousel'>\n";
+    $lcContent .= "<div id='carousel_projects_block' class='carousel slide row' data-bs-ride='carousel'>\n";
 
     $lcContent .= "<ol class='carousel-indicators'>\n";
     foreach ($loViewExecutable->result as $lnIndex => $loRow)
@@ -83,11 +83,11 @@ class ProjectsBlock extends BlockBase
 
     $lcContent .= "<a class='carousel-control-prev btn btn-primary' href='#carousel_projects_block' role='button' data-bs-slide='prev'>\n";
     $lcContent .= "<span class='carousel-control-prev-icon' aria-hidden='true'></span>\n";
-    $lcContent .= "<span class='sr-only'>Previous</span>\n";
+    $lcContent .= "<span class='visually-hidden'>Previous</span>\n";
     $lcContent .= "</a>\n";
     $lcContent .= "<a class='carousel-control-next btn btn-primary' href='#carousel_projects_block' role='button' data-bs-slide='next'>\n";
     $lcContent .= "<span class='carousel-control-next-icon' aria-hidden='true'></span>\n";
-    $lcContent .= "<span class='sr-only'>Next</span>\n";
+    $lcContent .= "<span class='visually-hidden'>Next</span>\n";
     $lcContent .= "</a>\n";
 
     $lcContent .= "</div>\n";
