@@ -490,6 +490,12 @@ div.carousel.slide .carousel-control-next
   content: "";
 }
 
+.carousel-indicators
+{
+  margin-right: 0;
+  margin-left: 0;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 /*
   Canvas
