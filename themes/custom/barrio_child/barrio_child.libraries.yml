@@ -6,16 +6,6 @@ global-styling:
     component:
       css/colors.css: {}
 
-bootstrap:
-  js:
-    /libraries/popper.js/dist/umd/popper.min.js: { weight: -19 }
-    /libraries/bootstrap/dist/js/bootstrap.min.js: { weight: -20 }
-  css:
-    component:
-      /libraries/bootstrap/dist/css/bootstrap.min.css: {}
-  dependencies:
-    - core/popperjs
-
 bootstrap_cdn:
   js:
     //cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js: {}
