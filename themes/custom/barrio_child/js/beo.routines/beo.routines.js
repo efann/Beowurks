@@ -1,4 +1,19 @@
-//   Updated on October 25, 2022
+// License: Eclipse Public License - v 2.0 (https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html)
+// Updated on April 28, 2026
+
+/*
+  Special note: DO NOT USE document.write
+
+  From https://groups.google.com/g/rw-website-help/c/fNNwtIHnThM?pli=1
+
+  document.write() has two henchmen, document.open(), and document.close(). When the HTML document is loading,
+  the document is "open". When the document has finished loading, the document has "closed".
+  Using document.write() at this point will erase your entire (closed) HTML document and replace it with a
+  new (open) document. This means your webpage has erased itself and started writing a new page - from scratch."
+
+  Sometimes, when logging into a site: user page appears, then goes blank with just the copyright & year from document.write
+*/
+
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -50,17 +65,15 @@ var Beo =
       return ((lnYear < 1000) ? lnYear + 1900 : lnYear);
     },
     //----------------------------------------------------------------------------------------------------
-    writeCurrentYear: function ()
+    writeCurrentYear: function (tcID)
     {
-      document.write(this.getCurrentYear());
+      jQuery(tcID).text(this.getCurrentYear());
     }
     ,
     //----------------------------------------------------------------------------------------------------
     // http://stackoverflow.com/questions/148901/is-there-a-better-way-to-do-optional-function-parameters-in-javascript
-    writeCurrentDate: function (tlLongVersion)
+    writeCurrentDate: function (tcID)
     {
-      let llLongVersion = (typeof tlLongVersion === 'undefined') ? true : tlLongVersion;
-
       let laMonths = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
       let laDays = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
@@ -70,13 +83,7 @@ var Beo =
       let lcDay = laDays[loNow.getDay()];
       let lcMonth = laMonths[loNow.getMonth()];
 
-      if (!llLongVersion)
-      {
-        lcDay = lcDay.substring(0, 3);
-        lcMonth = lcMonth.substring(0, 3);
-      }
-
-      document.write(lcDay + ', ' + lcMonth + ' ' + loNow.getDate() + ', ' + lnYear);
+      jQuery(tcID).text(lcDay + ', ' + lcMonth + ' ' + loNow.getDate() + ', ' + lnYear);
     },
     //----------------------------------------------------------------------------------------------------
     // Set the cursor for buttons, radio, checkboxes and combo boxes.
