@@ -1,11 +1,12 @@
 // License: Eclipse Public License - v 2.0 (https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html)
-// Updated on April 28, 2026
+// Updated on April 29, 2026
 
 /*
   Special note: DO NOT USE document.write
 
   From https://groups.google.com/g/rw-website-help/c/fNNwtIHnThM?pli=1
-
+  Pat Asher reply
+  
   document.write() has two henchmen, document.open(), and document.close(). When the HTML document is loading,
   the document is "open". When the document has finished loading, the document has "closed".
   Using document.write() at this point will erase your entire (closed) HTML document and replace it with a
@@ -67,9 +68,16 @@ var Beo =
     //----------------------------------------------------------------------------------------------------
     writeCurrentYear: function (tcID)
     {
-      jQuery(tcID).text(this.getCurrentYear());
-    }
-    ,
+      let loID = jQuery(tcID);
+      if (loID.length)
+      {
+        loID.text(this.getCurrentYear());
+      }
+      else
+      {
+        console.log('Beo.writeCurrentYear is unable to find ' + tcID);
+      }
+    },
     //----------------------------------------------------------------------------------------------------
     // http://stackoverflow.com/questions/148901/is-there-a-better-way-to-do-optional-function-parameters-in-javascript
     writeCurrentDate: function (tcID)
@@ -83,7 +91,15 @@ var Beo =
       let lcDay = laDays[loNow.getDay()];
       let lcMonth = laMonths[loNow.getMonth()];
 
-      jQuery(tcID).text(lcDay + ', ' + lcMonth + ' ' + loNow.getDate() + ', ' + lnYear);
+      let loID = jQuery(tcID);
+      if (loID.length)
+      {
+        loID.text(lcDay + ', ' + lcMonth + ' ' + loNow.getDate() + ', ' + lnYear);
+      }
+      else
+      {
+        console.log('Beo.writeCurrentDate is unable to find ' + tcID);
+      }
     },
     //----------------------------------------------------------------------------------------------------
     // Set the cursor for buttons, radio, checkboxes and combo boxes.
