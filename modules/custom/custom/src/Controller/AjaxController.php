@@ -83,18 +83,8 @@ class AjaxController
           switch ($tnID)
           {
             case self::TRASH_WIZARD:
-              $lcVersion = $this->getTrashWizardVersion();
-
-              if (isset($_GET['skipjavascript']))
-              {
-                $lcContentType = 'text/html; utf-8';
-                $lcGeneratedContent = $lcVersion;
-              }
-              else
-              {
-                $lcContentType = 'application/x-javascript';
-                $lcGeneratedContent = "document.write(\"" . $lcVersion . "\")";
-              }
+              $lcContentType = 'text/html; utf-8';
+              $lcGeneratedContent = $this->getTrashWizardVersion();
               break;
 
             case self::JEQUITY:
