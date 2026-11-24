@@ -57,6 +57,11 @@ a:visited
   background: #002C54;
 }
 
+#navbar-main
+{
+  top: 130px;
+}
+
 #block-barrio-child-headerblock
 {
   background-color: #002C54;
