@@ -1,5 +1,5 @@
 // License: Eclipse Public License - v 2.0 (https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html)
-// Updated on November 7, 2022
+// Updated on November 5, 2026
 
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ var BarrioTheme =
       let loMain = jQuery('#navbar-main');
       let loWrapper = jQuery('#main-wrapper');
 
-      if ((loTop.length == 0) || (loMain.length == 0) || (loWrapper.length == 0))
+      if ((loTop.length === 0) || (loMain.length === 0) || (loWrapper.length === 0))
       {
         return;
       }
@@ -52,7 +52,7 @@ var BarrioTheme =
 
       let lnTop = 0;
 
-      if (loMainNavBar.length == 0)
+      if (loMainNavBar.length === 0)
       {
         return;
       }
